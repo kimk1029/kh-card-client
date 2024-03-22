@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, Fragment } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import {
   Flex,
@@ -21,6 +22,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 interface SignUpProps {
   onToggle: Dispatch<SetStateAction<boolean>>;
+  email?: string;
 }
 
 interface SignUpFormData {
@@ -29,14 +31,14 @@ interface SignUpFormData {
   password: string;
 }
 
-const SignUp: React.FC<SignUpProps> = ({ onToggle }) => {
+const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<SignUpFormData>();
-
+  const { data: session } = useSession();
   const onSubmit = (data: SignUpFormData) => {
     console.log(data);
     // Handle signup submission here. Example: POST request to your signup API endpoint.
@@ -62,6 +64,9 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle }) => {
             <FormLabel>Email address</FormLabel>
             <Input
               type="email"
+              // props로 받은 email 값이 있다면, 해당 값을 사용하고, 수정이 불가능하도록 설정
+              value={session?.user?.email || ""}
+              disabled={Boolean(session?.user?.email)} // email 값이 있으면 필드를 비활성화
               {...register("email", { required: "Email is required" })}
             />
           </FormControl>
