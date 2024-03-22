@@ -1,4 +1,5 @@
 import React from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import {
   FormControl,
@@ -29,7 +30,7 @@ const Login: React.FC<LoginProps> = ({ onToggle }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>();
-
+  const { data: session } = useSession();
   const onSubmit = async (data: LoginFormData) => {
     console.log(JSON.stringify(data));
     // Here, replace 'your-login-api-endpoint' with your actual login API endpoint
@@ -97,7 +98,7 @@ const Login: React.FC<LoginProps> = ({ onToggle }) => {
         >
           Log In
         </Button>
-
+        <Button onClick={() => signIn("google")}>Sign in with google</Button>
         <Link
           onClick={() => onToggle(true)}
           textAlign={"right"}
@@ -105,6 +106,11 @@ const Login: React.FC<LoginProps> = ({ onToggle }) => {
         >
           SignUp
         </Link>
+        {session && (
+          <Link onClick={() => signOut()} textAlign={"right"} fontSize={"sm"}>
+            Logout
+          </Link>
+        )}
       </Stack>
     </form>
   );
