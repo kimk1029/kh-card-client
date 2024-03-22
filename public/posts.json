@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Welcome to the Board!",
+      "author": "Admin",
+      "date": "2024-03-20",
+      "content": "This is your first post on the board. Welcome and feel free to share your thoughts!"
+    },
+    {
+      "id": 2,
+      "title": "Chakra UI Introduction",
+      "author": "Jane Doe",
+      "date": "2024-03-21",
+      "content": "Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications."
+    },
+    {
+      "id": 3,
+      "title": "Next.js and React",
+      "author": "John Smith",
+      "date": "2024-03-22",
+      "content": "Exploring the relationship between Next.js and React. How they work together to help you build amazing apps."
+    },
+    {
+      "id": 4,
+      "title": "Handling Authentication",
+      "author": "Alice Johnson",
+      "date": "2024-03-23",
+      "content": "A guide to handling authentication in your web applications. From basics to advanced concepts."
+    },
+    {
+      "id": 5,
+      "title": "Advanced Styling Techniques",
+      "author": "Bob Brown",
+      "date": "2024-03-24",
+      "content": "Dive into advanced styling techniques using CSS and JavaScript. Enhance the visual appeal of your web applications."
+    }
+  ]
+}
