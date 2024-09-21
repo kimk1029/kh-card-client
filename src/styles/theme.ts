@@ -8,6 +8,11 @@ const config: ThemeConfig = {
 };
 
 export const theme = extendTheme({
+  fonts: {
+    body: "Source Sans Pro",
+    heading: "Source Sans Pro",
+    mono: "Source Sans Pro",
+  },
   config,
   colors: {
     brand: {

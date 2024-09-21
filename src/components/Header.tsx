@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Box,
@@ -16,8 +17,8 @@ const Header = () => {
   const color = useColorModeValue("black", "white");
 
   return (
-    <Box bg={bgColor} px={4} color={color}>
-      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+    <Box bg={bgColor} padding={"18px 24px"} color={color} opacity={0.5}>
+      <Flex alignItems={"center"} justifyContent={"space-between"}>
         <Box>Logo</Box>
         <Flex alignItems={"center"}>
           <Button variant={"ghost"} mr={4}>
