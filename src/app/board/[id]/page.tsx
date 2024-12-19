@@ -10,35 +10,36 @@ import {
   Divider,
   Flex,
   Button,
+  useColorMode, // 추가
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
-import DB from "../../../../public/db.json"; // 경로는 프로젝트 구조에 맞게 조정
-
-interface Post {
-  id: number;
-  title: string;
-  author: string;
-  content: string;
-  date: string;
-  views: number;
-  comments: number;
-  tag: string;
-}
+import DB from "../../../../public/db.json";
 
 const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
+  const { colorMode } = useColorMode(); // 추가: 현재 테마 모드 가져오기
 
-  // URL 파라미터로부터 id 가져오기
   const id = Number(params.id);
+  const post = DB.posts.find((p) => p.id === id);
 
-  // DB에서 해당 포스트 찾기
-  const post: Post | undefined = DB.posts.find((p) => p.id === id);
+  // 색상 모드에 따른 색상 설정
+  const bgColor = colorMode === "light" ? "white" : "gray.800";
+  const textColor = colorMode === "light" ? "black" : "white";
+  const dividerColor = colorMode === "light" ? "gray.300" : "gray.600";
 
   if (!post) {
     return (
       <Layout>
-        <Container maxW="container.md" mt={10}>
+        <Container
+          maxW="container.md"
+          mt={10}
+          color={textColor}
+          bg={bgColor}
+          boxShadow="xl"
+          p="5"
+          rounded="md"
+        >
           <Box p={4}>
             <Text>해당 게시글을 찾을 수 없습니다.</Text>
             <Button
@@ -62,39 +63,28 @@ const PostDetailPage: React.FC = () => {
         boxShadow="xl"
         p="5"
         rounded="md"
-        bg="white"
+        bg={bgColor} // 테마 색상 적용
+        color={textColor} // 테마 색상 적용
       >
-        {/* 게시글 제목 */}
         <Box mb={4}>
           <Heading as="h2" size="lg" wordBreak="break-word">
             [{post.tag}] {post.title}
           </Heading>
         </Box>
-
-        {/* 글쓴이, 날짜, 조회수 */}
         <Flex justifyContent="space-between" alignItems="center" mb={4}>
-          <Text fontSize="sm" color="gray.600">
+          <Text fontSize="sm">
             글쓴이: {post.author} | {post.date}
           </Text>
-          <Text fontSize="sm" color="gray.600">
-            조회수: {post.views}
-          </Text>
+          <Text fontSize="sm">조회수: {post.views}</Text>
         </Flex>
-
-        <Divider mb={4} />
-
-        {/* 게시글 내용 */}
+        <Divider mb={4} borderColor={dividerColor} />{" "}
+        {/* 테마에 맞는 구분선 색상 적용 */}
         <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4}>
           {post.content}
         </Box>
-
-        <Divider mb={4} />
-
-        {/* 댓글수 및 뒤로가기 버튼 */}
+        <Divider mb={4} borderColor={dividerColor} /> {/* 구분선 색상 적용 */}
         <Flex justifyContent="space-between" alignItems="center">
-          <Text fontSize="sm" color="gray.600">
-            댓글수: {post.comments}
-          </Text>
+          <Text fontSize="sm">댓글수: {post.comments}</Text>
           <Button colorScheme="blue" onClick={() => router.push("/board")}>
             목록으로 돌아가기
           </Button>
