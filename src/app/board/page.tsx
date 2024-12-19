@@ -14,38 +14,23 @@ import {
   Flex,
   ButtonGroup,
   Text,
+  useColorMode, // 추가
 } from "@chakra-ui/react";
-import useSWR from "swr";
+import { useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
 import DB from "../../../public/db.json";
 
-// API 응답 구조에 맞는 인터페이스 정의
-
-// 실제 화면에서 표시할 Post 타입 (필요한 정보만)
-interface Post {
-  id: number;
-  title: string;
-  author: string;
-  content: string;
-  date: string;
-  views: number;
-  comments: number;
-  tag: string;
-}
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 const GridFormatBoard: React.FC = () => {
-  // const { data, error } = useSWR("/api/posts", fetcher);
+  const router = useRouter();
+  const { colorMode } = useColorMode(); // 현재 색상 모드(light/dark) 가져오기
+
   const data = DB;
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
-  // if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
-  // API로부터 받아온 데이터를 화면 표시용 Post 타입으로 매핑
-  const posts: Post[] = data.posts.map((p) => ({
+  const posts = data.posts.map((p) => ({
     id: p.id,
     title: p.title,
     author: p.author,
@@ -65,8 +50,14 @@ const GridFormatBoard: React.FC = () => {
   };
 
   const handleRowClick = (postId: number) => {
-    console.log("Clicked post:", postId);
+    router.push(`/board/${postId}`);
   };
+
+  // 색상 모드에 따른 스타일 변수
+  const bgColor = colorMode === "light" ? "white" : "gray.800";
+  const textColor = colorMode === "light" ? "black" : "white";
+  const headerBgColor = colorMode === "light" ? "gray.200" : "gray.700";
+  const hoverBgColor = colorMode === "light" ? "gray.100" : "gray.600";
 
   return (
     <Layout>
@@ -76,11 +67,12 @@ const GridFormatBoard: React.FC = () => {
         boxShadow="xl"
         p="5"
         rounded="md"
-        bg="white"
+        bg={bgColor}
+        color={textColor}
       >
         <Box p={4} overflowX="hidden">
           <Table variant="simple" layout="fixed" width="100%">
-            <Thead bg="gray.200">
+            <Thead bg={headerBgColor}>
               <Tr>
                 <Th fontWeight="bold" width="100%">
                   게시글 목록
@@ -92,7 +84,7 @@ const GridFormatBoard: React.FC = () => {
                 <Tr
                   key={post.id}
                   cursor="pointer"
-                  _hover={{ bg: "gray.100" }}
+                  _hover={{ bg: hoverBgColor }}
                   transition="background-color 0.2s"
                   onClick={() => handleRowClick(post.id)}
                 >
@@ -101,22 +93,16 @@ const GridFormatBoard: React.FC = () => {
                       justifyContent="space-between"
                       alignItems="flex-start"
                     >
-                      {/* 왼쪽 영역 */}
                       <Box flex="1">
-                        {/* 첫번째 줄: 글의종류(태그) 제목 [댓글수] */}
                         <Text fontWeight="bold">
                           [{post.tag}] {post.title} [{post.comments}]
                         </Text>
-                        {/* 두번째 줄: 글쓴이 날짜 */}
                         <Text fontSize="sm" mt={1}>
                           {post.author} | {post.date}
                         </Text>
                       </Box>
-                      {/* 오른쪽 영역: 조회수(오른쪽 정렬) */}
                       <Box textAlign="right" minW="50px" ml={4}>
-                        <Text fontSize="sm" color="gray.600">
-                          조회수 {post.views}
-                        </Text>
+                        <Text fontSize="sm">조회수 {post.views}</Text>
                       </Box>
                     </Flex>
                   </Td>
@@ -126,7 +112,6 @@ const GridFormatBoard: React.FC = () => {
           </Table>
         </Box>
 
-        {/* 페이지네이션 */}
         <Flex justify="center" mt={4}>
           <ButtonGroup size="sm" isAttached variant="outline">
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
