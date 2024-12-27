@@ -38,10 +38,10 @@ const AuthForm: React.FC = () => {
           boxShadow={"lg"}
           p={8}
         >
-          {toggleLogin && session ? (
-            <SignUp onToggle={setToggleLogin} />
+          {!toggleLogin ? (
+            <Login onToggle={() => setToggleLogin(!toggleLogin)} />
           ) : (
-            <Login onToggle={setToggleLogin} />
+            <SignUp onToggle={() => setToggleLogin(!toggleLogin)} />
           )}
         </Box>
       </Stack>

@@ -1,6 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
 
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
+
 const YouTubeBackground = ({ videoId }: { videoId: string }) => {
   useEffect(() => {
     // YouTube IFrame API 스크립트를 동적으로 추가하는 함수
@@ -23,7 +29,7 @@ const YouTubeBackground = ({ videoId }: { videoId: string }) => {
 
     // YouTube IFrame Player 초기화
     window.onYouTubeIframeAPIReady = () => {
-      new YT.Player("player", {
+      new window.YT.Player("player", {
         height: "100%",
         width: "100%",
         videoId,
@@ -36,15 +42,13 @@ const YouTubeBackground = ({ videoId }: { videoId: string }) => {
           fs: 0,
           cc_load_policy: 0,
           iv_load_policy: 3,
-          showinfo: 0,
-          rel: 0,
-          modestbranding: 1,
-          mute: 1,
+          autohide: 1,
+          modestbranding: 1, // YouTube 로고 최소화
           enablejsapi: 1,
           origin: window.location.origin,
         },
         events: {
-          onReady: (event) => event.target.playVideo(),
+          onReady: (event: any) => event.target.playVideo(),
         },
       });
     };

@@ -14,14 +14,16 @@ import {
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
 import DB from "../../../../public/db.json";
+import useSWR from "swr";
 
 const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
   const { colorMode } = useColorMode(); // 추가: 현재 테마 모드 가져오기
-
   const id = Number(params.id);
-  const post = DB.posts.find((p) => p.id === id);
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR(`/api/posts/${id}`, fetcher);
+  const post = data.posts.find((p: any) => p.id === id);
 
   // 색상 모드에 따른 색상 설정
   const bgColor = colorMode === "light" ? "white" : "gray.800";

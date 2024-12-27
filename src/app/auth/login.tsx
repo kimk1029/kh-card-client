@@ -1,23 +1,20 @@
-import React from "react";
-import {
-  useSession,
-  signIn,
-  signOut,
-  getSession,
-  getCsrfToken,
-  getProviders,
-} from "next-auth/react";
+"use client";
+import React, { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import {
   FormControl,
   FormLabel,
   Input,
   Button,
-  ButtonGroup,
   Stack,
   Heading,
   Text,
   FormErrorMessage,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
   Box,
   Link,
 } from "@chakra-ui/react";
@@ -38,91 +35,114 @@ const Login: React.FC<LoginProps> = ({ onToggle }) => {
     formState: { errors },
   } = useForm<LoginFormData>();
   const { data: session, status } = useSession();
+
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = async (data: LoginFormData) => {
-    console.log(JSON.stringify(data));
-    // Here, replace 'your-login-api-endpoint' with your actual login API endpoint
-    const loginEndpoint = "your-login-api-endpoint";
+    setIsLoading(true);
+    setServerError(null);
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+      });
 
-    // try {
-    //   const response = await fetch(loginEndpoint, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    //   });
-
-    //   if (!response.ok) {
-    //     throw new Error("Login failed");
-    //   }
-
-    //   const responseData = await response.json();
-    //   console.log("Login success:", responseData);
-    //   // Handle successful login, e.g., redirect to dashboard
-    // } catch (error) {
-    //   console.error("Login error:", error);
-    //   // Handle login error, e.g., show error message
-    // }
+      if (result?.error) {
+        setServerError(result.error);
+      } else {
+        // 로그인 성공 시 리디렉션 (예: 대시보드로 이동)
+        window.location.href = "/dashboard";
+      }
+    } catch (error: any) {
+      console.error("Login error:", error);
+      setServerError("서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   const handleSocialSignIn = async () => {
     await signIn("google");
     onToggle(true);
   };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={4}>
-        <FormControl
-          id="email"
-          isInvalid={errors.email ? true : false}
-          isRequired
-        >
-          <FormLabel>Email address</FormLabel>
-          <Input
-            type="email"
-            {...register("email", { required: "Email is required" })}
-          />
-          {errors.email && (
-            <FormErrorMessage>{errors.email.message}</FormErrorMessage>
+    <Box
+      bg="white"
+      boxShadow="lg"
+      p={8}
+      rounded="lg"
+      w="100%"
+      maxW="md"
+      mx="auto"
+      mt={10}
+    >
+      <Heading mb={6} textAlign="center">
+        로그인
+      </Heading>
+      {serverError && (
+        <Alert status="error" mb={4}>
+          <AlertIcon />
+          <AlertTitle mr={2}>에러!</AlertTitle>
+          <AlertDescription>{serverError}</AlertDescription>
+        </Alert>
+      )}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={4}>
+          <FormControl id="email" isInvalid={!!errors.email} isRequired>
+            <FormLabel>이메일 주소</FormLabel>
+            <Input
+              type="email"
+              {...register("email", { required: "이메일은 필수 입력입니다." })}
+            />
+            {errors.email && (
+              <FormErrorMessage>{errors.email.message}</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormControl id="password" isInvalid={!!errors.password} isRequired>
+            <FormLabel>비밀번호</FormLabel>
+            <Input
+              type="password"
+              {...register("password", {
+                required: "비밀번호는 필수 입력입니다.",
+              })}
+            />
+            {errors.password && (
+              <FormErrorMessage>{errors.password.message}</FormErrorMessage>
+            )}
+          </FormControl>
+          <Button
+            type="submit"
+            size="lg"
+            colorScheme="blue"
+            isLoading={isLoading}
+            loadingText="로그인 중..."
+          >
+            로그인
+          </Button>
+          <Button onClick={handleSocialSignIn} colorScheme="red">
+            Google으로 로그인
+          </Button>
+          <Stack direction="row" justifyContent="center">
+            <Text>아직 계정이 없으신가요?</Text>
+            <Link
+              color="blue.500"
+              onClick={() => onToggle(true)}
+              cursor="pointer"
+            >
+              회원가입
+            </Link>
+          </Stack>
+          {session && (
+            <Button onClick={() => signOut()} colorScheme="gray">
+              로그아웃
+            </Button>
           )}
-        </FormControl>
-        <FormControl
-          id="password"
-          isInvalid={errors.password ? true : false}
-          isRequired
-        >
-          <FormLabel>Password</FormLabel>
-          <Input
-            type="password"
-            {...register("password", { required: "Password is required" })}
-          />
-          {errors.password && (
-            <FormErrorMessage>{errors.password.message}</FormErrorMessage>
-          )}
-        </FormControl>
-        <Button
-          type="submit"
-          size={"lg"}
-          mt={4}
-          variant={"solid"}
-          colorScheme="blue"
-        >
-          Log In
-        </Button>
-        <Button onClick={handleSocialSignIn}>Sign in with google</Button>
-        <Link
-          onClick={() => onToggle(true)}
-          textAlign={"right"}
-          fontSize={"sm"}
-        >
-          SignUp
-        </Link>
-        {session && (
-          <Link onClick={() => signOut()} textAlign={"right"} fontSize={"sm"}>
-            Logout
-          </Link>
-        )}
-      </Stack>
-    </form>
+        </Stack>
+      </form>
+    </Box>
   );
 };
 

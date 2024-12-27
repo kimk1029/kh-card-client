@@ -19,12 +19,32 @@ import {
 import { useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
 import DB from "../../../public/db.json";
+import useSWR from "swr";
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  imgUrl: string;
+  createdAt: string;
+  userId: number;
+  views?: number; // 조회수 필드를 옵셔널로 선언
+  tag?: string;
+  comments?: number;
+}
 
+interface GetPostsResponse {
+  message: string;
+  posts: Post[];
+}
 const GridFormatBoard: React.FC = () => {
   const router = useRouter();
   const { colorMode } = useColorMode(); // 현재 색상 모드(light/dark) 가져오기
 
-  const data = DB;
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  //  const data = DB;
+  const { data, error } = useSWR<GetPostsResponse>("/api/posts", fetcher);
+
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
@@ -33,8 +53,8 @@ const GridFormatBoard: React.FC = () => {
   const posts = data.posts.map((p) => ({
     id: p.id,
     title: p.title,
-    author: p.author,
-    date: p.date,
+    author: p.userId,
+    date: p.createdAt,
     views: p.views,
     comments: p.comments,
     tag: p.tag,
