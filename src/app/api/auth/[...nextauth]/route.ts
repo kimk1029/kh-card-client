@@ -47,10 +47,10 @@ const handler = NextAuth({
           const user = await res.json();
 
           // 사용자 객체에 필수 필드 포함
-          if (user && user.id && user.nickname && user.email) {
+          if (user && user.id && user.username && user.email) {
             return {
               id: user.id,
-              name: user.nickname, // API 응답에 nickname 필드가 있는지 확인
+              username: user.username, // API 응답에 nickname 필드가 있는지 확인
               email: user.email,
             };
           } else {
