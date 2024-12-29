@@ -18,6 +18,7 @@ export async function GET() {
   }
 }
 export async function POST(req: NextRequest) {
+  console.log("{{{}}}", req);
   try {
     const body = await req.json();
     const { title, content } = body;
