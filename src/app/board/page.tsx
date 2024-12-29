@@ -14,12 +14,13 @@ import {
   Flex,
   ButtonGroup,
   Text,
-  useColorMode, // 추가
+  useColorMode,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
-import DB from "../../../public/db.json";
 import useSWR from "swr";
+import { useSession } from "next-auth/react";
+
 interface Post {
   id: number;
   title: string;
@@ -27,7 +28,7 @@ interface Post {
   imgUrl: string;
   createdAt: string;
   userId: number;
-  views?: number; // 조회수 필드를 옵셔널로 선언
+  views?: number;
   tag?: string;
   comments?: number;
 }
@@ -36,18 +37,18 @@ interface GetPostsResponse {
   message: string;
   posts: Post[];
 }
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const GridFormatBoard: React.FC = () => {
   const router = useRouter();
-  const { colorMode } = useColorMode(); // 현재 색상 모드(light/dark) 가져오기
-
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-  //  const data = DB;
-  const { data, error } = useSWR<GetPostsResponse>("/api/posts", fetcher);
-
+  const { colorMode } = useColorMode();
+  const { data: session } = useSession(); // 로그인 세션
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
+  // 게시글 데이터 불러오기
+  const { data, error } = useSWR<GetPostsResponse>("/api/posts", fetcher);
   if (!data) return <div>Loading...</div>;
 
   const posts = data.posts.map((p) => ({
@@ -61,7 +62,8 @@ const GridFormatBoard: React.FC = () => {
     content: p.content,
   }));
 
-  const totalPages = Math.ceil(data.posts.length / pageSize);
+  // 페이지네이션
+  const totalPages = Math.ceil(posts.length / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
   const currentPosts = posts.slice(startIndex, startIndex + pageSize);
 
@@ -73,11 +75,16 @@ const GridFormatBoard: React.FC = () => {
     router.push(`/board/${postId}`);
   };
 
-  // 색상 모드에 따른 스타일 변수
+  // 색상 모드에 따른 스타일
   const bgColor = colorMode === "light" ? "white" : "gray.800";
   const textColor = colorMode === "light" ? "black" : "white";
   const headerBgColor = colorMode === "light" ? "gray.200" : "gray.700";
   const hoverBgColor = colorMode === "light" ? "gray.100" : "gray.600";
+
+  // 새글쓰기 버튼 클릭 시 이동
+  const handleNewPost = () => {
+    router.push("/board/new");
+  };
 
   return (
     <Layout>
@@ -90,6 +97,15 @@ const GridFormatBoard: React.FC = () => {
         bg={bgColor}
         color={textColor}
       >
+        {/* 상단 영역에 새글쓰기 버튼 (로그인 상태에서만 표시) */}
+        <Flex justifyContent="flex-end" mb={4}>
+          {session && (
+            <Button colorScheme="blue" onClick={handleNewPost}>
+              새글쓰기
+            </Button>
+          )}
+        </Flex>
+
         <Box p={4} overflowX="hidden">
           <Table variant="simple" layout="fixed" width="100%">
             <Thead bg={headerBgColor}>
@@ -132,6 +148,7 @@ const GridFormatBoard: React.FC = () => {
           </Table>
         </Box>
 
+        {/* 페이지네이션 */}
         <Flex justify="center" mt={4}>
           <ButtonGroup size="sm" isAttached variant="outline">
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (

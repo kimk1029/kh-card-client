@@ -38,14 +38,13 @@ const handler = NextAuth({
               }),
             }
           );
-
           if (!res.ok) {
             const errorData = await res.json();
             throw new Error(errorData.message || "로그인에 실패했습니다.");
           }
 
-          const user = await res.json();
-
+          const { user } = await res.json();
+          console.log(user);
           // 사용자 객체에 필수 필드 포함
           if (user && user.id && user.username && user.email) {
             return {

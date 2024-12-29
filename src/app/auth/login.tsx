@@ -48,12 +48,13 @@ const Login: React.FC<LoginProps> = ({ onToggle }) => {
         email: data.email,
         password: data.password,
       });
-
+      console.log(result);
+      console.log("--------------");
       if (result?.error) {
         setServerError(result.error);
       } else {
         // 로그인 성공 시 리디렉션 (예: 대시보드로 이동)
-        window.location.href = "/dashboard";
+        window.location.href = "/";
       }
     } catch (error: any) {
       console.error("Login error:", error);
