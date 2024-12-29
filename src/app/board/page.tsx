@@ -25,17 +25,20 @@ interface Post {
   id: number;
   title: string;
   content: string;
-  imgUrl: string;
-  createdAt: string;
+  created_at: string;
   userId: number;
-  views?: number;
-  tag?: string;
-  comments?: number;
+  //imgUrl: string;
+  //views?: number;
+  //tag?: string;
+  //comments?: number;
+  author?: Author;
 }
 
-interface GetPostsResponse {
-  message: string;
-  posts: Post[];
+interface Author {
+  created_at: string;
+  email: string;
+  id: number;
+  username: string;
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -48,17 +51,17 @@ const GridFormatBoard: React.FC = () => {
   const pageSize = 10;
 
   // 게시글 데이터 불러오기
-  const { data, error } = useSWR<GetPostsResponse>("/api/posts", fetcher);
+  const { data, error } = useSWR<Post[]>("/api/posts", fetcher);
   if (!data) return <div>Loading...</div>;
-
-  const posts = data.posts.map((p) => ({
+  console.log(data);
+  const posts = data.map((p) => ({
     id: p.id,
     title: p.title,
-    author: p.userId,
-    date: p.createdAt,
-    views: p.views,
-    comments: p.comments,
-    tag: p.tag,
+    author: p.author?.username,
+    date: p.created_at,
+    // views: p.views,
+    // comments: p.comments,
+    // tag: p.tag,
     content: p.content,
   }));
 
@@ -130,15 +133,13 @@ const GridFormatBoard: React.FC = () => {
                       alignItems="flex-start"
                     >
                       <Box flex="1">
-                        <Text fontWeight="bold">
-                          [{post.tag}] {post.title} [{post.comments}]
-                        </Text>
+                        <Text fontWeight="bold">{post.title}</Text>
                         <Text fontSize="sm" mt={1}>
                           {post.author} | {post.date}
                         </Text>
                       </Box>
                       <Box textAlign="right" minW="50px" ml={4}>
-                        <Text fontSize="sm">조회수 {post.views}</Text>
+                        <Text fontSize="sm">조회수 </Text>
                       </Box>
                     </Flex>
                   </Td>

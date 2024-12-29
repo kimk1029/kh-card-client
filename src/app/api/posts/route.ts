@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 const posts: any[] = []; // 실제론 데이터베이스 접근
 export async function GET() {
   try {
-    const response = await fetch("https://www.koreandummyjson.site/api/posts");
+    const response = await fetch("http://kimk1029.synology.me:50000/api/posts");
     if (!response.ok) {
       throw new Error("Failed to fetch");
     }

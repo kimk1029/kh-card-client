@@ -42,14 +42,15 @@ const handler = NextAuth({
             throw new Error(errorData.message || "로그인에 실패했습니다.");
           }
 
-          const { user } = await res.json();
-          console.log(user);
+          const result = await res.json();
+          const { user, token } = result;
           // 사용자 객체에 필수 필드 포함
-          if (user && user.id && user.username && user.email) {
+          if (user && user.id && user.username && user.email && token) {
             return {
               id: user.id,
-              username: user.username, // API 응답에 nickname 필드가 있는지 확인
+              username: user.username, // API 응답에 username 필드가 있는지 확인
               email: user.email,
+              accessToken: token,
             };
           } else {
             throw new Error("사용자 정보를 불러오는 데 실패했습니다.");
@@ -71,23 +72,24 @@ const handler = NextAuth({
   },
   callbacks: {
     // JWT 콜백에서 사용자 정보를 토큰에 포함
-    async jwt({ token, user, account }) {
-      if (account) {
-        token.accessToken = account?.access_token;
+    async jwt({ token, user }) {
+      if (user) {
+        token.accessToken = (user as any).accessToken; // user.accessToken 할당
+        token.id = user.id;
+        token.username = user.username; // username을 name으로 매핑
+        token.email = user.email;
       }
       return token;
     },
     // 세션 콜백에서 토큰 정보를 세션에 포함
-    async session({ session, token, newSession, user }) {
-      console.log("#####1#", session, token);
+    async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string;
-        session.user.name = token.name as string;
+        session.user.name = token.username as string;
         session.user.email = token.email as string;
         (session as any).accessToken = token.accessToken; // 타입 단언 사용
       }
       console.log("#####session", session);
-      console.log("#####token", token);
       return session;
     },
   },

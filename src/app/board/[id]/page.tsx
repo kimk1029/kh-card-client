@@ -1,3 +1,5 @@
+// src/app/board/[id]/PostDetailPage.tsx
+
 "use client";
 
 import React from "react";
@@ -10,25 +12,63 @@ import {
   Divider,
   Flex,
   Button,
-  useColorMode, // 추가
+  useColorMode,
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
-import DB from "../../../../public/db.json";
 import useSWR from "swr";
+import { Post } from "@/app/api/posts/[id]/route";
 
 const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
-  const { colorMode } = useColorMode(); // 추가: 현재 테마 모드 가져오기
+  const { colorMode } = useColorMode();
   const id = Number(params.id);
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error } = useSWR(`/api/posts/${id}`, fetcher);
-  const post = data.posts.find((p: any) => p.id === id);
+
+  const fetcher = async (url: string) => {
+    console.log("Fetching URL:", url);
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Failed to fetch");
+    const json = await res.json();
+    console.log("Fetched Data:", json);
+    return json;
+  };
+
+  const { data, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
+
+  const post = data;
 
   // 색상 모드에 따른 색상 설정
   const bgColor = colorMode === "light" ? "white" : "gray.800";
   const textColor = colorMode === "light" ? "black" : "white";
   const dividerColor = colorMode === "light" ? "gray.300" : "gray.600";
+
+  if (error) {
+    console.error("Error fetching post:", error);
+    return (
+      <Layout>
+        <Container
+          maxW="container.md"
+          mt={10}
+          color={textColor}
+          bg={bgColor}
+          boxShadow="xl"
+          p="5"
+          rounded="md"
+        >
+          <Box p={4}>
+            <Text>게시글을 불러오는 중 오류가 발생했습니다.</Text>
+            <Button
+              mt={4}
+              colorScheme="blue"
+              onClick={() => router.push("/board")}
+            >
+              목록으로 돌아가기
+            </Button>
+          </Box>
+        </Container>
+      </Layout>
+    );
+  }
 
   if (!post) {
     return (
@@ -65,28 +105,30 @@ const PostDetailPage: React.FC = () => {
         boxShadow="xl"
         p="5"
         rounded="md"
-        bg={bgColor} // 테마 색상 적용
-        color={textColor} // 테마 색상 적용
+        bg={bgColor}
+        color={textColor}
       >
         <Box mb={4}>
           <Heading as="h2" size="lg" wordBreak="break-word">
-            [{post.tag}] {post.title}
+            {post.author.username && post.title
+              ? `[${post.author.username}] ${post.title}`
+              : post.title}
           </Heading>
         </Box>
         <Flex justifyContent="space-between" alignItems="center" mb={4}>
           <Text fontSize="sm">
-            글쓴이: {post.author} | {post.date}
+            글쓴이: {post.author.username} |{" "}
+            {new Date(post.created_at).toLocaleDateString()}
           </Text>
-          <Text fontSize="sm">조회수: {post.views}</Text>
+          <Text fontSize="sm">조회수: {0}</Text>
         </Flex>
-        <Divider mb={4} borderColor={dividerColor} />{" "}
-        {/* 테마에 맞는 구분선 색상 적용 */}
+        <Divider mb={4} borderColor={dividerColor} />
         <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4}>
           {post.content}
         </Box>
-        <Divider mb={4} borderColor={dividerColor} /> {/* 구분선 색상 적용 */}
+        <Divider mb={4} borderColor={dividerColor} />
         <Flex justifyContent="space-between" alignItems="center">
-          <Text fontSize="sm">댓글수: {post.comments}</Text>
+          <Text fontSize="sm">댓글수: {0}</Text>
           <Button colorScheme="blue" onClick={() => router.push("/board")}>
             목록으로 돌아가기
           </Button>
