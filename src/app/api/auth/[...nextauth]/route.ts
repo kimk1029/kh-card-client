@@ -4,7 +4,6 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-// NextAuth 핸들러 생성
 const handler = NextAuth({
   providers: [
     // Google OAuth Provider
@@ -72,21 +71,23 @@ const handler = NextAuth({
   },
   callbacks: {
     // JWT 콜백에서 사용자 정보를 토큰에 포함
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.name = user.name;
-        token.email = user.email;
+    async jwt({ token, user, account }) {
+      if (account) {
+        token.accessToken = account?.access_token;
       }
       return token;
     },
     // 세션 콜백에서 토큰 정보를 세션에 포함
-    async session({ session, token }) {
+    async session({ session, token, newSession, user }) {
+      console.log("#####1#", session, token);
       if (token && session.user) {
         session.user.id = token.id as string;
         session.user.name = token.name as string;
         session.user.email = token.email as string;
+        (session as any).accessToken = token.accessToken; // 타입 단언 사용
       }
+      console.log("#####session", session);
+      console.log("#####token", token);
       return session;
     },
   },
