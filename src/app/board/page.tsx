@@ -20,26 +20,7 @@ import { useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
-
-interface Post {
-  id: number;
-  title: string;
-  content: string;
-  created_at: string;
-  userId: number;
-  //imgUrl: string;
-  //views?: number;
-  //tag?: string;
-  //comments?: number;
-  author?: Author;
-}
-
-interface Author {
-  created_at: string;
-  email: string;
-  id: number;
-  username: string;
-}
+import { Post } from "../api/posts/[id]/route";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -53,13 +34,13 @@ const GridFormatBoard: React.FC = () => {
   // 게시글 데이터 불러오기
   const { data, error } = useSWR<Post[]>("/api/posts", fetcher);
   if (!data) return <div>Loading...</div>;
-  console.log(data);
+  console.log("data", data);
   const posts = data.map((p) => ({
     id: p.id,
     title: p.title,
     author: p.author?.username,
     date: p.created_at,
-    // views: p.views,
+    views: p.views,
     // comments: p.comments,
     // tag: p.tag,
     content: p.content,
@@ -139,7 +120,7 @@ const GridFormatBoard: React.FC = () => {
                         </Text>
                       </Box>
                       <Box textAlign="right" minW="50px" ml={4}>
-                        <Text fontSize="sm">조회수 </Text>
+                        <Text fontSize="sm">조회수: {post.views} </Text>
                       </Box>
                     </Flex>
                   </Td>
