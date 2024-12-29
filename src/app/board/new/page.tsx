@@ -1,3 +1,5 @@
+// src/pages/NewPostPage.tsx
+
 "use client";
 
 import React, { useState } from "react";
@@ -27,8 +29,13 @@ const NewPostPage: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  // 로그인 상태를 기다리는 중이라면 로딩 상태 표시
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
   // 로그인 안 된 상태라면 접근 제한
-  if (!session && typeof window !== "undefined") {
+  if (!session) {
     router.push("/auth");
     return null;
   }
@@ -36,29 +43,39 @@ const NewPostPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const accessToken = (session as any).accessToken; // 타입 단언 사용
+
+    if (!accessToken) {
+      toast({
+        title: "인증 오류",
+        description: "로그인이 필요합니다.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
     try {
-      // 쿠키 기반 인증 (NextAuth)
-      // 서버는 getServerSession 등으로 세션 검증
       const response = await fetch(
         "http://kimk1029.synology.me:50000/api/posts",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`, // JWT 토큰 포함
           },
           body: JSON.stringify({
             title,
             content,
-            // 필요한 필드 (tag, imageUrl 등) 추가 가능
+            // 필요한 필드 추가 가능
           }),
-          // 쿠키 자동 전송 (브라우저 기본 동작)
-          // credentials: "include" 등을 추가로 쓰는 경우도 있음 (CORS 상황에 따라)
         }
       );
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to create post");
+        throw new Error(errorData.message || "게시글 작성 실패");
       }
 
       toast({
