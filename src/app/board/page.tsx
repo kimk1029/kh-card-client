@@ -120,7 +120,7 @@ const GridFormatBoard: React.FC = () => {
                         </Text>
                       </Box>
                       <Box textAlign="right" minW="50px" ml={4}>
-                        <Text fontSize="sm">조회수: {post.views} </Text>
+                        <Text fontSize="sm">조회수: {post.views || 0} </Text>
                       </Box>
                     </Flex>
                   </Td>
