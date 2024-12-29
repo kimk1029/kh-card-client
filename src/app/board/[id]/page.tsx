@@ -1,5 +1,3 @@
-// src/app/board/[id]/PostDetailPage.tsx
-
 "use client";
 
 import React from "react";
@@ -23,6 +21,7 @@ const PostDetailPage: React.FC = () => {
   const router = useRouter();
   const { colorMode } = useColorMode();
   const id = Number(params.id);
+  console.log(`/api/posts/${id}`, id);
 
   const fetcher = async (url: string) => {
     console.log("Fetching URL:", url);
@@ -35,6 +34,7 @@ const PostDetailPage: React.FC = () => {
 
   const { data, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
 
+  console.log("data, error", data, error);
   const post = data;
 
   // 색상 모드에 따른 색상 설정
@@ -120,7 +120,7 @@ const PostDetailPage: React.FC = () => {
             글쓴이: {post.author.username} |{" "}
             {new Date(post.created_at).toLocaleDateString()}
           </Text>
-          <Text fontSize="sm">조회수: {0}</Text>
+          <Text fontSize="sm">조회수: {post.views}</Text>
         </Flex>
         <Divider mb={4} borderColor={dividerColor} />
         <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4}>
@@ -128,7 +128,7 @@ const PostDetailPage: React.FC = () => {
         </Box>
         <Divider mb={4} borderColor={dividerColor} />
         <Flex justifyContent="space-between" alignItems="center">
-          <Text fontSize="sm">댓글수: {0}</Text>
+          <Text fontSize="sm">댓글수: {post.comments || 0}</Text>
           <Button colorScheme="blue" onClick={() => router.push("/board")}>
             목록으로 돌아가기
           </Button>

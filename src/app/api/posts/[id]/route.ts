@@ -15,6 +15,8 @@ export interface Post {
   content: string;
   created_at: string; // ISO 8601 형식의 날짜 문자열
   author: Author;
+  views: number;
+  comments?: number;
 }
 
 // ⚠️ 두 번째 인자(context)는 쓰지 않음!
