@@ -137,7 +137,8 @@ const GridFormatBoard: React.FC = () => {
                             {post.title} [{post.comments}]
                           </Text>
                           <Text fontSize="sm" mt={1}>
-                            {post.author} | {post.date}
+                            {post.author} |{" "}
+                            {new Date(post.date).toLocaleDateString()}
                           </Text>
                         </Box>
                         <Box textAlign="right" minW="50px" ml={4}>
