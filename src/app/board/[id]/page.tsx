@@ -162,9 +162,7 @@ const PostDetailPage: React.FC = () => {
         {/* 게시글 제목 */}
         <Box mb={4}>
           <Heading as="h2" size="lg" wordBreak="break-word">
-            {post.author.username && post.title
-              ? `[${post.author.username}] ${post.title}`
-              : post.title}
+            {post.title}
           </Heading>
         </Box>
 
@@ -179,7 +177,7 @@ const PostDetailPage: React.FC = () => {
         <Divider mb={4} borderColor={dividerColor} />
 
         {/* 게시글 내용 */}
-        <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4}>
+        <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH={"300px"}>
           {post.content}
         </Box>
         <Divider mb={4} borderColor={dividerColor} />
