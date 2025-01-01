@@ -15,6 +15,7 @@ import {
   ButtonGroup,
   Text,
   useColorMode,
+  Spinner,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -33,19 +34,27 @@ const GridFormatBoard: React.FC = () => {
 
   // 게시글 데이터 불러오기
   const { data, error } = useSWR<Post[]>("/api/posts", fetcher);
-  if (!data) return <div>Loading...</div>;
-  console.log("data12", data);
-  console.log("data1", session);
-  const posts = data.map((p) => ({
-    id: p.id,
-    title: p.title,
-    author: p.author?.username,
-    date: p.created_at,
-    views: p.views,
-    comments: p.comments,
-    // tag: p.tag,
-    content: p.content,
-  }));
+  const posts = data
+    ? data.map((p) => ({
+        id: p.id,
+        title: p.title,
+        author: p.author?.username,
+        date: p.created_at,
+        views: p.views,
+        comments: p.comments,
+        content: p.content,
+      }))
+    : [];
+
+  if (!data) {
+    return (
+      <Layout>
+        <Flex justifyContent="center" alignItems="center" height="100vh">
+          <Spinner size="xl" color="blue.500" />
+        </Flex>
+      </Layout>
+    );
+  }
 
   // 페이지네이션
   const totalPages = Math.ceil(posts.length / pageSize);
@@ -57,7 +66,9 @@ const GridFormatBoard: React.FC = () => {
   };
 
   const handleRowClick = (postId: number) => {
-    router.push(`/board/${postId}`);
+    if (postId) {
+      router.push(`/board/${postId}`);
+    }
   };
 
   // 색상 모드에 따른 스타일
@@ -101,34 +112,42 @@ const GridFormatBoard: React.FC = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {currentPosts.map((post) => (
-                <Tr
-                  key={post.id}
-                  cursor="pointer"
-                  _hover={{ bg: hoverBgColor }}
-                  transition="background-color 0.2s"
-                  onClick={() => handleRowClick(post.id)}
-                >
-                  <Td whiteSpace="normal" wordBreak="break-word">
-                    <Flex
-                      justifyContent="space-between"
-                      alignItems="flex-start"
-                    >
-                      <Box flex="1">
-                        <Text fontWeight="bold">
-                          {post.title} [{post.comments}]
-                        </Text>
-                        <Text fontSize="sm" mt={1}>
-                          {post.author} | {post.date}
-                        </Text>
-                      </Box>
-                      <Box textAlign="right" minW="50px" ml={4}>
-                        <Text fontSize="sm">조회수: {post.views || 0} </Text>
-                      </Box>
-                    </Flex>
+              {currentPosts.length === 0 ? (
+                <Tr>
+                  <Td colSpan={1}>
+                    <Text textAlign="center">게시글이 없습니다.</Text>
                   </Td>
                 </Tr>
-              ))}
+              ) : (
+                currentPosts.map((post) => (
+                  <Tr
+                    key={post.id}
+                    cursor="pointer"
+                    _hover={{ bg: hoverBgColor }}
+                    transition="background-color 0.2s"
+                    onClick={() => handleRowClick(post.id)}
+                  >
+                    <Td whiteSpace="normal" wordBreak="break-word">
+                      <Flex
+                        justifyContent="space-between"
+                        alignItems="flex-start"
+                      >
+                        <Box flex="1">
+                          <Text fontWeight="bold">
+                            {post.title} [{post.comments}]
+                          </Text>
+                          <Text fontSize="sm" mt={1}>
+                            {post.author} | {post.date}
+                          </Text>
+                        </Box>
+                        <Box textAlign="right" minW="50px" ml={4}>
+                          <Text fontSize="sm">조회수: {post.views || 0} </Text>
+                        </Box>
+                      </Flex>
+                    </Td>
+                  </Tr>
+                ))
+              )}
             </Tbody>
           </Table>
         </Box>

@@ -13,6 +13,7 @@ import {
   useColorMode,
   Textarea,
   VStack,
+  Spinner,
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
 import useSWR, { mutate } from "swr";
@@ -121,29 +122,13 @@ const PostDetailPage: React.FC = () => {
     );
   }
 
+  // 로딩 중일 때 Spinner 표시
   if (!post) {
     return (
       <Layout>
-        <Container
-          maxW="container.md"
-          mt={10}
-          color={textColor}
-          bg={bgColor}
-          boxShadow="xl"
-          p="5"
-          rounded="md"
-        >
-          <Box p={4}>
-            <Text>해당 게시글을 찾을 수 없습니다.</Text>
-            <Button
-              mt={4}
-              colorScheme="blue"
-              onClick={() => router.push("/board")}
-            >
-              목록으로 돌아가기
-            </Button>
-          </Box>
-        </Container>
+        <Flex justifyContent="center" alignItems="center" height="100vh">
+          <Spinner size="xl" color="blue.500" />
+        </Flex>
       </Layout>
     );
   }
@@ -206,19 +191,21 @@ const PostDetailPage: React.FC = () => {
           </Heading>
 
           {/* 댓글 작성 폼 */}
-          <Box as="form" onSubmit={handleAddComment} mb={6}>
-            <VStack spacing={4} align="stretch">
-              <Textarea
-                placeholder="댓글을 작성하세요."
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-                isRequired
-              />
-              <Button type="submit" colorScheme="blue">
-                댓글 남기기
-              </Button>
-            </VStack>
-          </Box>
+          {session?.user && (
+            <Box as="form" onSubmit={handleAddComment} mb={6}>
+              <VStack spacing={4} align="stretch">
+                <Textarea
+                  placeholder="댓글을 작성하세요."
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  isRequired
+                />
+                <Button type="submit" colorScheme="blue">
+                  댓글 남기기
+                </Button>
+              </VStack>
+            </Box>
+          )}
 
           {/* 댓글 표시 */}
           {commentsError && (
