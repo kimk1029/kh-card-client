@@ -34,14 +34,15 @@ const GridFormatBoard: React.FC = () => {
   // 게시글 데이터 불러오기
   const { data, error } = useSWR<Post[]>("/api/posts", fetcher);
   if (!data) return <div>Loading...</div>;
-  console.log("data", data);
+  console.log("data12", data);
+  console.log("data1", session);
   const posts = data.map((p) => ({
     id: p.id,
     title: p.title,
     author: p.author?.username,
     date: p.created_at,
     views: p.views,
-    // comments: p.comments,
+    comments: p.comments,
     // tag: p.tag,
     content: p.content,
   }));
@@ -114,7 +115,9 @@ const GridFormatBoard: React.FC = () => {
                       alignItems="flex-start"
                     >
                       <Box flex="1">
-                        <Text fontWeight="bold">{post.title}</Text>
+                        <Text fontWeight="bold">
+                          {post.title} [{post.comments}]
+                        </Text>
                         <Text fontSize="sm" mt={1}>
                           {post.author} | {post.date}
                         </Text>

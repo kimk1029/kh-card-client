@@ -16,9 +16,11 @@ import {
   Stack,
   useColorMode,
   Center,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useSession, signOut } from "next-auth/react";
+import NextLink from "next/link"; // Next.js의 Link 컴포넌트 추가
 
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -93,10 +95,23 @@ export default function Header() {
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Box>Logo</Box>
+        {/* 좌측 끝: LOGO */}
+        <Box>
+          <Text fontSize="lg" fontWeight="bold">
+            LOGO
+          </Text>
+        </Box>
 
+        {/* 우측 끝: Board, 테마 변경, 프로필 */}
         <Flex alignItems={"center"}>
-          <Stack direction={"row"} spacing={7}>
+          <Stack direction={"row"} spacing={7} alignItems="center">
+            {/* Board 메뉴 */}
+            <NextLink href="/board" passHref>
+              <ChakraLink>
+                <Button variant="ghost">Board</Button>
+              </ChakraLink>
+            </NextLink>
+
             {/* 라이트/다크 모드 토글 버튼 */}
             <Button onClick={toggleColorMode}>
               {colorMode === "light" ? <MoonIcon /> : <SunIcon />}

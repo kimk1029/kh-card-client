@@ -17,13 +17,7 @@ const Home = () => {
           color: "white",
           textAlign: "center",
         }}
-      >
-        Welcome
-        <LinkBox>
-          {!session && <Link href="/auth">Login</Link>}
-          <Link href="/board">Board</Link>
-        </LinkBox>
-      </div>
+      ></div>
     </Layout>
   );
 };
