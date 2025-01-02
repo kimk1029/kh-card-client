@@ -18,6 +18,12 @@ export default function RootLayout({
   return (
     <SessionWrapper>
       <html lang="en">
+        <head>
+          <link
+            href="https://fonts.googleapis.com/earlyaccess/kopubbatang.css"
+            rel="stylesheet"
+          />
+        </head>
         <body className={inter.className} style={{ minHeight: "100vh" }}>
           <Providers>{children}</Providers>
         </body>

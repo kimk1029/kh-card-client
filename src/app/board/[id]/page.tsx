@@ -75,13 +75,13 @@ const PostDetailPage: React.FC = () => {
   const handleAddComment = async (e: FormEvent) => {
     e.preventDefault();
     if (!newComment.trim()) return;
-
+    console.log("HEADER", session);
     try {
       const res = await fetch(`/api/posts/${id}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${(session as any)?.accessToken}`,
+          Authorization: `Bearer ${session?.accessToken}`,
         },
         body: JSON.stringify({ content: newComment }),
       });

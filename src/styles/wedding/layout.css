@@ -1,0 +1,5265 @@
+@charset "utf-8";
+/* layout.css는 모바일 청첩장 각 레이아웃을 정의합니다. */
+
+/* ********************* 1번 템플릿 ********************* */
+.mcard_29 .sec-tit {
+  position: relative;
+  padding-top: 0.938rem;
+  margin-bottom: 2.5rem;
+  font-family: "KoPub Batang";
+  font-size: 0.688rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  text-align: center;
+  color: #111;
+  letter-spacing: 0.4em;
+}
+.mcard_29 .sec-tit:after {
+  content: "";
+  position: absolute;
+  left: 3.438rem;
+  top: 0;
+  display: block;
+  width: calc(100% - 6.875rem);
+  height: 1px;
+  background-color: #0c0c0c;
+}
+.mcard_29 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_29 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_29 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_29 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_29 .com-btn.sms {
+  background-color: #ddd;
+}
+.mcard_29 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_29/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+
+.mcard_29 .visual-section {
+  height: 100%;
+}
+.mcard_29 .visual-section .vertical-center {
+  height: 100%;
+  /* padding:2.5rem 0; */
+  padding: 5.625rem 0 6.625rem;
+}
+
+.mcard_29 .visual-section .vertical-item {
+  width: 100%;
+  padding: 0 3.438rem;
+}
+.mcard_29 .visual-section .vertical-item.date {
+  margin-bottom: 1.563rem;
+}
+.mcard_29 .visual-section .vertical-item .date {
+  width: 1.875rem;
+  min-height: 5rem;
+  padding-left: 0.625rem;
+  font-family: "KoPub Batang";
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  text-align: center;
+  text-transform: uppercase;
+  border-left: 1px solid #090303;
+}
+.mcard_29 .visual-section .vertical-item .date.large {
+  width: 2rem;
+  min-height: 5.125rem;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.375rem;
+}
+.mcard_29 .visual-section .vertical-item .date.big-large {
+  width: 2.125rem;
+  min-height: 5.25rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+.mcard_29 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_29 .visual-section .vertical-item.info {
+  margin-top: 1.125rem;
+  text-align: right;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 0.938rem;
+  font-size: 0;
+  line-height: 0;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.2em;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.625rem;
+  height: 1.25rem;
+  width: 0.5rem;
+  background: url("/mobile/new_m/mcard/images/mcard_29/bar_01.png") center
+    center no-repeat;
+  background-size: 0.5rem;
+  letter-spacing: 0;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 .bar.large {
+  margin: 0 0.75rem;
+  height: 1.375rem;
+  width: 0.625rem;
+  background: url("/mobile/new_m/mcard/images/mcard_29/bar_01.png") center
+    center no-repeat;
+  background-size: 0.625rem;
+  letter-spacing: 0;
+}
+.mcard_29 .visual-section .vertical-item.info .p1 .bar.big-large {
+  margin: 0 0.875rem;
+  height: 1.5rem;
+  width: 0.75rem;
+  background: url("/mobile/new_m/mcard/images/mcard_29/bar_01.png") center
+    center no-repeat;
+  background-size: 0.75rem;
+  letter-spacing: 0;
+}
+.mcard_29 .visual-section .vertical-item.info .p2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+.mcard_29 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.188rem;
+}
+.mcard_29 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+.mcard_29 .greeting-section {
+  margin-top: -3.125rem;
+}
+.mcard_29 .honjuTel-section .honju-tit.sb {
+  color: #5b1eaa;
+}
+
+/* ********************* 2번 템플릿 ********************* */
+.mcard_30 {
+  background: url("/mobile/new_m/mcard/images/mcard_30/bg.jpg") 0 0 repeat-y !important;
+  background-size: 100% auto;
+}
+.mcard_30 .sec-tit {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.688rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_30 .sec-tit:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -3.75rem;
+  width: 7.5rem;
+  height: 1px;
+  background: #d4bda2;
+}
+.mcard_30 .greeting-section .sec-tit img {
+  height: 0.438rem;
+}
+.mcard_30 .gallery-section .sec-tit img {
+  height: 0.438rem;
+}
+.mcard_30 .video-section .sec-tit img {
+  height: 0.469rem;
+}
+.mcard_30 .livewed-section .sec-tit img {
+  height: 0.469rem;
+}
+.mcard_30 .location-section .sec-tit img {
+  height: 0.469rem;
+}
+.mcard_30 .account-section .sec-tit img {
+  height: 0.469rem;
+}
+.mcard_30 .message-section .sec-tit img {
+  height: 0.438rem;
+}
+.mcard_30 .rsvp-section .sec-tit img {
+  height: 0.5rem;
+}
+.mcard_30 .com-btn.tel.sl {
+  background-color: #a3dad9;
+}
+.mcard_30 .com-btn.tel.sb {
+  background-color: #fbc9e2;
+}
+.mcard_30 .com-btn.acc.sl {
+  background-color: #a3dad9;
+}
+.mcard_30 .com-btn.acc.sb {
+  background-color: #fbc9e2;
+}
+.mcard_30 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_30 .visual-section .vertical-top {
+  padding: 6.25rem 0 0;
+}
+
+.mcard_30 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_30 .visual-section .vertical-item.tit {
+  margin-bottom: 3.75rem;
+}
+.mcard_30 .visual-section .vertical-item.tit p {
+  font-family: "KoPub Batang";
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: #483a33;
+}
+.mcard_30 .visual-section .vertical-item.tit p:first-child {
+  margin-bottom: 2.813rem;
+}
+.mcard_30 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_30 .visual-section .vertical-item.info {
+  margin-bottom: 3.125rem;
+}
+.mcard_30 .visual-section .vertical-item.info .p1 {
+  position: relative;
+  margin-bottom: 0.688rem;
+  padding-bottom: 0.688rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #483a33;
+}
+.mcard_30 .visual-section .vertical-item.info .p1.large {
+  margin-bottom: 0.688rem;
+  padding-bottom: 0.688rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.225rem;
+  color: #483a33;
+}
+.mcard_30 .visual-section .vertical-item.info .p1.big-large {
+  margin-bottom: 0.688rem;
+  padding-bottom: 0.688rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.35rem;
+  color: #483a33;
+}
+.mcard_30 .visual-section .vertical-item.info .p1:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -3.75rem;
+  width: 7.5rem;
+  height: 1px;
+  background: #d4bda2;
+}
+.mcard_30 .visual-section .vertical-item.info .p2 .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #483a33;
+  letter-spacing: 0.1em;
+}
+.mcard_30 .visual-section .vertical-item.info .p2 .vs-span.large {
+  font-size: 1.125rem;
+  line-height: 1.225rem;
+}
+.mcard_30 .visual-section .vertical-item.info .p2 .vs-span.big-large {
+  font-size: 1.25rem;
+  line-height: 1.35rem;
+}
+.mcard_30 .visual-section .vertical-item.info .p2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+.mcard_30 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.563rem;
+  padding-bottom: 4.063rem;
+}
+.mcard_30 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 1.875rem;
+  background: #999;
+}
+
+.mcard_30 .honjuTel-section .tit {
+  background: #f0e8e0;
+  color: #ba8f58;
+}
+.mcard_30 .honjuTel-section .honju-tit.sl {
+  color: #7cd7d6;
+}
+.mcard_30 .honjuTel-section .honju-tit.sb {
+  color: #fba8d1;
+}
+.mcard_30 .calendar-section {
+  background: #f0e8e0;
+}
+.mcard_30 .ui-datepicker-title {
+  color: #ba8f58;
+}
+.mcard_30 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_30 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #ba8f58;
+  border-color: #ba8f58;
+}
+.mcard_30 .location-section .head .tel {
+  background-color: #ba8f58;
+}
+.mcard_30 .message-section {
+  background: #fcf9f5;
+}
+
+/* ********************* 3번 템플릿 ********************* */
+.mcard_31 .music {
+  top: 2.813rem;
+  right: 2.5rem;
+}
+.mcard_31 .music.active {
+  top: 1rem;
+  right: 1rem;
+}
+
+.mcard_31 .sec-tit {
+  margin-bottom: 2.5rem;
+  font-family: "KoPub Batang";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  color: #ba8f58;
+  letter-spacing: 0.2em;
+}
+.mcard_31 .com-btn.tel.sl {
+  background-color: #a3dad9;
+}
+.mcard_31 .com-btn.tel.sb {
+  background-color: #fbc9e2;
+}
+.mcard_31 .com-btn.acc.sl {
+  background-color: #a3dad9;
+}
+.mcard_31 .com-btn.acc.sb {
+  background-color: #fbc9e2;
+}
+.mcard_31 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_31 .visual-section .vertical-top {
+  position: relative;
+  padding: 1.875rem 1.563rem;
+}
+
+.mcard_31 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_31 .visual-section .vertical-item.tit {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 5rem;
+  width: auto;
+  padding: 0.938rem 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, 0);
+}
+.mcard_31 .visual-section .vertical-item.tit .p1 {
+  font-size: 0.688rem;
+  font-weight: 300;
+  line-height: 0.938rem;
+  color: #7c6a52;
+  padding-bottom: 1.25rem;
+  background: url("/mobile/new_m/mcard/images/mcard_31/bar_01.png") center
+    bottom 0.375rem no-repeat;
+  background-size: 0.438rem auto;
+  white-space: nowrap;
+}
+.mcard_31 .visual-section .vertical-item.tit .p2 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #414141;
+}
+.mcard_31 .visual-section .vertical-item.tit .p2.large {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+}
+.mcard_31 .visual-section .vertical-item.tit .p2.big-large {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.mcard_31 .visual-section .vertical-item.tit .p2 .vs-span {
+  display: block;
+}
+.mcard_31 .visual-section .vertical-item.photo {
+  position: relative;
+}
+.mcard_31 .visual-section .vertical-item.photo:after {
+  content: "";
+  position: absolute;
+  left: 0.563rem;
+  top: 0.563rem;
+  right: 0.563rem;
+  bottom: 0;
+  display: block;
+  border: 1px solid #ddd;
+  border-bottom: 0;
+}
+.mcard_31 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_31 .visual-section .vertical-item.info {
+  width: calc(100% - 1.125rem);
+  margin: 0 auto;
+  padding: 1.563rem 0 2.5rem;
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+.mcard_31 .visual-section .vertical-item.info .date {
+  font-family: "campton";
+  font-size: 0.75rem;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+.mcard_31 .visual-section .vertical-item.info .date.large {
+  font-size: 0.813rem;
+}
+.mcard_31 .visual-section .vertical-item.info .date.big-large {
+  font-size: 0.875rem;
+}
+.mcard_31 .visual-section .vertical-item.info .txt {
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+.mcard_31 .visual-section .vertical-item.info .txt.large {
+  font-size: 0.813rem;
+}
+.mcard_31 .visual-section .vertical-item.info .txt.big-large {
+  font-size: 0.875rem;
+}
+.mcard_31 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_31 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.563rem;
+  padding-bottom: 4.063rem;
+}
+.mcard_31 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 1.875rem;
+  background: #999;
+}
+
+.mcard_31 .honjuTel-section .tit {
+  background: #f8f3ec;
+  color: #ba8f58;
+}
+.mcard_31 .honjuTel-section .honju-tit.sl {
+  color: #7cd7d6;
+}
+.mcard_31 .honjuTel-section .honju-tit.sb {
+  color: #fba8d1;
+}
+
+.mcard_31 .calendar-section {
+  background: #f8f3ec;
+}
+.mcard_31 .ui-datepicker-title {
+  color: #ba8f58;
+}
+.mcard_31 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_31 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #ba8f58;
+  border-color: #ba8f58;
+}
+
+.mcard_31 .location-section .head .tel {
+  background-color: #ba8f58;
+}
+.mcard_31 .message-section {
+  background: #fcf9f5;
+}
+
+/* ********************* 4번 템플릿 ********************* */
+.mcard_32 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_32 .greeting-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_32 .gallery-section .sec-tit img {
+  height: 1.563rem;
+}
+.mcard_32 .video-section .sec-tit img {
+  height: 1.219rem;
+}
+.mcard_32 .livewed-section .sec-tit img {
+  height: 1.219rem;
+}
+.mcard_32 .location-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_32 .account-section .sec-tit img {
+  height: 1.219rem;
+}
+.mcard_32 .message-section .sec-tit img {
+  height: 1.594rem;
+}
+.mcard_32 .rsvp-section .sec-tit img {
+  height: 1.6875rem;
+}
+.mcard_32 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_32 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_32 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_32 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_32 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_32 .visual-section {
+  padding-bottom: 5rem;
+  background: url("/mobile/new_m/mcard/images/mcard_32/visual_02.png") right
+    bottom no-repeat;
+  background-size: calc(100% - 2.25rem) auto;
+}
+.mcard_32 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_32 .visual-section .vertical-item.dday {
+  padding: 3.75rem 0;
+}
+.mcard_32 .visual-section .vertical-item.dday .dday {
+  padding-top: 1rem;
+  font-family: "KoPub Batang";
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111;
+  background: url("/mobile/new_m/mcard/images/mcard_32/wedding_day.png") center
+    top 1px no-repeat;
+  background-size: 5.5rem auto;
+}
+.mcard_32 .visual-section .vertical-item.dday .dday.large {
+  font-size: 1.125rem;
+}
+.mcard_32 .visual-section .vertical-item.dday .dday.big-large {
+  font-size: 1.25rem;
+}
+.mcard_32 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_32 .visual-section .vertical-item.info {
+  padding-top: 2.5rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p1 {
+  padding-bottom: 2.969rem;
+  background: url("/mobile/new_m/mcard/images/mcard_32/bul_01.png") center
+    bottom 1rem no-repeat;
+  background-size: 1.531rem auto;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #111;
+  letter-spacing: 0.2em;
+}
+.mcard_32 .visual-section .vertical-item.info .p1.large {
+  font-size: 1.25rem;
+  line-height: 1.125rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1.375rem;
+  line-height: 1.25rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p1 .bar {
+  font-size: 0.688rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 0.813rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 0.938rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p2 {
+  font-size: 0.688rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  color: #111;
+}
+.mcard_32 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 0.938rem;
+  line-height: 1.375rem;
+}
+.mcard_32 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+.mcard_32 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_32 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.875rem;
+  padding-bottom: 2.5rem;
+}
+.mcard_32 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1.875rem;
+  width: 3.75rem;
+  height: 1px;
+  background: #fbdde2;
+}
+
+.mcard_32 .honjuTel-section .tit {
+  background: #fff6f8;
+  color: #111;
+}
+.mcard_32 .honjuTel-section .honju-tit.sb {
+  color: #5b1eaa;
+}
+
+.mcard_32 .calendar-section {
+  background: #fff6f8;
+}
+.mcard_32 .ui-datepicker-title {
+  color: #ff7189;
+}
+.mcard_32 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_32 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #ff7189;
+  border-color: #ff7189;
+}
+
+.mcard_32 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_32/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 5.5rem auto;
+}
+
+/* ********************* 5번 템플릿 ********************* */
+.mcard_33 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_33 .greeting-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .gallery-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .video-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .livewed-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .location-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .account-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .message-section .sec-tit img {
+  height: 3.25rem;
+}
+.mcard_33 .com-btn.tel.sl {
+  background-color: #a3dad9;
+}
+.mcard_33 .com-btn.tel.sb {
+  background-color: #fbc9e2;
+}
+.mcard_33 .com-btn.acc.sl {
+  background-color: #a3dad9;
+}
+.mcard_33 .com-btn.acc.sb {
+  background-color: #fbc9e2;
+}
+.mcard_33 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_33 .visual-section .vertical-top {
+  position: relative;
+}
+
+.mcard_33 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_33 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1.563rem;
+  font-family: "KoPub Batang";
+  font-size: 1.313rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.15em;
+}
+.mcard_33 .visual-section .vertical-item.info .p1.large {
+  font-size: 1.438rem;
+  line-height: 1.125rem;
+}
+.mcard_33 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1.618rem;
+  line-height: 1.25rem;
+}
+.mcard_33 .visual-section .vertical-item.info .p1 .bar {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+.mcard_33 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 0.875rem;
+}
+.mcard_33 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 1rem;
+}
+.mcard_33 .visual-section .vertical-item.info .p2 {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  color: #fff;
+}
+.mcard_33 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+.mcard_33 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.mcard_33 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+.mcard_33 .visual-section .vertical-item.txt {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  bottom: 1.875rem;
+  line-height: 0;
+}
+.mcard_33 .visual-section .vertical-item.txt img {
+  height: 0.563rem;
+}
+.mcard_33 .visual-section .vertical-item.photo {
+  position: relative;
+}
+.mcard_33 .visual-section .vertical-item.photo:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: url("/mobile/new_m/mcard/images/mcard_33/visual_02.png") 0 0
+    no-repeat;
+  background-size: 100% auto;
+}
+.mcard_33 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_33 .visual-section .vertical-item.info {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3.125rem 0 0;
+}
+.mcard_33 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_33 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.875rem;
+  padding-bottom: 2.5rem;
+}
+.mcard_33 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1.875rem;
+  width: 3.75rem;
+  height: 1px;
+  background: #999;
+}
+
+.mcard_33 .honjuTel-section .tit {
+  background: #f4f4f4;
+  color: #666;
+}
+.mcard_33 .honjuTel-section .honju-tit.sl {
+  color: #7cd7d6;
+}
+.mcard_33 .honjuTel-section .honju-tit.sb {
+  color: #fba8d1;
+}
+
+.mcard_33 .calendar-section {
+  background: #f4f4f4;
+}
+.mcard_33 .ui-datepicker-title {
+  color: #888;
+}
+.mcard_33 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_33 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #888;
+  border-color: #888;
+}
+
+.mcard_33 .location-section .head .tel {
+  background-color: #999;
+}
+
+/* ********************* 6번 템플릿 ********************* */
+.mcard_34 .music {
+  left: 1rem;
+  right: inherit;
+}
+
+.mcard_34 .sec-tit {
+  margin-bottom: 2.5rem;
+  font-family: "KoPub Batang";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  color: #ff7189;
+  letter-spacing: 0.2em;
+}
+.mcard_34 .com-btn.tel.sl {
+  background-color: #a3dad9;
+}
+.mcard_34 .com-btn.tel.sb {
+  background-color: #fbc9e2;
+}
+.mcard_34 .com-btn.acc.sl {
+  background-color: #a3dad9;
+}
+.mcard_34 .com-btn.acc.sb {
+  background-color: #fbc9e2;
+}
+.mcard_34 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_34 .visual-section .vertical-top {
+  position: relative;
+}
+
+.mcard_34 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_34 .visual-section .vertical-item.name {
+  padding: 4.531rem 2.188rem 1.563rem;
+  text-align: right;
+}
+.mcard_34 .visual-section .vertical-item.name .name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.875rem;
+  color: #111;
+  letter-spacing: 0.2em;
+}
+.mcard_34 .visual-section .vertical-item.name .name.large {
+  font-size: 1.375rem;
+  line-height: 2rem;
+}
+.mcard_34 .visual-section .vertical-item.name .name.big-large {
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+}
+.mcard_34 .visual-section .vertical-item.name .bar {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+.mcard_34 .visual-section .vertical-item.name .bar.large {
+  font-size: 0.875rem;
+}
+.mcard_34 .visual-section .vertical-item.name .bar.big-large {
+  font-size: 1rem;
+}
+.mcard_34 .visual-section .vertical-item.name .vs-span {
+  display: block;
+}
+.mcard_34 .visual-section .vertical-item.photo {
+  position: relative;
+  padding-bottom: 7.813rem;
+}
+.mcard_34 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_34 .visual-section .vertical-item.photo:after {
+  content: "";
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: url("/mobile/new_m/mcard/images/mcard_34/visual_02.png") left
+    bottom 1px no-repeat;
+  background-size: 100% auto;
+}
+.mcard_34 .visual-section .vertical-item.info {
+  padding: 1.875rem 2.188rem;
+  text-align: right;
+}
+.mcard_34 .visual-section .vertical-item.info .date {
+  font-size: 0.719rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+.mcard_34 .visual-section .vertical-item.info .date.large {
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+}
+.mcard_34 .visual-section .vertical-item.info .date.big-large {
+  font-size: 0.975rem;
+  line-height: 1.375rem;
+}
+.mcard_34 .visual-section .vertical-item.info .txt {
+  font-size: 0.719rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+.mcard_34 .visual-section .vertical-item.info .txt.large {
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+}
+.mcard_34 .visual-section .vertical-item.info .txt.big-large {
+  font-size: 0.975rem;
+  line-height: 1.375rem;
+}
+.mcard_34 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_34 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.875rem;
+  padding-bottom: 2.5rem;
+}
+.mcard_34 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1.875rem;
+  width: 3.75rem;
+  height: 1px;
+  background: #fbdde2;
+}
+
+.mcard_34 .honjuTel-section .tit {
+  background: #fff6f8;
+  color: #666;
+}
+.mcard_34 .honjuTel-section .honju-tit.sl {
+  color: #7cd7d6;
+}
+.mcard_34 .honjuTel-section .honju-tit.sb {
+  color: #fba8d1;
+}
+
+.mcard_34 .calendar-section {
+  background: #fff6f8;
+}
+.mcard_34 .ui-datepicker-title {
+  color: #ff7189;
+}
+.mcard_34 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_34 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #ff7189;
+  border-color: #ff7189;
+}
+
+.mcard_34 .location-section .head .tel {
+  background-color: #ff7189;
+}
+.mcard_34 .message-section {
+  background: #fff6f8;
+}
+.mcard_34 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_34/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 5.5rem auto;
+}
+
+/* ********************* 7번 템플릿 ********************* */
+.mcard_35 .sec-tit {
+  margin-bottom: 2.813rem;
+  padding-top: 2.125rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #000;
+  text-align: center;
+  background: url("/mobile/new_m/mcard/images/mcard_35/sub_title_deco.png")
+    center top 1px no-repeat;
+  background-size: 1.844rem auto;
+  letter-spacing: 0.025em;
+}
+.mcard_35 .rsvp-section .sec-tit {
+  letter-spacing: 0.25rem;
+}
+.mcard_35 .com-btn.tel.sl {
+  background-color: #85b791;
+}
+.mcard_35 .com-btn.tel.sb {
+  background-color: #f7b7b5;
+}
+.mcard_35 .com-btn.acc.sl {
+  background-color: #85b791;
+}
+.mcard_35 .com-btn.acc.sb {
+  background-color: #f7b7b5;
+}
+.mcard_35 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_35 .visual-section {
+}
+.mcard_35 .visual-section .vertical-top {
+  padding: 8.281rem 0 6.25rem;
+}
+.mcard_35 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_35 .visual-section .vertical-item.name {
+  position: relative;
+  padding: 3.406rem 4.594rem;
+}
+.mcard_35 .visual-section .vertical-item.name:after {
+  content: "";
+  position: absolute;
+  left: 4.594rem;
+  top: 0;
+  display: block;
+  width: 7.375rem;
+  height: 8.375rem;
+  background: url("/mobile/new_m/mcard/images/mcard_35/visual_01.png") 0 0
+    no-repeat;
+  background-size: 100% auto;
+}
+.mcard_35 .visual-section .vertical-item.name:before {
+  content: "";
+  position: absolute;
+  right: 4.594rem;
+  bottom: 0;
+  display: block;
+  width: 5.969rem;
+  height: 8.781rem;
+  background: url("/mobile/new_m/mcard/images/mcard_35/visual_02.png") 0 0
+    no-repeat;
+  background-size: 100% auto;
+}
+.mcard_35 .visual-section .vertical-item.name .name {
+  position: relative;
+  z-index: 10;
+  font-size: 1.313rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #111;
+}
+.mcard_35 .visual-section .vertical-item.name .name.large {
+  font-size: 1.438rem;
+  line-height: 1.225;
+}
+.mcard_35 .visual-section .vertical-item.name .name.big-large {
+  font-size: 1.563rem;
+  line-height: 1.4;
+}
+.mcard_35 .visual-section .vertical-item.name .vs-span {
+  display: block;
+}
+.mcard_35 .visual-section .vertical-item.name .bar {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+.mcard_35 .visual-section .vertical-item.name .bar.large {
+  font-size: 1.375rem;
+}
+.mcard_35 .visual-section .vertical-item.name .bar.big-large {
+  font-size: 1.5rem;
+}
+.mcard_35 .visual-section .vertical-item.info {
+  margin-top: 6.25rem;
+  padding-top: 3.438rem;
+  background: url("/mobile/new_m/mcard/images/mcard_35/visual_03.png") center
+    top 1px no-repeat;
+  background-size: 2.375rem auto;
+  letter-spacing: 0.05em;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 {
+  padding-left: 0.563rem;
+  font-size: 0;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #111;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .bar {
+  position: relative;
+  margin: 0 0.625rem;
+  padding: 0 0.688rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.25rem;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 1.625rem;
+  line-height: 1.375rem;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 1.85rem;
+  line-height: 1.5rem;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .bar:after,
+.mcard_35 .visual-section .vertical-item.info .p1 .bar:before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  background-color: #222;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .bar:after {
+  position: absolute;
+  left: 0;
+  top: -1px;
+}
+.mcard_35 .visual-section .vertical-item.info .p1 .bar:before {
+  position: absolute;
+  right: 0;
+  top: -1px;
+}
+.mcard_35 .visual-section .vertical-item.info .p2 {
+  margin-top: 0.813rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #111;
+}
+
+.mcard_35 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.938rem;
+  line-height: 1.25rem;
+}
+.mcard_35 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1.063rem;
+  line-height: 1.375rem;
+}
+
+.mcard_35 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_35 .honjuTel-section .tit {
+  background: #eef8e9;
+  color: #6d8961;
+}
+.mcard_35 .honjuTel-section .honju-tit.sl {
+  color: #b1d98f;
+}
+.mcard_35 .honjuTel-section .honju-tit.sb {
+  color: #f7b7b5;
+}
+
+.mcard_35 .calendar-section {
+  background: #eef8e9;
+}
+.mcard_35 .ui-datepicker-title {
+  color: #85b791;
+}
+.mcard_35 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_35 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #6d8961;
+  border-color: #6d8961;
+}
+
+.mcard_35 .location-section .head .tel {
+  background-color: #85b791;
+}
+.mcard_35 .message-section {
+  background-color: #eef8e9;
+}
+
+/* ********************* 8번 템플릿 ********************* */
+.mcard_36 .music {
+  right: 0.625rem;
+  top: 0.625rem;
+}
+.mcard_36 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_36 .greeting-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_36 .gallery-section .sec-tit img {
+  height: 2.313rem;
+}
+.mcard_36 .video-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_36 .livewed-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_36 .location-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_36 .account-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_36 .message-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_36 .rsvp-section .sec-tit img {
+  height: 2.8125rem;
+}
+.mcard_36 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_36 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_36 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_36 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_36 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_36 .visual-section .vertical-top {
+  position: relative;
+  padding-top: 145.85%;
+  background: url("/mobile/new_m/mcard/images/mcard_36/visual_01_01.jpg") 0 0
+      no-repeat,
+    url("/mobile/new_m/mcard/images/mcard_36/visual_01_03.jpg") top left
+      repeat-y;
+  background-size: 100% auto;
+}
+.mcard_36 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_36 .visual-section .vertical-item.tit {
+  position: absolute;
+  left: 0;
+  top: 4.375rem;
+  text-align: center;
+}
+.mcard_36 .visual-section .vertical-item.tit img {
+  display: block;
+  margin: 0 auto;
+  height: 7.625rem;
+}
+.mcard_36 .visual-section .vertical-item.info {
+  position: relative;
+  min-height: 7.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_36/visual_01_02.jpg") bottom
+    left no-repeat;
+  background-size: 100% auto;
+}
+.mcard_36 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 0;
+}
+.mcard_36 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: #111;
+  letter-spacing: 0.25em;
+}
+.mcard_36 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1rem;
+  line-height: 1.125rem;
+}
+.mcard_36 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+}
+.mcard_36 .visual-section .vertical-item.info .p1 .bar {
+  width: 1.469rem;
+  height: 1rem;
+  margin: 0 0.625rem;
+  background: url("/mobile/new_m/mcard/images/mcard_36/visual_03.png") center
+    center no-repeat;
+  background-size: 1.469rem auto;
+}
+.mcard_36 .visual-section .vertical-item.info .p2 {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  color: #707070;
+}
+.mcard_36 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.mcard_36 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+.mcard_36 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_36 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_36 .honjuTel-section .tit {
+  background: #fcf2ee;
+  color: #e1a186;
+}
+.mcard_36 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_36 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_36 .calendar-section {
+  background: #fcf2ee;
+}
+.mcard_36 .ui-datepicker-title {
+  color: #e1a186;
+}
+.mcard_36 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_36 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #e1a186;
+  border-color: #e1a186;
+}
+
+.mcard_36 .location-section .head .tel {
+  background-color: #e1a186;
+}
+.mcard_36 .message-section {
+  background-color: #fcf2ee;
+}
+
+/* ********************* 9번 템플릿 ********************* */
+.mcard_37 .music {
+  right: 0.625rem;
+  top: 0.625rem;
+}
+.mcard_37 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_37 .greeting-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_37 .gallery-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_37 .video-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_37 .livewed-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_37 .location-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_37 .account-section .sec-tit img {
+  height: 1.25rem;
+}
+.mcard_37 .message-section .sec-tit img {
+  height: 1.25rem;
+}
+
+.mcard_37 .com-btn.tel.sl {
+  background-color: #93c9a3;
+}
+.mcard_37 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_37 .com-btn.acc.sl {
+  background-color: #93c9a3;
+}
+.mcard_37 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_37 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_37 .visual-section .vertical-top {
+  padding: 3.75rem 0;
+}
+.mcard_37 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_37 .visual-section .vertical-item.tit {
+  margin-bottom: 3.75rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .p1 {
+  padding-left: 0.375rem;
+  font-size: 0;
+}
+.mcard_37 .visual-section .vertical-item.tit .dday .ib {
+  position: relative;
+  padding: 1px 0.188rem 0;
+  margin-bottom: 0.875rem;
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1.313rem;
+  color: #70a257;
+  letter-spacing: 0.125em;
+  white-space: nowrap;
+}
+.mcard_37 .visual-section .vertical-item.tit .dday .ib.large {
+  font-size: 0.813rem;
+  line-height: 1.438rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .dday .ib.big-large {
+  font-size: 0.938rem;
+  line-height: 1.563rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .dday .ib:after,
+.mcard_37 .visual-section .vertical-item.tit .dday .ib:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #70a257;
+}
+.mcard_37 .visual-section .vertical-item.tit .dday .ib:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.mcard_37 .visual-section .vertical-item.tit .dday .ib:before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.mcard_37 .visual-section .vertical-item.tit .vs-span {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #111;
+  letter-spacing: 0.725em;
+}
+.mcard_37 .visual-section .vertical-item.tit .vs-span.large {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .vs-span.big-large {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .bar {
+  font-size: 0.875rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .bar.large {
+  font-size: 1rem;
+}
+.mcard_37 .visual-section .vertical-item.tit .bar.big-large {
+  font-size: 1.125rem;
+}
+.mcard_37 .visual-section .vertical-item.photo {
+  padding: 0 2.328rem;
+}
+.mcard_37 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_37 .visual-section .vertical-item.info {
+  margin-top: 3.75rem;
+}
+.mcard_37 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1rem;
+  line-height: 0;
+}
+.mcard_37 .visual-section .vertical-item.info .p1 img {
+  height: 1rem;
+}
+.mcard_37 .visual-section .vertical-item.info .date {
+  font-size: 0.688rem;
+  font-weight: bold;
+  line-height: 1;
+  color: #70a257;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.mcard_37 .visual-section .vertical-item.info .date.large {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+}
+.mcard_37 .visual-section .vertical-item.info .date.big-large {
+  font-size: 0.938rem;
+  line-height: 1.25rem;
+}
+.mcard_37 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_37 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_37 .honjuTel-section .tit {
+  background: #eef9f1;
+  color: #7bb48d;
+}
+.mcard_37 .honjuTel-section .honju-tit.sl {
+  color: #93c9a3;
+}
+.mcard_37 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_37 .calendar-section {
+  background: #eef9f1;
+}
+.mcard_37 .ui-datepicker-title {
+  color: #f79e9e;
+}
+.mcard_37 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_37 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #f79e9e;
+  border-color: #f79e9e;
+}
+
+.mcard_37 .location-section .head .tel {
+  background-color: #7db38d;
+}
+.mcard_37 .message-section {
+  background-color: #eef9f1;
+}
+
+/* ********************* 10번 템플릿 ********************* */
+.mcard_38 .sec-tit {
+  position: relative;
+  padding-bottom: 0.813rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  color: #c7c8ca;
+  letter-spacing: 0.5em;
+}
+.mcard_38 .sec-tit:after {
+  content: "";
+  position: absolute;
+  left: 2.25rem;
+  bottom: 0;
+  display: block;
+  width: calc(100% - 4.5rem);
+  height: 1px;
+  background-color: #111;
+}
+
+.mcard_38 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_38 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_38 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_38 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_38 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_38 .visual-section .vertical-top {
+  padding: 7.5rem 0 3.938rem;
+}
+.mcard_38 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_38 .visual-section .vertical-item.photo {
+  padding: 1.188rem 0;
+  background: url("/mobile/new_m/mcard/images/mcard_38/visual_01_01.png") top
+      1px center no-repeat,
+    url("/mobile/new_m/mcard/images/mcard_38/visual_01_02.png") bottom 1px
+      center no-repeat;
+  background-size: 18rem auto;
+}
+.mcard_38 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_38 .visual-section .vertical-item.info {
+  margin-top: 1.875rem;
+  padding: 0 2.25rem;
+  text-align: right;
+}
+.mcard_38 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 0.813rem;
+  margin-right: -0.563rem;
+  font-size: 0;
+}
+.mcard_38 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #231f20;
+  letter-spacing: 0.5em;
+}
+.mcard_38 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.25rem;
+  line-height: 1.125rem;
+}
+.mcard_38 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.375rem;
+  line-height: 1.25rem;
+}
+.mcard_38 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.625rem 0 0.125rem;
+  width: 1.781rem;
+  height: 1.125rem;
+  font-size: 0;
+  background: url("/mobile/new_m/mcard/images/mcard_38/visual_02.png") center
+    center no-repeat;
+  background-size: 1.781rem auto;
+}
+.mcard_38 .visual-section .vertical-item.info .p2 {
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #555;
+  letter-spacing: 0.05em;
+}
+
+.mcard_38 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.mcard_38 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  letter-spacing: 0.05em;
+}
+
+.mcard_38 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+
+.mcard_38 .greeting-section .sec-tit {
+  font-size: 0.688rem;
+}
+.mcard_38 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_38 .honjuTel-section .tit {
+  background: #f4f4f4;
+  color: #111;
+}
+.mcard_38 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_38 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_38 .calendar-section {
+  background: #f4f4f4;
+}
+.mcard_38 .ui-datepicker-title {
+  color: #777;
+}
+.mcard_38 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_38 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #777;
+  border-color: #777;
+}
+
+.mcard_38 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_38/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+.mcard_38 .location-section .head .tel {
+  background-color: #777;
+}
+.mcard_38 .message-section {
+  background-color: #fafafa;
+}
+
+/* ********************* 11번 템플릿 ********************* */
+.mcard_39 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_39 .greeting-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .gallery-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .video-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .livewed-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .location-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .account-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .message-section .sec-tit img {
+  height: 0.719rem;
+}
+.mcard_39 .rsvp-section .sec-tit img {
+  height: auto;
+  width: 80%;
+}
+.mcard_39 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_39 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_39 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_39 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_39 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_39 .visual-section .vertical-top {
+  padding: 5.313rem 0 3.75rem;
+}
+.mcard_39 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_39 .visual-section .vertical-item.name {
+  margin-bottom: 2.813rem;
+}
+.mcard_39 .visual-section .vertical-item.name .p1 {
+  font-size: 0;
+}
+.mcard_39 .visual-section .vertical-item.name .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0.375rem;
+  width: 1.25rem;
+  font-family: "KoPub Batang";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+}
+.mcard_39 .visual-section .vertical-item.name .vs-span.large {
+  font-size: 1rem;
+  line-height: 1.625rem;
+}
+.mcard_39 .visual-section .vertical-item.name .vs-span.big-large {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.mcard_39 .visual-section .vertical-item.name .vs-span:first-child {
+  margin-left: 0;
+}
+.mcard_39 .visual-section .vertical-item.photo {
+  padding: 0 3.438rem;
+}
+.mcard_39 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_39 .visual-section .vertical-item.txt {
+  margin-top: 2.5rem;
+}
+.mcard_39 .visual-section .vertical-item.txt img {
+  width: 0.875rem;
+}
+.mcard_39 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_39 .honjuTel-section .tit {
+  background: #f4f4f4;
+  color: #111;
+}
+.mcard_39 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_39 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_39 .calendar-section {
+  background: #f4f4f4;
+}
+.mcard_39 .ui-datepicker-title {
+  color: #111;
+}
+.mcard_39 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_39 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #000;
+  border-color: #000;
+}
+
+.mcard_39 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_39/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+.mcard_39 .message-section {
+  background-color: #fafafa;
+}
+
+/* ********************* 12번 템플릿 ********************* */
+.mcard_40 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_40 .greeting-section .sec-tit img {
+  height: 3.344rem;
+}
+.mcard_40 .gallery-section .sec-tit img {
+  height: 3.344rem;
+}
+.mcard_40 .video-section .sec-tit img {
+  height: 3.344rem;
+}
+.mcard_40 .livewed-section .sec-tit img {
+  height: 3.344rem;
+}
+.mcard_40 .location-section .sec-tit img {
+  height: 3.344rem;
+}
+.mcard_40 .account-section .sec-tit img {
+  height: 3.344rem;
+}
+.mcard_40 .message-section .sec-tit img {
+  height: 3.344rem;
+}
+
+.mcard_40 .com-btn.tel.sl {
+  background-color: #93c9a3;
+}
+.mcard_40 .com-btn.tel.sb {
+  background-color: #ffc296;
+}
+.mcard_40 .com-btn.acc.sl {
+  background-color: #93c9a3;
+}
+.mcard_40 .com-btn.acc.sb {
+  background-color: #ffc296;
+}
+.mcard_40 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_40 .visual-section .vertical-top {
+  padding: 6.25rem 0 5.063rem;
+}
+.mcard_40 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_40 .visual-section .vertical-item.tit {
+  margin-bottom: 4.688rem;
+}
+.mcard_40 .visual-section .vertical-item.tit img {
+  width: 12.375rem;
+}
+.mcard_40 .visual-section .vertical-item.photo {
+  margin-bottom: 5rem;
+}
+.mcard_40 .visual-section .vertical-item.photo img {
+  width: 15.281rem;
+}
+.mcard_40 .visual-section .vertical-item.photo .date {
+  margin-top: 0.438rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #000;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mcard_40 .visual-section .vertical-item.photo .date.large {
+  font-size: 0.938rem;
+  line-height: 1.225rem;
+}
+.mcard_40 .visual-section .vertical-item.photo .date.big-large {
+  font-size: 1.063rem;
+  line-height: 1.35rem;
+}
+.mcard_40 .visual-section .vertical-item.name .p1 {
+  padding-left: 0.375rem;
+}
+.mcard_40 .visual-section .vertical-item.name .vs-span {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: "KoPub Batang";
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.7em;
+  color: #000;
+}
+.mcard_40 .visual-section .vertical-item.name .vs-span.large {
+  font-size: 1rem;
+  line-height: 1.225rem;
+}
+.mcard_40 .visual-section .vertical-item.name .vs-span.big-large {
+  font-size: 1.125rem;
+  line-height: 1.35rem;
+}
+.mcard_40 .visual-section .vertical-item.name .vs-span:first-child {
+  margin-top: 0;
+}
+
+.mcard_40 .greeting-section {
+  background-color: #fafafa;
+}
+.mcard_40 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_40 .honjuTel-section .tit {
+  background: #fdf7f2;
+  color: #666;
+}
+.mcard_40 .honjuTel-section .honju-tit.sl {
+  color: #93c9a3;
+}
+.mcard_40 .honjuTel-section .honju-tit.sb {
+  color: #ffc296;
+}
+
+.mcard_40 .calendar-section {
+  background: #fdf7f2;
+}
+.mcard_40 .ui-datepicker-title {
+  color: #faab72;
+}
+.mcard_40 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_40 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #faab72;
+  border-color: #faab72;
+}
+
+.mcard_40 .location-section .head .tel {
+  background-color: #ffc296;
+}
+.mcard_40 .message-section {
+  background-color: #fdf7f2;
+}
+
+/* ********************* 13번 템플릿 ********************* */
+.mcard_41 .music {
+  right: 1.625rem;
+  top: 1.625rem;
+}
+.mcard_41 .music.active {
+  top: 1rem;
+  right: 1rem;
+}
+
+.mcard_41 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_41 .greeting-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .gallery-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .video-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .livewed-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .location-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .account-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .message-section .sec-tit img {
+  height: 1.438rem;
+}
+.mcard_41 .rsvp-section .sec-tit img {
+  height: 1.625rem;
+}
+.mcard_41 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_41 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_41 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_41 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_41 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_41 .visual-section {
+  padding: 1rem;
+}
+.mcard_41 .visual-section .vertical-center {
+  padding: 1.875rem 0;
+  height: 100%;
+  text-align: center;
+  border: 0.125rem solid #d2a3a1;
+}
+.mcard_41 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_41 .visual-section .vertical-item.photo {
+  margin-bottom: 5rem;
+  padding-left: 1.125rem;
+}
+.mcard_41 .visual-section .vertical-item.photo img {
+  width: 3.469rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1rem;
+  font-size: 0;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #414042;
+  letter-spacing: 0.2em;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.438rem;
+  font-size: 0.75rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 0.875rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 1rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p2 {
+  margin-bottom: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #414042;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mcard_41 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p3 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #414042;
+  letter-spacing: 0.05em;
+}
+.mcard_41 .visual-section .vertical-item.info .p3.large {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.mcard_41 .visual-section .vertical-item.info .p3.big-large {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.mcard_41 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_41 .honjuTel-section .tit {
+  background: #fff2f0;
+  color: #d2a3a1;
+}
+.mcard_41 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_41 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_41 .calendar-section {
+  background: #fff2f0;
+}
+.mcard_41 .ui-datepicker-title {
+  color: #f7a39b;
+}
+.mcard_41 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_41 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #f7a39b;
+  border-color: #f7a39b;
+}
+
+.mcard_41 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_41/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+.mcard_41 .location-section .head .tel {
+  background-color: #f7a39b;
+}
+.mcard_41 .message-section {
+  background-color: #fff2f0;
+}
+
+/* ********************* 14번 템플릿 ********************* */
+.mcard_42 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_42 .greeting-section .sec-tit img {
+  height: 2.688rem;
+}
+.mcard_42 .gallery-section .sec-tit img {
+  height: 2.688rem;
+}
+.mcard_42 .video-section .sec-tit img {
+  height: 2.688rem;
+}
+.mcard_42 .livewed-section .sec-tit img {
+  height: 2.688rem;
+}
+.mcard_42 .location-section .sec-tit img {
+  height: 2.688rem;
+}
+.mcard_42 .account-section .sec-tit img {
+  height: 2.688rem;
+}
+.mcard_42 .message-section .sec-tit img {
+  height: 2.688rem;
+}
+
+.mcard_42 .com-btn.tel.sl {
+  background-color: #a3dad9;
+}
+.mcard_42 .com-btn.tel.sb {
+  background-color: #fbc9e2;
+}
+.mcard_42 .com-btn.acc.sl {
+  background-color: #a3dad9;
+}
+.mcard_42 .com-btn.acc.sb {
+  background-color: #fbc9e2;
+}
+.mcard_42 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_42 .visual-section .vertical-top {
+  padding: 3.75rem 0;
+}
+.mcard_42 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_42 .visual-section .vertical-item.tit {
+  margin-bottom: 3.75rem;
+  padding: 0 2.25rem;
+  text-align: left;
+}
+.mcard_42 .visual-section .vertical-item.tit img {
+  height: 2.688rem;
+}
+.mcard_42 .visual-section .vertical-item.photo {
+  margin-bottom: 5.625rem;
+  padding: 0 2.25rem;
+}
+.mcard_42 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_42 .visual-section .vertical-item.info {
+  padding: 0 2.25rem;
+  text-align: right;
+}
+.mcard_42 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1rem;
+  font-size: 0;
+}
+.mcard_42 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #60957d;
+  letter-spacing: 0.1em;
+}
+.mcard_42 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+}
+.mcard_42 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+.mcard_42 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.375rem;
+}
+.mcard_42 .visual-section .vertical-item.info .p2 {
+  font-size: 0.719rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+.mcard_42 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.844rem;
+  line-height: 1.25rem;
+}
+.mcard_42 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 0.969rem;
+  line-height: 1.375rem;
+}
+.mcard_42 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+.mcard_42 .greeting-section .sec-txt {
+  margin-bottom: 3.125rem;
+}
+
+.mcard_42 .honjuTel-section .tit {
+  background: #eef5f0;
+  color: #6fa27b;
+}
+.mcard_42 .honjuTel-section .honju-tit.sl {
+  color: #7cd7d6;
+}
+.mcard_42 .honjuTel-section .honju-tit.sb {
+  color: #fba8d1;
+}
+
+.mcard_42 .calendar-section {
+  background: #eef5f0;
+}
+.mcard_42 .ui-datepicker-title {
+  color: #6fa27b;
+}
+.mcard_42 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_42 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #6fa27b;
+  border-color: #6fa27b;
+}
+
+.mcard_42 .location-section .head .tel {
+  background-color: #6fa27b;
+}
+.mcard_42 .message-section {
+  background-color: #eef5f0;
+}
+
+/* ********************* 15번 템플릿 ********************* */
+.mcard_53 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_53 .greeting-section .sec-tit img {
+  height: 1.875rem;
+}
+.mcard_53 .gallery-section .sec-tit img {
+  height: 1.875rem;
+}
+.mcard_53 .video-section .sec-tit img {
+  height: 1.875rem;
+}
+.mcard_53 .livewed-section .sec-tit img {
+  height: 1.875rem;
+}
+.mcard_53 .location-section .sec-tit img {
+  height: 1.875rem;
+}
+.mcard_53 .account-section .sec-tit img {
+  height: 1.875rem;
+}
+.mcard_53 .message-section .sec-tit img {
+  height: 1.875rem;
+}
+
+.mcard_53 .com-btn.tel.sl {
+  background-color: #88a5ca;
+}
+.mcard_53 .com-btn.tel.sb {
+  background-color: #d6a4cc;
+}
+.mcard_53 .com-btn.acc.sl {
+  background-color: #88a5ca;
+}
+.mcard_53 .com-btn.acc.sb {
+  background-color: #d6a4cc;
+}
+.mcard_53 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_53 .visual-section .vertical-top {
+  position: relative;
+}
+.mcard_53 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_53 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_53 .visual-section .vertical-item.info {
+  position: absolute;
+  left: 0;
+  top: 64.85%;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1.563rem;
+  font-size: 0;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #18050a;
+  letter-spacing: 0.1em;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.25rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.375rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.375rem;
+  height: 1.125rem;
+  font-size: 0.688rem;
+  line-height: 1.375rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 0.813rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 0.938rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p2 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.313rem;
+  color: #0b0101;
+}
+.mcard_53 .visual-section .vertical-item.info .p2.large {
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1.125rem;
+  line-height: 1.438rem;
+}
+.mcard_53 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+.mcard_53 .greeting-section {
+  padding-top: 0;
+}
+.mcard_53 .greeting-section .sec-txt {
+  margin-bottom: 1.875rem;
+  font-size: 0.938rem;
+  line-height: 1.875rem;
+}
+.mcard_53 .greeting-section .sec-txt.large {
+  font-size: 1.06rem;
+}
+.mcard_53 .greeting-section .sec-txt.big-large {
+  font-size: 1.175rem;
+}
+.mcard_53 .greeting-section .info .honju .gt-span {
+  font-size: 0.875rem;
+}
+.mcard_53 .greeting-section .info .honju .gt-span.large {
+  font-size: 1rem;
+}
+.mcard_53 .greeting-section .info .honju .gt-span.big-large {
+  font-size: 1.125rem;
+}
+.mcard_53 .greeting-section .info .default {
+  font-size: 0.688rem;
+}
+.mcard_53 .greeting-section .info .default.large {
+  font-size: 0.813rem;
+}
+.mcard_53 .greeting-section .info .default.big-large {
+  font-size: 0.938rem;
+}
+.mcard_53 .greeting-section .info .gwangye {
+  font-size: 0.688rem;
+  /*line-height:1.688rem;*/
+}
+.mcard_53 .greeting-section .info .gwangye.large {
+  font-size: 0.813rem;
+}
+.mcard_53 .greeting-section .info .gwangye.big-large {
+  font-size: 0.938rem;
+}
+.mcard_53 .greeting-section .info .slsb {
+  font-size: 1.125rem;
+}
+.mcard_53 .greeting-section .info .slsb.large {
+  font-size: 1.25rem;
+}
+.mcard_53 .greeting-section .info .slsb.big-large {
+  font-size: 1.375rem;
+}
+
+.mcard_53 .honjuTel-section .tit {
+  background: #f5f3ff;
+  color: #323b5d;
+}
+.mcard_53 .honjuTel-section .honju-tit.sl {
+  color: #88a5ca;
+}
+.mcard_53 .honjuTel-section .honju-tit.sb {
+  color: #d6a4cc;
+}
+.mcard_53 .honjuTel-section .box .name span {
+  font-size: 0.75rem;
+}
+.mcard_53 .honjuTel-section .box .name strong {
+  font-size: 1rem;
+}
+
+.mcard_53 .calendar-section {
+  background: #f5f3ff;
+}
+.mcard_53 .ui-datepicker-title {
+  color: #5d4e9e;
+}
+.mcard_53 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_53 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #5d4e9e;
+  border-color: #5d4e9e;
+}
+.mcard_53 .gallery-section {
+  padding-top: 0;
+}
+.mcard_53 .gallery-section .ex {
+  font-size: 0.875rem;
+}
+.mcard_53 .video-section {
+  padding-top: 0;
+}
+.mcard_53 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_53/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+.mcard_53 .location-section .head .tel {
+  background-color: #7db38d;
+}
+.mcard_53 .location-section .info dt {
+  font-size: 0.875rem;
+}
+.mcard_53 .location-section .info dt.large {
+  font-size: 1rem;
+}
+.mcard_53 .location-section .info dt.big-large {
+  font-size: 1.125rem;
+}
+.mcard_53 .location-section .info dd {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+}
+.mcard_53 .location-section .info dd.large {
+  font-size: 0.938rem;
+  line-height: 1.313rem;
+}
+.mcard_53 .location-section .info dd.big-large {
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+}
+.mcard_53 .message-section {
+  padding-top: 0;
+  background-color: #f5f3ff;
+}
+
+/* ********************* 16번 템플릿 ********************* */
+.mcard_54 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_54 .gallery-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_54 .video-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_54 .livewed-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_54 .location-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_54 .account-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_54 .message-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_54 .rsvp-section .sec-tit img {
+  height: 1.5625rem;
+}
+.mcard_54 .com-btn.tel.sl {
+  background-color: #95cf9f;
+}
+.mcard_54 .com-btn.tel.sb {
+  background-color: #f6b7ca;
+}
+.mcard_54 .com-btn.acc.sl {
+  background-color: #95cf9f;
+}
+.mcard_54 .com-btn.acc.sb {
+  background-color: #f6b7ca;
+}
+.mcard_54 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_54 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_54 .visual-section .vertical-item.tit {
+  padding: 3.125rem 0 1.25rem;
+  background: url("/mobile/new_m/mcard/images/mcard_54/visual_bg1.jpg") 0 0
+    repeat-y;
+  background-size: 100% auto;
+}
+.mcard_54 .visual-section .vertical-item.tit img {
+  height: 3.219rem;
+}
+.mcard_54 .visual-section .vertical-item.photo {
+  padding: 0.625rem 0;
+  background: url("/mobile/new_m/mcard/images/mcard_54/visual_bg3.jpg") 0 0
+    repeat-y;
+  background-size: 100% auto;
+}
+.mcard_54 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_54 .visual-section .vertical-item.info {
+  padding: 1.25rem 0 3.125rem;
+  background: url("/mobile/new_m/mcard/images/mcard_54/visual_bg2.jpg") 0 0
+    repeat-y;
+  background-size: 100% auto;
+}
+.mcard_54 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 0.813rem;
+  font-size: 0;
+}
+.mcard_54 .visual-section .vertical-item.info .p1 .vs-span {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.25rem;
+  color: #18050a;
+  letter-spacing: 0.35em;
+}
+
+.mcard_54 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.375rem;
+}
+.mcard_54 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.5rem;
+}
+.mcard_54 .visual-section .vertical-item.info .p1 .bar {
+  margin-right: 0.375rem;
+  height: 1.25rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.mcard_54 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 0.938rem;
+}
+.mcard_54 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 1.05rem;
+}
+.mcard_54 .visual-section .vertical-item.info .p2 {
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #231f20;
+}
+.mcard_54 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.938rem;
+  line-height: 1.313rem;
+}
+.mcard_54 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1.05rem;
+  line-height: 1.375rem;
+}
+.mcard_54 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+.mcard_54 .greeting-section .sec-txt {
+  margin-bottom: 1.875rem;
+  font-size: 0.938rem;
+  line-height: 1.875rem;
+}
+
+.mcard_54 .greeting-section .sec-txt.large {
+  font-size: 1.06rem;
+}
+
+.mcard_54 .greeting-section .sec-txt.big-large {
+  font-size: 1.175rem;
+}
+
+.mcard_54 .greeting-section .info .honju .gt-span {
+  font-size: 0.875rem;
+}
+.mcard_54 .greeting-section .info .honju .gt-span.large {
+  font-size: 1rem;
+}
+.mcard_54 .greeting-section .info .honju .gt-span.big-large {
+  font-size: 1.125rem;
+}
+.mcard_54 .greeting-section .info .default {
+  font-size: 0.688rem;
+  /*line-height:1.688rem;*/
+}
+.mcard_54 .greeting-section .info .default.large {
+  font-size: 0.813rem;
+}
+.mcard_54 .greeting-section .info .default.big-large {
+  font-size: 0.938rem;
+}
+.mcard_54 .greeting-section .info .gwangye {
+  font-size: 0.688rem;
+  /*line-height:1.688rem;*/
+}
+.mcard_54 .greeting-section .info .gwangye.large {
+  font-size: 0.813rem;
+}
+.mcard_54 .greeting-section .info .gwangye.big-large {
+  font-size: 0.938rem;
+}
+.mcard_54 .greeting-section .info .slsb {
+  font-size: 1.125rem;
+}
+.mcard_54 .greeting-section .info .slsb.large {
+  font-size: 1.25rem;
+}
+.mcard_54 .greeting-section .info .slsb.big-large {
+  font-size: 1.375rem;
+}
+
+.mcard_54 .honjuTel-section .tit {
+  background: #f8f3ef;
+  color: #231f20;
+}
+.mcard_54 .honjuTel-section .honju-tit.sl {
+  color: #95cf9f;
+}
+.mcard_54 .honjuTel-section .honju-tit.sb {
+  color: #f6b7ca;
+}
+.mcard_54 .honjuTel-section .box .name span {
+  font-size: 0.75rem;
+}
+.mcard_54 .honjuTel-section .box .name strong {
+  font-size: 1rem;
+}
+
+.mcard_54 .calendar-section {
+  background: #f8f3ef;
+}
+.mcard_54 .ui-datepicker-title {
+  color: #231f20;
+}
+.mcard_54 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_54 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #231f20;
+  border-color: #231f20;
+}
+
+.mcard_54 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_54/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+.mcard_54 .location-section .head .tel {
+  background-color: #231f20;
+}
+.mcard_54 .location-section .info dt {
+  font-size: 0.875rem;
+}
+.mcard_54 .location-section .info dt.large {
+  font-size: 1rem;
+}
+.mcard_54 .location-section .info dt.big-large {
+  font-size: 1.125rem;
+}
+.mcard_54 .location-section .info dd {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+}
+.mcard_54 .location-section .info dd.large {
+  font-size: 0.938rem;
+  line-height: 1.313rem;
+}
+.mcard_54 .location-section .info dd.big-large {
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+}
+.mcard_54 .message-section {
+  background-color: #f8f3ef;
+}
+
+/* ********************* 17번 템플릿 ********************* */
+.mcard_55 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_55 .gallery-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_55 .video-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_55 .livewed-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_55 .location-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_55 .account-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_55 .message-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_55 .rsvp-section .sec-tit img {
+  height: 1.5625rem;
+}
+
+.mcard_55 .com-btn.tel.sl {
+  background-color: #95cf9f;
+}
+.mcard_55 .com-btn.tel.sb {
+  background-color: #f3aca4;
+}
+.mcard_55 .com-btn.acc.sl {
+  background-color: #95cf9f;
+}
+.mcard_55 .com-btn.acc.sb {
+  background-color: #f3aca4;
+}
+.mcard_55 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_55 .visual-section {
+  min-height: 40rem;
+  background: url("/mobile/new_m/mcard/images/mcard_55/visua_bg.jpg");
+  background-size: cover;
+}
+.mcard_55 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_55 .visual-section .vertical-item.tit {
+  padding: 5rem 0 1.719rem;
+}
+.mcard_55 .visual-section .vertical-item.tit img {
+  height: 3.844rem;
+}
+.mcard_55 .visual-section .vertical-item.photo {
+  padding: 0 3.125rem;
+}
+.mcard_55 .visual-section .vertical-item.photo .box {
+  position: relative;
+  padding-bottom: 100%;
+}
+.mcard_55 .visual-section .vertical-item.photo .box:after {
+  content: "";
+  position: absolute;
+  left: -0.656rem;
+  top: -0.656rem;
+  right: -0.656rem;
+  bottom: -0.656rem;
+  display: block;
+  background: url("/mobile/new_m/mcard/images/mcard_55/visual_bg2.png") center
+    center no-repeat;
+  background-size: 100% auto;
+}
+.mcard_55 .visual-section .vertical-item.photo img {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.mcard_55 .visual-section .vertical-item.info {
+  padding: 4.875rem 0 2.188rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1.125rem;
+  font-size: 0;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.25rem;
+  color: #18050a;
+  letter-spacing: 0.35em;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.375rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.5rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .sl:after {
+  content: "신 랑";
+  position: absolute;
+  left: 0;
+  top: -1.375rem;
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  color: #a0bfa2;
+  letter-spacing: 0.25rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .sb:after {
+  content: "신 부";
+  position: absolute;
+  left: 0;
+  top: -1.375rem;
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  color: #e49787;
+  letter-spacing: 0.25rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.625rem 0 0.25rem;
+  height: 1.25rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .bar.large {
+  font-size: 0.938rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p1 .bar.big-large {
+  font-size: 1.05rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p2 {
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #231f20;
+}
+.mcard_55 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.938rem;
+  line-height: 1.375rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 10.5rem;
+  line-height: 1.5rem;
+}
+.mcard_55 .visual-section .vertical-item.info .p2 .vs-span {
+  display: block;
+}
+.mcard_55 .greeting-section .sec-txt {
+  margin-bottom: 1.875rem;
+  font-size: 0.938rem;
+  line-height: 1.875rem;
+}
+.mcard_55 .greeting-section .sec-txt.large {
+  font-size: 1.05rem;
+}
+.mcard_55 .greeting-section .sec-txt.big-large {
+  font-size: 1.175rem;
+}
+.mcard_55 .greeting-section .info .honju .gt-span {
+  font-size: 0.875rem;
+}
+.mcard_55 .greeting-section .info .honju .gt-span.large {
+  font-size: 1rem;
+}
+.mcard_55 .greeting-section .info .honju .gt-span.big-large {
+  font-size: 1.125rem;
+}
+.mcard_55 .greeting-section .info .default {
+  font-size: 0.688rem;
+  /*line-height:1.688rem;*/
+}
+.mcard_55 .greeting-section .info .default.large {
+  font-size: 0.813rem;
+}
+.mcard_55 .greeting-section .info .default.big-large {
+  font-size: 0.938rem;
+}
+.mcard_55 .greeting-section .info .gwangye {
+  font-size: 0.688rem;
+  /*line-height:1.688rem;*/
+}
+.mcard_55 .greeting-section .info .gwangye.large {
+  font-size: 0.813rem;
+}
+.mcard_55 .greeting-section .info .gwangye.big-large {
+  font-size: 0.938rem;
+}
+.mcard_55 .greeting-section .info .slsb {
+  font-size: 1.125rem;
+}
+.mcard_55 .greeting-section .info .slsb.large {
+  font-size: 1.25rem;
+}
+.mcard_55 .greeting-section .info .slsb.big-large {
+  font-size: 1.375rem;
+}
+
+.mcard_55 .honjuTel-section .tit {
+  background: #f8f3ef;
+  color: #231f20;
+}
+.mcard_55 .honjuTel-section .honju-tit.sl {
+  color: #95cf9f;
+}
+.mcard_55 .honjuTel-section .honju-tit.sb {
+  color: #f3aca4;
+}
+.mcard_55 .honjuTel-section .box .name span {
+  font-size: 0.75rem;
+}
+.mcard_55 .honjuTel-section .box .name strong {
+  font-size: 1rem;
+}
+
+.mcard_55 .calendar-section {
+  background: #f8f3ef;
+}
+.mcard_55 .ui-datepicker-title {
+  color: #231f20;
+}
+.mcard_55 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_55 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #231f20;
+  border-color: #231f20;
+}
+
+.mcard_55 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_55/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 7.75rem auto;
+}
+.mcard_55 .location-section .head .tel {
+  background-color: #231f20;
+}
+.mcard_55 .location-section .info dt {
+  font-size: 0.875rem;
+}
+.mcard_55 .location-section .info dt.large {
+  font-size: 0.938rem;
+}
+.mcard_55 .location-section .info dt.big-large {
+  font-size: 1.05rem;
+}
+.mcard_55 .location-section .info dd {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+}
+.mcard_55 .location-section .info dd.large {
+  font-size: 0.938rem;
+  line-height: 1.313rem;
+}
+.mcard_55 .location-section .info dd.big-large {
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+}
+.mcard_55 .message-section {
+  background-color: #f8f3ef;
+}
+
+/* ********************* 18번 템플릿 ********************* */
+.mcard_43 .music {
+  right: 2.5rem;
+  top: 2.5rem;
+}
+.mcard_43 .music.active {
+  top: 1rem;
+  right: 1rem;
+}
+
+.mcard_43 .sec-tit {
+  margin: 0 1rem;
+  margin-bottom: 1.875rem;
+  padding-bottom: 0.625rem;
+  line-height: 0;
+  text-align: center;
+  border-bottom: 1px solid #bbb;
+}
+.mcard_43 .gallery-section .sec-tit img {
+  height: 1.188rem;
+}
+.mcard_43 .video-section .sec-tit img {
+  height: 1.188rem;
+}
+.mcard_43 .livewed-section .sec-tit img {
+  height: 1.188rem;
+}
+.mcard_43 .location-section .sec-tit img {
+  height: 1.188rem;
+}
+.mcard_43 .account-section .sec-tit img {
+  height: 1.188rem;
+}
+.mcard_43 .message-section .sec-tit img {
+  height: 1.188rem;
+}
+
+.mcard_43 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_43 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_43 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_43 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_43 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_43 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_43 .visual-section .vertical-item.photo {
+  position: relative;
+  padding: 1.875rem 1.875rem 0;
+}
+.mcard_43 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_43 .visual-section .vertical-item.photo:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.719rem;
+  margin-left: -7.188rem;
+  display: block;
+  width: 14.375rem;
+  height: 1.438rem;
+  background: url("/mobile/new_m/mcard/images/mcard_43/visual_02.png") 0 0
+    no-repeat;
+  background-size: auto 100%;
+}
+.mcard_43 .visual-section .vertical-item.info {
+  padding: 2.5rem 0 1.875rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 {
+  position: relative;
+  margin-bottom: 1.063rem;
+  padding-bottom: 1.188rem;
+  font-size: 0;
+  text-indent: 0.125rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p1:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1.25rem;
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: #888;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.125rem;
+  color: #111;
+  letter-spacing: 0.35em;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.375rem;
+  line-height: 1.375rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 .bar {
+  margin: 0 0.5rem 0 0.188rem;
+  height: 1.25rem;
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  letter-spacing: 0.05em;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 .bar.large {
+  height: 1.375rem;
+  font-size: 0.813rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p1 .bar.big-large {
+  height: 1.5rem;
+  font-size: 0.938rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p2 {
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #111;
+}
+.mcard_43 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 0.938rem;
+  line-height: 1.375rem;
+}
+.mcard_43 .visual-section .vertical-item.info .p2 .vs-span {
+  font-family: "Noto Sans KR";
+  display: block;
+}
+
+.mcard_43 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.875rem;
+  padding-bottom: 2.5rem;
+}
+.mcard_43 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1.25rem;
+  width: 2.5rem;
+  height: 1px;
+  background: #888;
+}
+
+.mcard_43 .honjuTel-section .tit {
+  background: #f4f4f4;
+  color: #111;
+}
+.mcard_43 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_43 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_43 .calendar-section {
+  background: #f4f4f4;
+}
+.mcard_43 .ui-datepicker-title {
+  color: #111;
+}
+.mcard_43 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_43 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #111;
+  border-color: #111;
+}
+
+.mcard_43 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_43/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 5.5rem auto;
+}
+.mcard_43 .location-section .head .tel {
+  background-color: #333;
+}
+.mcard_43 .message-section {
+  background-color: #fafafa;
+}
+
+/* ********************* 19번 템플릿 ********************* */
+.mcard_44 .sec-tit {
+  margin-bottom: 1.875rem;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_44 .greeting-section .sec-tit {
+  position: relative;
+  padding-bottom: 1.625rem;
+  font-family: "KoPub Batang";
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1.625rem;
+  color: #666;
+}
+.mcard_44 .greeting-section .sec-tit:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -0.313rem;
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  background: url("/mobile/new_m/mcard/images/mcard_44/sub_title_intro.png") 0 0
+    no-repeat;
+  background-size: 100% auto;
+}
+.mcard_44 .greeting-section .sec-tit span {
+  color: #8db9b7;
+}
+.mcard_44 .gallery-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_44 .video-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_44 .livewed-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_44 .location-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_44 .account-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_44 .message-section .sec-tit img {
+  height: 3.125rem;
+}
+
+.mcard_44 .com-btn.tel.sl {
+  background-color: #8db9b7;
+}
+.mcard_44 .com-btn.tel.sb {
+  background-color: #f3ac95;
+}
+.mcard_44 .com-btn.acc.sl {
+  background-color: #8db9b7;
+}
+.mcard_44 .com-btn.acc.sb {
+  background-color: #f3ac95;
+}
+.mcard_44 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_44 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_44 .visual-section .vertical-item.tit {
+  position: relative;
+  z-index: 10;
+  margin: 4.375rem auto 0;
+}
+.mcard_44 .visual-section .vertical-item.tit .ib {
+  padding: 1.125rem 1rem 1.875rem;
+  text-align: center;
+  border: 2px solid #bacfce;
+}
+.mcard_44 .visual-section .vertical-item.tit .p1 {
+  position: relative;
+  padding-bottom: 3.75rem;
+}
+.mcard_44 .visual-section .vertical-item.tit .p1:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.625rem;
+  margin-left: -1px;
+  display: block;
+  width: 2px;
+  height: 2.5rem;
+  background: #eee;
+}
+.mcard_44 .visual-section .vertical-item.tit .p1 img {
+  height: 2.875rem;
+}
+.mcard_44 .visual-section .vertical-item.tit .p2 {
+}
+.mcard_44 .visual-section .vertical-item.tit .p2 .vs-span {
+  display: block;
+  font-size: 0.813rem;
+  font-weight: 700;
+  line-height: 1.125rem;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+}
+.mcard_44 .visual-section .vertical-item.tit .p2 .vs-span.large {
+  font-size: 0.938rem;
+  line-height: 1.25rem;
+}
+.mcard_44 .visual-section .vertical-item.tit .p2 .vs-span.big-large {
+  font-size: 1.063rem;
+  line-height: 1.375rem;
+}
+.mcard_44 .visual-section .vertical-item.photo {
+  position: relative;
+  margin-top: -0.938rem;
+}
+.mcard_44 .visual-section .vertical-item.info {
+  padding: 1.563rem 0 1.875rem;
+  line-height: 1.125rem;
+}
+.mcard_44 .visual-section .vertical-item.info .p1 {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.125rem;
+  font-family: "campton";
+  font-size: 0.75rem;
+  color: #333;
+  border-bottom: 0.125rem solid #eee;
+  letter-spacing: 0.1em;
+}
+.mcard_44 .visual-section .vertical-item.info .p1.large {
+  font-size: 0.875rem;
+}
+.mcard_44 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1rem;
+}
+.mcard_44 .visual-section .vertical-item.info .p2 {
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+.mcard_44 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.875rem;
+}
+.mcard_44 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1rem;
+}
+
+.mcard_44 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.875rem;
+  padding-bottom: 2.5rem;
+}
+.mcard_44 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -7.813rem;
+  width: 15.625rem;
+  height: 2px;
+  background: #eee;
+}
+
+.mcard_44 .greeting-section .info .row {
+}
+.mcard_44 .greeting-section .info .row .cell {
+  padding-top: 0.438rem;
+  vertical-align: middle;
+}
+.mcard_44 .greeting-section .info .row.sl + .row .cell {
+  padding-bottom: 0.938rem;
+}
+.mcard_44 .greeting-section .info .row.sl {
+  text-align: left;
+}
+.mcard_44 .greeting-section .info .row.sb {
+  text-align: right;
+}
+.mcard_44 .greeting-section .info .row.line .cell {
+  vertical-align: middle;
+  padding: 0 0.313rem;
+  height: 1.125rem;
+  background: #f7f7f7;
+}
+.mcard_44 .greeting-section .info .row.line .cell img {
+  height: 0.406rem;
+}
+
+.mcard_44 .honjuTel-section .tit {
+  background: #ecf5f5;
+  color: #111;
+}
+.mcard_44 .honjuTel-section .honju-tit.sl {
+  color: #8db9b7;
+}
+.mcard_44 .honjuTel-section .honju-tit.sb {
+  color: #f3ac95;
+}
+
+.mcard_44 .calendar-section {
+  background: #ecf5f5;
+}
+.mcard_44 .ui-datepicker-title {
+  color: #f3ac95;
+}
+.mcard_44 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_44 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #f3ac95;
+  border-color: #f3ac95;
+}
+
+.mcard_44 .video-section .video-tit {
+  padding: 0.625rem 1rem;
+  background: #f7f7f7;
+}
+.mcard_44 .video-section .video-tit p {
+  font-family: "KoPub Batang";
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  color: #aaa;
+}
+.mcard_44 .video-section .video-tit span {
+  color: #8db9b7;
+}
+.mcard_44 .video-section .video-tit.top {
+  margin-bottom: 1.25rem;
+}
+.mcard_44 .video-section .video-tit.bottom {
+  margin-top: 1.25rem;
+  text-align: right;
+}
+
+.mcard_44 .location-section .head .tel {
+  background-color: #8db9b7;
+}
+.mcard_44 .message-section {
+  background-color: #f1f9f9;
+}
+
+/* ********************* 20번 템플릿 ********************* */
+.mcard_45 .sec-tit {
+  padding: 0 1rem 1.25rem;
+  line-height: 0;
+}
+.mcard_45 .greeting-section .sec-tit {
+  padding: 0 1rem 2.813rem;
+}
+.mcard_45 .greeting-section .sec-tit img {
+  height: 1.469rem;
+}
+.mcard_45 .gallery-section .sec-tit img {
+  height: 1.5rem;
+}
+.mcard_45 .video-section .sec-tit {
+  padding: 1.688rem 1rem 1.25rem;
+  background: url("/mobile/new_m/mcard/images/mcard_45/sub_title_movie_2.png")
+    100% 0 no-repeat;
+  background-size: 6.438rem auto;
+}
+.mcard_45 .video-section .sec-tit img {
+  height: 1.469rem;
+}
+.mcard_45 .livewed-section .sec-tit img {
+  height: 1.469rem;
+}
+.mcard_45 .location-section .sec-tit img {
+  height: 1.469rem;
+}
+.mcard_45 .account-section .sec-tit {
+  text-align: left;
+}
+.mcard_45 .account-section .sec-tit img {
+  height: 1.469rem;
+}
+.mcard_45 .message-section {
+  padding-top: 1.75rem;
+}
+.mcard_45 .message-section .sec-tit {
+  padding: 1.375rem 1rem 1.25rem;
+  background: url("/mobile/new_m/mcard/images/mcard_45/sub_title_message_2.png")
+    right 1rem top no-repeat;
+  background-size: 4.563rem auto;
+}
+.mcard_45 .message-section .sec-tit img {
+  height: 2.875rem;
+}
+
+.mcard_45 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_45 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_45 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_45 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_45 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_45 .visual-section {
+  padding-bottom: 2.5rem;
+}
+.mcard_45 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_45 .visual-section .vertical-item.tit {
+  margin-bottom: 1.875rem;
+}
+.mcard_45 .visual-section .vertical-item.tit .ib {
+  padding: 1.25rem 0.5rem;
+  background: #8fb1c9;
+  color: #fff;
+}
+.mcard_45 .visual-section .vertical-item.tit .date {
+  position: relative;
+  width: 5.25rem;
+  height: 3.75rem;
+  margin-bottom: 0.938rem;
+}
+.mcard_45 .visual-section .vertical-item.tit .date:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: 0.063rem;
+  margin-top: -2.563rem;
+  display: block;
+  width: 1px;
+  height: 4.813rem;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.mcard_45 .visual-section .vertical-item.tit .date .vs-span {
+  font-size: 2.25rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.mcard_45 .visual-section .vertical-item.tit .date .month {
+  position: absolute;
+  left: 0;
+  top: -0.125rem;
+}
+.mcard_45 .visual-section .vertical-item.tit .date .day {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.mcard_45 .visual-section .vertical-item.tit .name .vs-span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.325em;
+  text-indent: 0.325em;
+}
+.mcard_45 .visual-section .vertical-item.tit .name .vs-span.large {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+}
+.mcard_45 .visual-section .vertical-item.tit .name .vs-span.big-large {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.mcard_45 .visual-section .vertical-item.info {
+  position: relative;
+  padding: 2.188rem 0 2.188rem;
+}
+.mcard_45 .visual-section .vertical-item.info:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1px;
+  display: block;
+  width: 1px;
+  height: 1.281rem;
+  background: #8fb1c9;
+  transform: rotate(45deg);
+}
+.mcard_45 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 1.125rem;
+  font-size: 0;
+}
+.mcard_45 .visual-section .vertical-item.info .p1 .vs-span {
+  position: relative;
+  display: block;
+  vertical-align: bottom;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  color: #83a8c3;
+}
+.mcard_45 .visual-section .vertical-item.info .p1 .vs-span.large {
+  font-size: 1rem;
+  line-height: 1.625rem;
+}
+.mcard_45 .visual-section .vertical-item.info .p1 .vs-span.big-large {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.mcard_45 .honjuTel-section .tit {
+  background: #f3f8fb;
+  color: #111;
+}
+.mcard_45 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_45 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+.mcard_45 .calendar-section {
+  background: #f3f8fb;
+}
+.mcard_45 .ui-datepicker-title {
+  color: #89cdcc;
+}
+.mcard_45 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_45 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #89cdcc;
+  border-color: #89cdcc;
+}
+
+.mcard_45 .tbanner-section .img {
+  text-align: center;
+}
+.mcard_45 .tbanner-section .img img {
+  width: 8.5rem;
+}
+.mcard_45 .location-section .head .tel {
+  background-color: #89cdcc;
+}
+.mcard_45 .message-section {
+  background-color: #f3f8fb;
+}
+
+/* ********************* 21번 템플릿 ********************* */
+.mcard_46 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_46 .greeting-section .sec-tit img {
+  height: 1.094rem;
+}
+.mcard_46 .gallery-section .sec-tit img {
+  height: 1.094rem;
+}
+.mcard_46 .video-section .sec-tit img {
+  height: 1.094rem;
+}
+.mcard_46 .livewed-section .sec-tit img {
+  height: 1.094rem;
+}
+.mcard_46 .location-section .sec-tit img {
+  height: 1.063rem;
+}
+.mcard_46 .account-section .sec-tit img {
+  height: 1.094rem;
+}
+.mcard_46 .message-section .sec-tit img {
+  height: 1.094rem;
+}
+
+.mcard_46 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_46 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_46 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_46 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_46 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_46 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_46 .visual-section .vertical-item.tit {
+  padding: 3.125rem 0 3.75rem;
+}
+.mcard_46 .visual-section .vertical-item.tit img {
+  height: 1.063rem;
+}
+.mcard_46 .visual-section .vertical-item.photo {
+  padding: 0 1rem;
+}
+.mcard_46 .visual-section .vertical-item.info {
+  padding: 2.438rem 0 2.188rem;
+}
+.mcard_46 .visual-section .vertical-item.info .img {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.mcard_46 .visual-section .vertical-item.info .img img {
+  width: 4.375rem;
+}
+.mcard_46 .visual-section .vertical-item.info .name {
+  margin: 0 auto 1.875rem;
+  max-width: 14.375rem;
+  padding: 1.188rem 0;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #000;
+  font-size: 0;
+}
+.mcard_46 .visual-section .vertical-item.info .name .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.438rem;
+  font-weight: bold;
+  line-height: 2rem;
+  color: #000;
+  letter-spacing: 0.025em;
+  text-indent: 0.025em;
+}
+.mcard_46 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 1.563rem;
+  line-height: 2rem;
+}
+.mcard_46 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 1.688rem;
+  line-height: 2rem;
+}
+.mcard_46 .visual-section .vertical-item.info .name .bar {
+  margin: 0 0.563rem 0.188rem;
+  font-size: 1.313rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.mcard_46 .visual-section .vertical-item.info .name .bar.large {
+  font-size: 1.438rem;
+  line-height: 1.625rem;
+}
+.mcard_46 .visual-section .vertical-item.info .name .bar.big-large {
+  font-size: 1.563rem;
+  line-height: 1.75rem;
+}
+.mcard_46 .visual-section .vertical-item.info .p1 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #000;
+}
+.mcard_46 .visual-section .vertical-item.info .p1.large {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+.mcard_46 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.mcard_46 .visual-section .vertical-item.info .p1 .vs-span {
+  display: block;
+}
+
+.mcard_46 .honjuTel-section .tit {
+  background: #f4f4f4;
+  color: #111;
+}
+.mcard_46 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_46 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_46 .calendar-section {
+  background: #f4f4f4;
+}
+.mcard_46 .ui-datepicker-title {
+  color: #111;
+}
+.mcard_46 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_46 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #111;
+  border-color: #111;
+}
+
+.mcard_46 .tbanner-section .text {
+  position: relative;
+  padding: 1.875rem 0;
+  font-size: 0.625rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.04;
+}
+.mcard_46 .tbanner-section .text:after,
+.mcard_46 .tbanner-section .text:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -0.344rem;
+  display: block;
+  width: 0.688rem;
+  height: 0.625rem;
+}
+.mcard_46 .tbanner-section .text:after {
+  top: 0;
+  background: url("/mobile/new_m/mcard/images/mcard_46/tbanner_01.png") 0 0
+    no-repeat;
+  background-size: 0.688rem auto;
+}
+.mcard_46 .tbanner-section .text:before {
+  bottom: 0;
+  background: url("/mobile/new_m/mcard/images/mcard_46/tbanner_02.png") 0 0
+    no-repeat;
+  background-size: 0.688rem auto;
+}
+.mcard_46 .location-section .head .tel {
+  background-color: #333;
+}
+.mcard_46 .message-section {
+  background-color: #fafafa;
+}
+
+/* ********************* 22번 템플릿 ********************* */
+.mcard_47 {
+  background: #f7b7b5;
+}
+.mcard_47 .sec-tit {
+  margin-bottom: 1.875rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_47 .greeting-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_47 .gallery-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_47 .video-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_47 .livewed-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_47 .location-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_47 .account-section .sec-tit img {
+  height: 3.125rem;
+}
+.mcard_47 .message-section .sec-tit img {
+  height: 3.125rem;
+}
+
+.mcard_47 .com-btn.tel.sl {
+  background-image: url("/mobile/new_m/mcard/images/mcard_47/icon_tel.png");
+  background-color: #fff;
+}
+.mcard_47 .com-btn.tel.sb {
+  background-image: url("/mobile/new_m/mcard/images/mcard_47/icon_tel.png");
+  background-color: #fff;
+}
+.mcard_47 .com-btn.acc.sl {
+  background-color: #fff;
+  color: #f7b7b5;
+}
+.mcard_47 .com-btn.acc.sb {
+  background-color: #fff;
+  color: #f7b7b5;
+}
+.mcard_47 .com-btn.sms {
+  background-image: url("/mobile/new_m/mcard/images/mcard_47/icon_sms.png");
+  background-color: #fff;
+}
+
+.mcard_47 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_47 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_47 .visual-section .vertical-item.info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 0 4.188rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-top: 5px solid #f7b7b5;
+}
+.mcard_47 .visual-section .vertical-item.info .tit {
+  margin-bottom: 1.563rem;
+  font-family: "Noto Sans KR";
+  font-size: 1.875rem;
+  font-weight: 300;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: -0.05em;
+}
+.mcard_47 .visual-section .vertical-item.info .name {
+  margin-bottom: 1.25rem;
+  font-size: 0;
+}
+.mcard_47 .visual-section .vertical-item.info .name .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  padding-top: 0.875rem;
+  font-family: "Noto Sans KR";
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+}
+.mcard_47 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 1.25rem;
+  line-height: 1.125;
+}
+.mcard_47 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 1.375rem;
+  line-height: 1.25;
+}
+.mcard_47 .visual-section .vertical-item.info .name .bar {
+  padding-top: 0;
+  margin: 0 0.563rem;
+  height: 1.125rem;
+  font-size: 1.313rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0;
+  text-indent: 0;
+}
+.mcard_47 .visual-section .vertical-item.info .name .bar.large {
+  height: 1.375rem;
+  font-size: 1.438rem;
+  line-height: 1.25rem;
+}
+.mcard_47 .visual-section .vertical-item.info .name .bar.big-large {
+  height: 1.5rem;
+  font-size: 1.563rem;
+  line-height: 1.25rem;
+}
+.mcard_47 .visual-section .vertical-item.info .name .vs-span.sl:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1rem;
+  display: block;
+  width: 2.125rem;
+  height: 0.438rem;
+  background: url("/mobile/new_m/mcard/images/mcard_47/visual_02_01.png") center
+    no-repeat;
+  background-size: auto 0.438rem;
+}
+.mcard_47 .visual-section .vertical-item.info .name .vs-span.sb:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -0.875rem;
+  display: block;
+  width: 1.75rem;
+  height: 0.438rem;
+  background: url("/mobile/new_m/mcard/images/mcard_47/visual_02_02.png") center
+    no-repeat;
+  background-size: auto 0.438rem;
+}
+.mcard_47 .visual-section .vertical-item.info .p1 {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: -0.25rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.563rem;
+  color: #fff;
+}
+.mcard_47 .visual-section .vertical-item.info .p1.large {
+  font-size: 0.938rem;
+  line-height: 1.563rem;
+}
+.mcard_47 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1.063rem;
+  line-height: 1.563rem;
+}
+.mcard_47 .visual-section .vertical-item.info .p1 .vs-span {
+  display: block;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid #777;
+}
+.mcard_47 .greeting-section .sec-txt {
+  position: relative;
+  margin-bottom: 1.563rem;
+  padding-bottom: 4.063rem;
+  color: #fff;
+}
+.mcard_47 .greeting-section .sec-txt:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 1.875rem;
+  background: #fff;
+}
+.mcard_47 .greeting-section .info {
+  color: #fff;
+}
+.mcard_47 .slsbTel-section .slsb-tit {
+  color: #fff;
+}
+.mcard_47 .honjuTel-section .tit {
+  background: #f79b97;
+  color: #fff;
+}
+.mcard_47 .honjuTel-section .honju-tit.sl {
+  color: #fff;
+}
+.mcard_47 .honjuTel-section .honju-tit.sb {
+  color: #fff;
+}
+.mcard_47 .honjuTel-section .box .name span {
+  color: #fff;
+}
+.mcard_47 .honjuTel-section .box .name strong {
+  color: #fff;
+}
+
+.mcard_47 .calendar-section {
+  background: #f79b97;
+}
+.mcard_47 .ui-datepicker-title {
+  color: #f79b97;
+}
+.mcard_47 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_47 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #f79b97;
+  border-color: #f79b97;
+}
+.mcard_47 .gallery-section .ex {
+  color: #fff;
+}
+.mcard_47 .tbanner-section {
+  padding-top: 1.875rem;
+}
+.mcard_47 .tbanner-section .img {
+  text-align: center;
+}
+.mcard_47 .tbanner-section .img img {
+  height: 3.688rem;
+}
+.mcard_47 .livewed-section .sec-txt {
+  color: #fff;
+}
+.mcard_47 .location-section .head .tel {
+  background-color: #f79b97;
+}
+.mcard_47 .account-section .sec-txt {
+  color: #fff;
+}
+.mcard_47 .account-section .slsb-tit {
+  color: #fff;
+}
+.mcard_47 .message-section {
+  background-color: #f79b97;
+}
+.mcard_47 .message-section .sec-tit {
+  margin-bottom: 1rem;
+}
+.mcard_47 .message-section .sec-txt {
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+}
+
+/* ********************* 23번 템플릿 ********************* */
+.mcard_49 {
+  background: url("/mobile/new_m/mcard/images/mcard_49/bg.png") 0 0 no-repeat;
+  background-size: 100% auto;
+}
+.mcard_49 .sec-tit {
+  margin: 0 auto 2.5rem;
+  width: 5rem;
+  height: 5rem;
+  font-family: "KoPub Batang";
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 5rem;
+  text-align: center;
+  color: #fff;
+  background: #5eb984;
+  border: 1px solid #5eb984;
+  border-radius: 50%;
+}
+.mcard_49 .gallery-section .sec-tit {
+  margin-bottom: 2.25rem;
+}
+.mcard_49 .video-section .sec-tit {
+  margin-bottom: 1.25rem;
+}
+
+.mcard_49 .com-btn.tel.sl {
+  background-color: #85b791;
+}
+.mcard_49 .com-btn.tel.sb {
+  background-color: #f7b7b5;
+}
+.mcard_49 .com-btn.acc.sl {
+  background-color: #85b791;
+}
+.mcard_49 .com-btn.acc.sb {
+  background-color: #f7b7b5;
+}
+.mcard_49 .com-btn.sms {
+  background-color: #ddd;
+}
+
+.mcard_49 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_49 .visual-section .vertical-item.photo {
+  position: relative;
+  padding: 2.188rem 2.25rem 0;
+}
+.mcard_49 .visual-section .vertical-item.photo .box {
+  position: relative;
+  padding-bottom: 133.334%;
+}
+.mcard_49 .visual-section .vertical-item.photo .box:after {
+  content: "";
+  position: absolute;
+  left: -0.438rem;
+  top: -0.438rem;
+  right: -0.438rem;
+  bottom: -0.438rem;
+  display: block;
+  background: url("/mobile/new_m/mcard/images/mcard_49/visual_photo.png") center
+    no-repeat;
+  background-size: 18.875rem auto;
+}
+.mcard_49 .visual-section .vertical-item.photo .box img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.mcard_49 .visual-section .vertical-item.photo .dday {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  bottom: -1.563rem;
+  margin-left: -1.563rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  font-family: "KoPub Batang";
+  font-size: 0.813rem;
+  font-weight: 300;
+  line-height: 3.125rem;
+  text-align: center;
+  color: #fff;
+  background: #5eb984;
+  border: 1px solid #5eb984;
+  border-radius: 50%;
+}
+.mcard_49 .visual-section .vertical-item.info {
+  padding: 4.063rem 0 3.125rem;
+}
+.mcard_49 .visual-section .vertical-item.info .name {
+  margin-bottom: 0.625rem;
+  font-size: 0;
+}
+.mcard_49 .visual-section .vertical-item.info .name .vs-span {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.125rem;
+  color: #18050a;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+}
+.mcard_49 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+.mcard_49 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 1.375rem;
+  line-height: 1.375rem;
+}
+.mcard_49 .visual-section .vertical-item.info .name .bar {
+  margin: 0 0.375rem 0;
+  height: 1.125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: 0.05em;
+}
+.mcard_49 .visual-section .vertical-item.info .p1 {
+  position: relative;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.375rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #231f20;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-indent: 0.05em;
+}
+.mcard_49 .visual-section .vertical-item.info .p1.large {
+  font-size: 0.938rem;
+  line-height: 1.125rem;
+}
+.mcard_49 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1.063rem;
+  line-height: 1.125rem;
+}
+.mcard_49 .visual-section .vertical-item.info .p1:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -1.25rem;
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: #363636;
+}
+.mcard_49 .visual-section .vertical-item.info .p2 {
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #231f20;
+  letter-spacing: 0.05em;
+  text-indent: 0.05em;
+}
+.mcard_49 .visual-section .vertical-item.info .p2.large {
+  font-size: 0.938rem;
+  line-height: 1.125rem;
+}
+.mcard_49 .visual-section .vertical-item.info .p2.big-large {
+  font-size: 1.063rem;
+  line-height: 1.125rem;
+}
+
+.mcard_49 .honjuTel-section .tit {
+  background: #eef8e9;
+  color: #6d8961;
+}
+.honjuTel-section .honju-tit.sl {
+  color: #85b791;
+}
+.honjuTel-section .honju-tit.sb {
+  color: #f7b7b5;
+}
+
+.mcard_49 .calendar-section {
+  background: #eef8e9;
+}
+.mcard_49 .ui-datepicker-title {
+  color: #85b791;
+}
+.mcard_49 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_49 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #85b791;
+  border-color: #85b791;
+}
+.mcard_49 .video-section {
+}
+.mcard_49 .video-section .video-tit {
+  padding: 1rem;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.563rem;
+  color: #444;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+}
+.mcard_49 .video-section .video-tit.bottom {
+  text-align: right;
+}
+.mcard_49 .location-section .head .tel {
+  background-color: #85b791;
+}
+.mcard_49 .message-section {
+  background-color: #eef8e9;
+}
+
+/* ********************* 24번 템플릿 ********************* */
+.mcard_48 {
+  background: #ffefe5;
+}
+.mcard_48 .sec-tit {
+  margin-bottom: 1.25rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_48 .greeting-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_48 .gallery-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_48 .video-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_48 .livewed-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_48 .location-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_48 .account-section .sec-tit img {
+  height: 2.344rem;
+}
+.mcard_48 .message-section .sec-tit img {
+  height: 2.344rem;
+}
+
+.mcard_48 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_48 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_48 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_48 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_48 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_48 .vertical-top {
+  height: 40rem;
+  background: url("/mobile/new_m/mcard/images/mcard_48/visual_01.jpg") 0 0
+    no-repeat;
+  background-size: auto 40rem;
+  color: #fff;
+  overflow: hidden;
+}
+.mcard_48 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_48 .visual-section .vertical-item.photo {
+}
+.mcard_48 .visual-section .vertical-item.info {
+  height: 100%;
+  padding: 3.75rem 0 0;
+}
+.mcard_48 .visual-section .vertical-item.info .img {
+  margin-bottom: 2.813rem;
+  text-align: center;
+}
+.mcard_48 .visual-section .vertical-item.info .img img {
+  height: 6.063rem;
+}
+.mcard_48 .visual-section .vertical-item.info .date {
+  margin-bottom: 1.25rem;
+  font-size: 1.313rem;
+}
+.mcard_48 .visual-section .vertical-item.info .date.large {
+  margin-bottom: 1.5rem;
+  font-size: 1.435rem;
+}
+.mcard_48 .visual-section .vertical-item.info .date.big-large {
+  margin-bottom: 1.5rem;
+  font-size: 1.563rem;
+}
+.mcard_48 .visual-section .vertical-item.info .name {
+  margin: 0 auto 2.188rem;
+  font-size: 0;
+}
+.mcard_48 .visual-section .vertical-item.info .name .vs-span {
+  position: relative;
+  display: block;
+  vertical-align: bottom;
+  font-size: 2.875rem;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+}
+.mcard_48 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 3rem;
+  line-height: 1.125;
+}
+.mcard_48 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 3.125rem;
+  line-height: 1.25;
+}
+.mcard_48 .visual-section .vertical-item.info .name .bar {
+  margin: 0.563rem auto 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  color: #7a5c53;
+  background: #fff;
+  border-radius: 50%;
+}
+.mcard_48 .visual-section .vertical-item.info .p1 {
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.563rem;
+  letter-spacing: 0.05em;
+  text-indent: 0.05em;
+}
+.mcard_48 .visual-section .vertical-item.info .dday {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.mcard_48 .visual-section .vertical-item.info .dday strong {
+  display: block;
+  margin-top: 0.438rem;
+  font-size: 2.813rem;
+}
+
+.mcard_48 .greeting-section {
+  padding: 1.875rem 0.625rem 3.125rem;
+  background: url("/mobile/new_m/mcard/images/mcard_48/intro_bg.png") 0 0
+    repeat-y;
+  background-size: 100% auto;
+}
+.mcard_48 .greeting-section .box {
+  position: relative;
+  padding: 3.625rem 1.25rem 1.875rem;
+  min-height: calc(38.75rem - 5rem);
+}
+.mcard_48 .greeting-section .box .bg {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.mcard_48 .greeting-section .box .bg-top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: calc(50% - 1.25rem);
+  background: url("/mobile/new_m/mcard/images/mcard_48/intro_box_top.png") 0 0
+    no-repeat;
+  background-size: 100% auto;
+}
+.mcard_48 .greeting-section .box .bg-top:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3.75rem;
+  right: 0;
+  display: block;
+  height: calc(100% - 3.75rem);
+  background: url("/mobile/new_m/mcard/images/mcard_48/intro_box_line.png") 0 0
+    repeat-y;
+  background-size: 100% auto;
+}
+.mcard_48 .greeting-section .box .bg-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(50% - 1.25rem);
+  background: url("/mobile/new_m/mcard/images/mcard_48/intro_box_bottom.png") 0
+    100% no-repeat;
+  background-size: 100% auto;
+}
+.mcard_48 .greeting-section .box .bg-bottom:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3.75rem;
+  display: block;
+  height: calc(100% - 3.75rem);
+  background: url("/mobile/new_m/mcard/images/mcard_48/intro_box_line.png") 0 0
+    repeat-y;
+  background-size: 100% auto;
+}
+.mcard_48 .greeting-section .box .bg-center {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  right: 0;
+  margin-top: -1.25rem;
+  height: 2.5rem;
+  background: url("/mobile/new_m/mcard/images/mcard_48/intro_box_center.png") 0
+    100% no-repeat;
+  background-size: 100% auto;
+}
+.mcard_48 .greeting-section .sec-txt {
+  margin-bottom: 3.75rem;
+  font-size: 0.938rem;
+  line-height: 1.875rem;
+}
+.mcard_48 .greeting-section .info p {
+  letter-spacing: 0.05em;
+  text-indent: 0.05em;
+}
+.mcard_48 .greeting-section .info .slsb {
+  font-size: 1.125rem;
+}
+.mcard_48 .greeting-section .info .gwangye {
+  font-size: 0.688rem;
+}
+.mcard_48 .greeting-section .info .default {
+  font-size: 0.688rem;
+}
+.mcard_48 .greeting-section .info .honju .gt-span {
+  font-size: 0.875rem;
+}
+
+.mcard_48 .honjuTel-section .tit {
+  background: #ffe7d8;
+  color: #231f20;
+}
+.mcard_48 .honjuTel-section .honju-tit.sl {
+  color: #95cf9f;
+}
+.mcard_48 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_48 .calendar-section {
+  background: #ffe7d8;
+}
+.mcard_48 .ui-datepicker-title {
+  color: #ffae8b;
+}
+.mcard_48 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_48 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #ffae8b;
+  border-color: #ffae8b;
+}
+
+.mcard_48 .tbanner-section .text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.313rem;
+  color: #111;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+  opacity: 0.5;
+}
+.mcard_48 .location-section .head .tel {
+  background-color: #ffae8b;
+}
+.mcard_48 .message-section {
+  background-color: #ffe7d8;
+}
+
+/* ********************* 25번 템플릿 ********************* */
+.mcard_50 {
+  background: #e6d3dc;
+}
+.mcard_50 .sec-tit {
+  margin-bottom: 2.5rem;
+  line-height: 0;
+  text-align: center;
+}
+.mcard_50 .greeting-section .sec-tit img {
+  height: 4.563rem;
+}
+.mcard_50 .gallery-section .sec-tit img {
+  height: 4.563rem;
+}
+.mcard_50 .video-section .sec-tit img {
+  height: 4.563rem;
+}
+.mcard_50 .livewed-section .sec-tit img {
+  height: 4.563rem;
+}
+.mcard_50 .location-section .sec-tit img {
+  height: 4.563rem;
+}
+.mcard_50 .account-section .sec-tit img {
+  height: 4.563rem;
+}
+.mcard_50 .message-section .sec-tit img {
+  height: 4.563rem;
+}
+
+.mcard_50 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_50 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_50 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_50 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_50 .com-btn.sms {
+  background-color: #bbb;
+}
+
+.mcard_50 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_50 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_50 .visual-section .vertical-item.info {
+  padding: 2.25rem 0 4.25rem;
+  background: #9d6f84;
+}
+.mcard_50 .visual-section .vertical-item.info .name {
+  margin-bottom: 1.875rem;
+  font-size: 0;
+}
+.mcard_50 .visual-section .vertical-item.info .name .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  padding-top: 1.125rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+}
+.mcard_50 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 1.375rem;
+  line-height: 1.125;
+}
+.mcard_50 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.mcard_50 .visual-section .vertical-item.info .name .bar {
+  margin: 0 2.188rem;
+  height: 1.25rem;
+  line-height: 1.375rem;
+  box-sizing: content-box;
+}
+.mcard_50 .visual-section .vertical-item.info .name .bar.large {
+  height: 1.5rem;
+}
+.mcard_50 .visual-section .vertical-item.info .name .bar.big-large {
+  height: 1.75rem;
+}
+.mcard_50 .visual-section .vertical-item.info .name .vs-span.sl:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1.5rem;
+  display: block;
+  width: 3rem;
+  height: 0.563rem;
+  background: url("/mobile/new_m/mcard/images/mcard_50/visual_02_01.png") center
+    no-repeat;
+  background-size: auto 0.563rem;
+}
+.mcard_50 .visual-section .vertical-item.info .name .vs-span.sb:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1.5rem;
+  display: block;
+  width: 3rem;
+  height: 0.563rem;
+  background: url("/mobile/new_m/mcard/images/mcard_50/visual_02_02.png") center
+    no-repeat;
+  background-size: auto 0.563rem;
+}
+.mcard_50 .visual-section .vertical-item.info .p1 {
+  font-size: 0.938rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #fff;
+}
+.mcard_50 .visual-section .vertical-item.info .p1.large {
+  font-size: 1.063rem;
+  line-height: 1.5rem;
+}
+.mcard_50 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1.188rem;
+  line-height: 1.5rem;
+}
+.mcard_50 .visual-section .vertical-item.info .p1 .vs-span {
+  display: block;
+}
+.mcard_50 .visual-section .vertical-item.info .p1 .vs-span.color {
+  color: #e6d3dc;
+}
+
+.mcard_50 .greeting-section .sec-txt {
+  margin-bottom: 0;
+  padding-bottom: 3.438rem;
+  background: url("/mobile/new_m/mcard/images/mcard_50/intro_01.png") center
+    bottom 0.813rem no-repeat;
+  background-size: 1.875rem auto;
+}
+.mcard_50 .greeting-section .info .default,
+.mcard_50 .greeting-section .info .gwangye {
+  color: #9d6f84;
+}
+
+.mcard_50 .honjuTel-section .tit {
+  background: #e6c2d2;
+  color: #111;
+}
+.mcard_50 .honjuTel-section .honju-tit.sl {
+  color: #111;
+}
+.mcard_50 .honjuTel-section .honju-tit.sb {
+  color: #5b1eaa;
+}
+
+.mcard_50 .calendar-section {
+  background: #e6c2d2;
+}
+.mcard_50 .ui-datepicker-title {
+  color: #9d6f84;
+}
+.mcard_50 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_50 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #9d6f84;
+  border-color: #9d6f84;
+}
+
+.mcard_50 .tbanner-section .text.vertical {
+  padding-bottom: 2.188rem;
+  background: url("/mobile/new_m/mcard/images/mcard_50/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 8rem auto;
+}
+.mcard_50 .location-section .head .tel {
+  background-color: #9d6f84;
+}
+.mcard_50 .message-section {
+  background-color: #e6d3dc;
+}
+
+/* ********************* 26번 템플릿 ********************* */
+.mcard_51 {
+  background: #f9eeed;
+}
+.mcard_51 .sec-tit {
+  margin-bottom: 2.5rem;
+  font-size: 0.75rem;
+  line-height: 2.875rem;
+  text-align: center;
+  color: #d2aaaa;
+  background: #fff;
+  letter-spacing: 0.32em;
+}
+.mcard_51 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_51 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_51 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_51 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_51 .com-btn.sms {
+  background-color: #ccc;
+}
+
+.mcard_51 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_51 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_51 .visual-section .vertical-item.info {
+  width: auto;
+  padding-top: 6.25rem;
+  position: absolute;
+  left: 4.063rem;
+  top: 4.188rem;
+  right: 4.063rem;
+  bottom: 4.563rem;
+  background: rgba(255, 255, 255, 0.7);
+}
+.mcard_51 .visual-section .vertical-item.info .img img {
+  height: 8.375rem;
+}
+.mcard_51 .visual-section .vertical-item.info .name {
+  margin-top: 5.625rem;
+  font-size: 0;
+}
+.mcard_51 .visual-section .vertical-item.info .name .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #111;
+  letter-spacing: 0.025em;
+  text-indent: 0.025em;
+}
+.mcard_51 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 1rem;
+  line-height: 1.125rem;
+}
+.mcard_51 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+}
+.mcard_51 .visual-section .vertical-item.info .name .bar {
+  margin: 0 0.25rem;
+  font-size: 0.625rem;
+}
+.mcard_51 .visual-section .vertical-item.info .name .bar.large {
+  font-size: 0.875rem;
+}
+.mcard_51 .visual-section .vertical-item.info .name .bar.big-large {
+  font-size: 1.125rem;
+}
+.mcard_51 .visual-section .vertical-item.info .p1 {
+  position: relative;
+  margin-top: 1.875rem;
+  padding-top: 0.625rem;
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1.563rem;
+  color: #111;
+}
+.mcard_51 .visual-section .vertical-item.info .p1.large {
+  font-size: 0.813rem;
+  line-height: 1.563rem;
+}
+.mcard_51 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 0.938rem;
+  line-height: 1.563rem;
+}
+.mcard_51 .visual-section .vertical-item.info .p1:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -0.5rem;
+  display: block;
+  width: 1rem;
+  height: 1px;
+  background: #d5aea3;
+}
+.mcard_51 .visual-section .vertical-item.info .p1 .vs-span {
+  display: block;
+}
+
+.mcard_51 .greeting-section .sec-txt {
+  margin-bottom: 0;
+  padding-bottom: 3.125rem;
+}
+.mcard_51 .greeting-section .info .row .cell {
+  padding-top: 0.438rem;
+  vertical-align: middle;
+}
+.mcard_51 .greeting-section .info .row.sl + .row .cell {
+  padding-bottom: 0.938rem;
+}
+.mcard_51 .greeting-section .info .row.sl,
+.mcard_51 .greeting-section .info .row.sb {
+  text-align: left;
+}
+.mcard_51 .greeting-section .info .row.line .cell {
+  vertical-align: top;
+}
+.mcard_51 .greeting-section .info .row.line .cell img {
+  height: 0.469rem;
+}
+.mcard_51 .honjuTel-section .tit {
+  background: #f8e4df;
+  color: #c37560;
+}
+.mcard_51 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_51 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_51 .calendar-section {
+  background: #f8e4df;
+}
+.mcard_51 .ui-datepicker-title {
+  color: #c37560;
+}
+.mcard_51 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_51 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #c37560;
+  border-color: #c37560;
+}
+
+.mcard_51 .tbanner-section .text {
+  padding-bottom: 2.813rem;
+  font-style: italic;
+  font-size: 0.813rem;
+  line-height: 1.313rem;
+  color: #7b5656;
+  background: url("/mobile/new_m/mcard/images/mcard_51/wedding_day.png") center
+    bottom 1px no-repeat;
+  background-size: 8.75rem auto;
+  letter-spacing: 0.05em;
+}
+.mcard_51 .location-section .head .tel {
+  background-color: #c37560;
+}
+.mcard_51 .message-section {
+  background-color: #f8e4df;
+}
+.mcard_51 .message-section .sec-tit {
+  margin-bottom: 1.25rem;
+}
+
+/* ********************* 27번 템플릿 ********************* */
+.mcard_52 {
+  background: url("/mobile/new_m/mcard/images/mcard_52/bg.jpg") 0 0 repeat-y;
+  background-size: 100% auto;
+}
+.mcard_52 .sec-tit {
+  margin-bottom: 1.875rem;
+  line-height: 0;
+  text-align: center;
+  text-indent: -1.375rem;
+}
+.mcard_52 .greeting-section .sec-tit img {
+  width: 2.156rem;
+}
+.mcard_52 .gallery-section .sec-tit img {
+  width: 2.156rem;
+}
+.mcard_52 .video-section .sec-tit img {
+  width: 2.125rem;
+}
+.mcard_52 .livewed-section .sec-tit img {
+  width: 2.125rem;
+}
+.mcard_52 .location-section .sec-tit img {
+  width: 2.156rem;
+}
+.mcard_52 .account-section .sec-tit img {
+  width: 2.156rem;
+}
+.mcard_52 .message-section .sec-tit img {
+  width: 2.094rem;
+}
+
+.mcard_52 .com-btn.tel.sl {
+  background-color: #78c0e9;
+}
+.mcard_52 .com-btn.tel.sb {
+  background-color: #f79e9e;
+}
+.mcard_52 .com-btn.acc.sl {
+  background-color: #78c0e9;
+}
+.mcard_52 .com-btn.acc.sb {
+  background-color: #f79e9e;
+}
+.mcard_52 .com-btn.sms {
+  background-color: #bbb;
+}
+
+.mcard_52 .visual-section .vertical-item {
+  width: 100%;
+}
+.mcard_52 .visual-section .vertical-item.photo img {
+  width: 100%;
+}
+.mcard_52 .visual-section .vertical-item.info {
+  width: auto;
+  padding: 6.25rem 0 0;
+  position: absolute;
+  left: 2.813rem;
+  top: 3.125rem;
+  right: 2.813rem;
+  bottom: 3.125rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+.mcard_52 .visual-section .vertical-item.info .tit {
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-family: "KoPub Batang";
+  font-size: 1.438rem;
+  font-weight: 300;
+  line-height: 1;
+  color: #111;
+}
+.mcard_52 .visual-section .vertical-item.info .name {
+  margin-bottom: 3.75rem;
+  font-size: 0;
+}
+.mcard_52 .visual-section .vertical-item.info .name .vs-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #111;
+  letter-spacing: 0.05em;
+  text-indent: 0.05em;
+}
+.mcard_52 .visual-section .vertical-item.info .name .vs-span.large {
+  font-size: 1rem;
+}
+.mcard_52 .visual-section .vertical-item.info .name .vs-span.big-large {
+  font-size: 1.125rem;
+}
+.mcard_52 .visual-section .vertical-item.info .name .bar {
+  margin: 0 0.313rem;
+  font-size: 0.625rem;
+}
+.mcard_52 .visual-section .vertical-item.info .name .bar.large {
+  margin: 0 0.438rem;
+  font-size: 0.75rem;
+}
+.mcard_52 .visual-section .vertical-item.info .name .bar.big-large {
+  font-size: 0.875rem;
+}
+.mcard_52 .visual-section .vertical-item.info .img {
+  margin-bottom: 8.125rem;
+}
+.mcard_52 .visual-section .vertical-item.info .img img {
+  height: 3.938rem;
+}
+.mcard_52 .visual-section .vertical-item.info .p1 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.563rem;
+  color: #333;
+  letter-spacing: 0.01em;
+  text-indent: 0.01em;
+}
+.mcard_52 .visual-section .vertical-item.info .p1.large {
+  font-size: 0.875rem;
+  line-height: 1.563rem;
+}
+.mcard_52 .visual-section .vertical-item.info .p1.big-large {
+  font-size: 1rem;
+  line-height: 1.563rem;
+}
+.mcard_52 .visual-section .vertical-item.info .p1 .vs-span {
+  display: block;
+}
+.mcard_52 .visual-section .vertical-item.info .p1 .vs-span.bar {
+  border-bottom: 1px solid #c4aa98;
+}
+
+.mcard_52 .greeting-section {
+  padding: 3.125rem 2.813rem;
+}
+.mcard_52 .greeting-section .inner {
+  padding: 3.125rem 0 2.813rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+.mcard_52 .greeting-section .sec-tit {
+  margin-bottom: 3.125rem;
+}
+.mcard_52 .greeting-section .sec-txt {
+  margin-bottom: 0;
+  padding-bottom: 3.438rem;
+}
+
+.mcard_52 .honjuTel-section .tit {
+  background: #ecdfce;
+  color: #111;
+}
+.mcard_52 .honjuTel-section .honju-tit.sl {
+  color: #78c0e9;
+}
+.mcard_52 .honjuTel-section .honju-tit.sb {
+  color: #f79e9e;
+}
+
+.mcard_52 .calendar-section {
+  background: #ecdfce;
+}
+.mcard_52 .ui-datepicker-title {
+  color: #ff9255;
+}
+.mcard_52 .ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.mcard_52 .ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  background-color: #ff9255;
+  border-color: #ff9255;
+}
+
+.mcard_52 .tbanner-section .img {
+  text-align: center;
+}
+.mcard_52 .tbanner-section .img img {
+  width: 7.188rem;
+}
+
+.mcard_52 .location-section {
+  padding: 0;
+}
+.mcard_52 .location-section .sec-tit {
+  margin-bottom: 0;
+  padding: 1.875rem 0;
+  /*background:#eee;*/
+}
+.mcard_52 .location-section .head .tel {
+  background-color: #ff9255;
+}
+.mcard_52 .message-section {
+  background-color: #ecdfce;
+}
+
+/* ********************* 28번 템플릿 ********************* */

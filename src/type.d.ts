@@ -1,6 +1,6 @@
 // types.d.ts
 export {};
-
+import NextAuth from "next-auth";
 declare global {
   interface Window {
     YT: typeof YT;
@@ -48,4 +48,22 @@ export interface Comment {
     id: number;
     username: string;
   };
+}
+declare module "next-auth" {
+  interface Session {
+    needsSignUp?: boolean;
+    googleData?: {
+      email: string;
+      name: string;
+      image?: string;
+    };
+    accessToken?: string;
+  }
+
+  interface User {
+    id: string;
+    username: string;
+    email: string;
+    accessToken?: string;
+  }
 }

@@ -1,0 +1,1957 @@
+/* common.css는 모바일 청첩장 공통영역 정의합니다. */
+html {
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  font-size: 4.445vmin;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: url("/mobile/new_m/mcard/images/common/bg_white.jpg") 0 0 repeat-y;
+  background-size: 100% auto;
+}
+
+#menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  z-index: 998;
+}
+
+.contain {
+  padding: 0 1rem;
+}
+.contain:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.tb {
+  display: table;
+  width: 100%;
+}
+.ib {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* popup */
+.pop-wrap {
+  display: none;
+  z-index: 1003;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pop-inner {
+  position: relative;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+.pop-head {
+  position: relative;
+  background: #fff;
+}
+.pop-body {
+  position: relative;
+  background: #fff;
+  padding: 1.875rem 0;
+}
+
+.messageDelete .pop-head {
+  font-family: "Noto Sans KR";
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+  text-align: center;
+  color: #111;
+  border-bottom: 1px solid #55aaba;
+}
+.messageDelete .pop-body {
+  padding: 0;
+}
+.messageDelete .form {
+}
+.messageDelete .form .con {
+  padding: 2.5rem 0;
+}
+.messageDelete .form .group {
+  padding: 0 2rem;
+}
+.messageDelete .form .input {
+  width: 100%;
+  height: 2.5rem;
+  background: #fff;
+  border: 1px solid #eee;
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  font-weight: 300;
+  color: #111;
+  padding: 0 0.75rem;
+}
+.messageDelete .buttons:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.messageDelete .buttons .btn {
+  display: block;
+  float: left;
+  width: 50%;
+  background: #fff;
+  font-family: "Noto Sans KR";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+  text-align: center;
+  color: #111;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  text-decoration: none;
+}
+.messageDelete .buttons .btn:first-child {
+  border-left: 0;
+}
+.messageDelete .close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3.375rem;
+  height: 3.125rem;
+  background: url("/mobile/new_m/mcard/images/common/message_delete_02.png") 50%
+    50% no-repeat;
+  background-size: 0.875rem;
+  font-size: 0;
+  line-height: 0;
+}
+
+.accountCopy .pop-head {
+  font-family: "Noto Sans KR";
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+  text-align: center;
+  color: #111;
+  border-bottom: 1px solid #55aaba;
+}
+.accountCopy .pop-body {
+  padding: 0 0 2.5rem;
+}
+.accountCopy .form .group {
+  padding: 0 2rem;
+}
+.accountCopy .form .group.col-2 {
+  padding: 2.5rem 2rem 0.625rem;
+}
+.accountCopy .form .group.col-2 > div:first-child {
+  float: left;
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+}
+.accountCopy .form .group.col-2 > div:last-child {
+  float: right;
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+}
+.accountCopy .form .group.col-2 > div > span {
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+  color: #666;
+}
+.accountCopy .form .group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.accountCopy .form .input {
+  font-family: "Noto Sans KR";
+  font-size: 1rem;
+  width: 77%;
+  height: 2.5rem;
+  border: 1px solid #eee;
+  background: #f9f9f9;
+  padding-left: 0.875rem;
+}
+.accountCopy .form .btn {
+  background: #55aaba;
+  color: #fff;
+  height: 2.5rem;
+  width: 3.75rem;
+  font-size: 0.813rem;
+  font-family: "Noto Sans KR";
+}
+.accountCopy .close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3.375rem;
+  height: 3.125rem;
+  background: url("/mobile/new_m/mcard/images/common/message_delete_02.png") 50%
+    50% no-repeat;
+  background-size: 0.875rem;
+  font-size: 0;
+  line-height: 0;
+}
+
+.copyComplete .pop-body {
+  padding: 0 0 2.5rem;
+}
+.copyComplete .form .group {
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.copyComplete .form .group .tit {
+  padding: 0 2rem 0.5rem;
+  font-family: "Noto Sans KR";
+  font-size: 1rem;
+  color: #111;
+}
+.copyComplete .form .group .bkinfo {
+  padding: 0 2rem;
+  line-height: 1.1;
+}
+.copyComplete .form .group .bkinfo span {
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+  color: #666;
+}
+.copyComplete .buttons .btn {
+  display: block;
+  float: left;
+  width: 100%;
+  background: #fff;
+  font-family: "Noto Sans KR";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+  text-align: center;
+  color: #111;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  text-decoration: none;
+}
+
+/* paging */
+.paging {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  padding: 1.25rem 4.25rem;
+  color: #111;
+  font-size: 0.75rem;
+  line-height: 2.625rem;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.paging:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.paging a {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  margin: 0;
+  line-height: 2.625rem;
+  color: #999;
+  max-width: 2.625rem;
+  height: 2.625rem;
+  font-family: "campton";
+  text-decoration: none;
+  box-sizing: content-box;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.paging a.on {
+  color: #111;
+}
+.paging a.prev {
+  position: absolute;
+  left: 1rem;
+  top: 1.25rem;
+  float: left;
+  width: 2.625rem;
+  border: 1px solid #eee;
+  font-family: "Nanum Gothic";
+}
+.paging a.next {
+  position: absolute;
+  right: 1rem;
+  top: 1.25rem;
+  float: right;
+  width: 2.625rem;
+  border: 1px solid #eee;
+  font-family: "Nanum Gothic";
+}
+
+/* 공통 레이아웃 */
+.music {
+  z-index: 100;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  transition: all 0.3s ease;
+}
+.music img {
+  display: block;
+  width: 1.5rem;
+}
+.music iframe {
+  display: none;
+}
+
+.visual-section .vertical-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.visual-section .vertical-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+.visual-section .vertical-item {
+  flex-shrink: 0;
+}
+
+.greeting-section {
+  padding: 3.125rem 0;
+}
+.greeting-section .sec-txt {
+  margin-bottom: 2.813rem;
+  font-size: 0.813rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+  color: #111;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.greeting-section .sec-txt.large {
+  font-size: 0.937rem;
+}
+
+.greeting-section .sec-txt.big-large {
+  font-size: 1.06rem;
+}
+
+.greeting-section .info {
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+.greeting-section .info .row {
+  display: table-row;
+}
+.greeting-section .info p {
+  display: table-cell;
+  vertical-align: top;
+}
+.greeting-section .info .honju {
+  font-size: 0;
+  text-align: right;
+}
+
+.greeting-section .info .honju.typeB {
+  padding: 0.25rem 0.25rem 0.25rem 0;
+}
+
+.greeting-section .info .honju .gt-span {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.greeting-section .info .honju .gt-span.large {
+  font-size: 0.938rem;
+  line-height: 1.5rem;
+}
+.greeting-section .info .honju .gt-span.big-large {
+  font-size: 1.06rem;
+  line-height: 1.5rem;
+}
+
+.greeting-section .info .honju .gt-span.deceased-on {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.greeting-section .info .honju .gt-span.deceased-on:after {
+  content: "故";
+  position: absolute;
+  left: 0.188rem;
+  top: 0;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: #111;
+}
+.greeting-section .info .honju .gt-span.deceased-flower-on {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.greeting-section .info .honju .gt-span.deceased-flower-on:after {
+  content: "";
+  background-image: url(/mobile/new_m/mcard/images/common/chrysanthemum.png?ver=0.0.1);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 0.188rem;
+  top: 0.375rem;
+  width: 0.75rem;
+  height: 0.625rem;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.greeting-section .info .honju .bul {
+  position: relative;
+  width: 0.75rem;
+  height: 1.5rem;
+  overflow: hidden;
+}
+.greeting-section .info .honju .bul:after {
+  content: ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: block;
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+.greeting-section .info .default {
+  height: 1.5rem;
+  font-size: 0.625rem;
+  font-weight: 300;
+  line-height: 1.625rem;
+}
+.greeting-section .info .default.typeB {
+  height: 3.125rem;
+  line-height: 3.25rem;
+}
+
+.greeting-section .info .default.large {
+  height: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.625rem;
+}
+
+.greeting-section .info .default.typeB.large {
+  height: 3.25rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 3.375rem;
+}
+
+.greeting-section .info .default.big-large {
+  height: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.625rem;
+}
+
+.greeting-section .info .default.typeB.big-large {
+  height: 3.375rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 3.5rem;
+}
+.greeting-section .info .gwangye {
+  height: 1.5rem;
+  padding-left: 0.188rem;
+  font-size: 0.625rem;
+  font-weight: 300;
+  line-height: 1.625rem;
+}
+.greeting-section .info .gwangye.typeB {
+  height: 3.125rem;
+  line-height: 3.25rem;
+}
+
+.greeting-section .info .gwangye.large {
+  font-size: 0.75rem;
+}
+
+.greeting-section .info .gwangye.typeB.large {
+  height: 3.25rem;
+  line-height: 3.375rem;
+}
+
+.greeting-section .info .gwangye.big-large {
+  font-size: 0.875rem;
+}
+
+.greeting-section .info .gwangye.typeB.big-large {
+  height: 3.375rem;
+  line-height: 3.5rem;
+}
+.greeting-section .info .slsb {
+  padding-left: 0.313rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: left;
+  white-space: pre-wrap;
+}
+.greeting-section .info .slsb.typeB {
+  line-height: 3.25rem;
+}
+
+.greeting-section .info .slsb.large {
+  font-size: 1.125rem;
+}
+
+.greeting-section .info .slsb.typeB.large {
+  line-height: 3.375rem;
+  font-size: 1.125rem;
+}
+
+.greeting-section .info .slsb.big-large {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.greeting-section .info .slsb.typeB.big-large {
+  font-size: 1.25rem;
+  line-height: 3.5rem;
+}
+
+.banner-section {
+  background: url("/mobile/new_m/mcard/images/mcard_29/banner_01.jpg") center
+    center no-repeat;
+  background-size: 100% auto;
+}
+.banner-section .txt {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 6.25rem;
+  text-align: center;
+  font-size: 0.625rem;
+  font-weight: 200;
+  color: #fff;
+  letter-spacing: 0.4em;
+}
+
+.slsbTel-section {
+  padding: 1.875rem 0;
+  text-align: center;
+}
+.slsbTel-section .row {
+  margin-top: 1.25rem;
+}
+.slsbTel-section .row:first-child {
+  margin-top: 0;
+}
+.slsbTel-section .row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.slsbTel-section .slsb-tit {
+  float: left;
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 2.25rem;
+  color: #111;
+}
+.slsbTel-section .slsb-btn {
+  float: left;
+  margin-left: 1.25rem;
+  font-size: 0;
+  line-height: 0;
+}
+.com-btn {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0;
+  line-height: 0;
+  border: 1px solid transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.com-btn:first-child {
+  margin-left: 0;
+}
+.com-btn.tel {
+  background-image: url("/mobile/new_m/mcard/images/common/icon_tel.png");
+  background-size: 1rem auto;
+}
+.com-btn.sms {
+  background-image: url("/mobile/new_m/mcard/images/common/icon_sms.png");
+  background-size: 1rem auto;
+}
+.com-btn.acc {
+  width: 11.25rem;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  line-height: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.honjuTel-section .tit {
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+  text-align: center;
+  background: #f4f4f4;
+}
+.honjuTel-section .con {
+  padding: 1.563rem 2.25rem 1.875rem;
+  text-align: center;
+}
+.honjuTel-section .con:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.honjuTel-section .con .col {
+  float: left;
+  width: 50%;
+}
+.honjuTel-section .honju-tit {
+  margin-bottom: 0.625rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #111;
+}
+.honjuTel-section .box {
+  margin: 0 -0.625rem;
+  padding: 0 0.625rem;
+  margin-top: 0.938rem;
+}
+.honjuTel-section .box.first,
+.honjuTel-section .honju-tit + .box {
+  margin-top: 0;
+}
+.honjuTel-section .box .name {
+  margin-bottom: 0.438rem;
+}
+.honjuTel-section .box .name span {
+  font-family: "Noto Sans KR";
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #999;
+}
+.honjuTel-section .box .name strong {
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #111;
+  line-height: 1.25rem;
+  white-space: pre-wrap;
+}
+.honjuTel-section .box .honju-btn {
+  font-size: 0;
+  line-height: 0;
+}
+
+.calendar-section {
+  padding: 1.25rem 1rem;
+  background-color: #f4f4f4;
+}
+.calendar-wrap {
+  position: relative;
+}
+.calendar-wrap .day-time {
+  position: absolute;
+  right: 1.563rem;
+  top: 0.813rem;
+  white-space: nowrap;
+}
+.calendar-wrap .day-time span {
+  font-family: "campton";
+  font-size: 0.875rem;
+  line-height: 2.5rem;
+  color: #111;
+}
+.calendar-wrap .day-time .day {
+}
+.calendar-wrap .day-time .time {
+}
+#calendar {
+  background: #fff;
+  border-radius: 10px;
+  padding-bottom: 0.938rem;
+}
+.ui-datepicker-calendar thead,
+.ui-datepicker-year,
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  display: none;
+}
+
+.ui-datepicker {
+  padding: 0 1.25rem;
+}
+.ui-datepicker-header {
+  margin: 0 -1.25rem 0.938rem;
+}
+.ui-datepicker-title {
+  padding: 0.625rem 1.563rem 0;
+  border-bottom: 1px solid #eee;
+}
+.ui-datepicker-month {
+  font-family: "campton";
+  font-size: 0.75rem;
+  line-height: 2.5rem;
+}
+.ui-datepicker-month strong {
+  font-family: "campton";
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.ui-datepicker-calendar {
+  text-align: center;
+  table-layout: fixed;
+}
+.ui-datepicker-calendar tbody td {
+  padding: 0.344rem;
+  font-size: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+.ui-datepicker-calendar tbody td span,
+.ui-datepicker-calendar tbody td a {
+  display: block;
+  margin: 0 auto;
+  width: 1.875rem;
+  height: 1.875rem;
+  text-decoration: none;
+  font-family: "campton";
+  font-size: 0.625rem;
+  line-height: 1.875rem;
+  color: #777;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+.ui-datepicker-calendar tbody td.ui-datepicker-week-end:first-child span,
+.ui-datepicker-calendar tbody td.ui-datepicker-week-end:first-child a {
+  color: #ff6666;
+}
+.ui-datepicker-calendar tbody td.ui-datepicker-current-day span,
+.ui-datepicker-calendar tbody td.ui-datepicker-current-day a {
+  border-color: #000;
+  background-color: #000;
+  color: #fff !important;
+}
+
+.gallery-section {
+  padding: 3.125rem 0;
+}
+.gallery-section .ex {
+  margin-top: 1.125rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  color: #111;
+}
+.gallery-section .contain {
+  padding: 0 16px;
+  overflow: hidden;
+}
+.gallery-section .contain .lSSlideOuter {
+  overflow: hidden;
+}
+.gallery-section .gallery li .box {
+  background: #f4f4f4;
+}
+.gallery li .box {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+.gallery li .pos {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.gallery li .cen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+.gallery li img {
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+.lSSlideOuter .lSPager.lSGallery a {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.lSSlideOuter .lSPager.lSGallery a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.lSSlideOuter .lSPager.lSGallery .active a:after {
+  display: none;
+}
+.lSSlideOuter .lSPager.lSGallery img {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  max-width: inherit;
+  height: 100%;
+  transform: translate(-50%, 0);
+}
+
+.gallery-pop-wrap {
+  z-index: 101;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.3s;
+  background: #000;
+}
+
+.gallery-pop-wrap .pop-header {
+  height: 3.188rem;
+  background-color: #000;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1.25rem;
+}
+.gallery-pop-wrap .pop-header .tit {
+  font-family: "Noto Sans KR";
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+  color: #fff;
+  text-align: center;
+}
+.gallery-pop-wrap .pop-body {
+  height: calc(100% - 4.438rem);
+  background-color: #000;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.gallery-pop-wrap .lSSlideOuter {
+  position: relative;
+  height: 100%;
+}
+.gallery-pop-wrap .lSSlideWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: calc(100% - 6.875rem);
+  overflow: hidden;
+}
+.gallery-pop-wrap .gallery li .box {
+  padding-bottom: 0;
+}
+.gallery-pop-wrap .gallery,
+.gallery-pop-wrap .gallery li,
+.gallery-pop-wrap .gallery .box {
+  height: 100% !important;
+}
+.gallery-pop-wrap .lSPager.lSGallery {
+  position: absolute;
+  left: 0.313rem;
+  bottom: 0.313rem;
+}
+.gallery-pop-wrap .close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3.375rem;
+  height: 3.188rem;
+  background: url("/mobile/new_m/mcard/images/common/gallery_close.png") 50% 50%
+    no-repeat;
+  background-size: 0.875rem auto;
+  font-size: 0;
+  line-height: 0;
+}
+
+.gallery-section .type2-list {
+  margin: -0.125rem -0.063rem 0;
+}
+.gallery-section .type2-list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.gallery-section .type2-list li {
+  float: left;
+  width: 33.333%;
+  padding: 0.125rem 0.063rem 0;
+  box-sizing: border-box;
+}
+.gallery-section .type2-list .box {
+  display: block;
+  padding-bottom: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gallery-section .type3-list {
+  margin: -0.781rem -0.438rem 0;
+}
+.gallery-section .type3-list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.gallery-section .type3-list li {
+  float: left;
+  width: 33.333%;
+  padding: 0.781rem 0.438rem 0;
+  box-sizing: border-box;
+}
+.gallery-section .type3-list .box {
+  display: block;
+  padding-bottom: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.video-section {
+  padding: 3.125rem 0 0;
+}
+.video-section .video {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9  padding-top: 25px;*/
+}
+.video-section .video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.livewed-section {
+  padding: 3.125rem 0;
+}
+
+.livewed-section .sec-txt {
+  margin-bottom: 1.25rem;
+  font-family: "KoPub Batang";
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.2rem;
+  text-align: center;
+  color: #777;
+}
+
+.livewed-section .sec-date {
+  margin-bottom: 2.5rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+  color: #55aaba;
+}
+
+.livewed-section .button {
+  margin: auto;
+  width: 12.5rem;
+  text-align: center;
+}
+
+.livewed-section .button a {
+  width: 12.5rem;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  line-height: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  background: #111;
+}
+.rsvp-section .sec-txt {
+  white-space: pre-wrap;
+}
+
+.tbanner-section {
+  padding: 2.188rem 0;
+}
+.tbanner-section .text {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  white-space: pre-wrap;
+}
+.tbanner-section .text.vertical {
+  white-space: normal;
+}
+.tbanner-section .text.vertical .vt {
+  display: block;
+  width: 0.75rem;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  letter-spacing: 0;
+  line-height: 1rem;
+}
+.tbanner-section .text.vertical .vt .space {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.25rem 0;
+}
+
+.location-section {
+  padding: 3.125rem 0 0;
+}
+.location-section .head {
+  position: relative;
+  min-height: 2.25rem;
+  padding: 1rem;
+  background: #fafafa;
+  box-sizing: content-box;
+}
+.location-section .head .tit {
+  margin-bottom: 0.375rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.938rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  color: #111;
+  padding-right: 3rem;
+  word-break: keep-all;
+}
+.location-section .head .txt {
+  padding-right: 3rem;
+}
+.location-section .head .txt p {
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  color: #777;
+}
+.location-section .head .tel {
+  position: absolute;
+  right: 1rem;
+  top: 1.125rem;
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: #333 url("/mobile/new_m/mcard/images/common/icon_tel.png") 50% 50%
+    no-repeat;
+  background-size: 1rem;
+  font-size: 0;
+  line-height: 0;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.location-section .map {
+  width: 100%;
+  height: 13.125rem;
+}
+.location-section .link {
+  padding: 1.25rem 0 0.938rem;
+  background: #fafafa;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+.location-section .link li {
+  display: inline-block;
+  vertical-align: top;
+  width: 3.75rem;
+  padding: 0 0.625rem;
+  box-sizing: content-box;
+}
+.location-section .link a {
+  position: relative;
+  display: block;
+  padding-top: 3.438rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: #111;
+  text-decoration: none;
+}
+.location-section .link a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1.563rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 3.125rem;
+}
+.location-section .link .tmap:after {
+  background-image: url("/mobile/new_m/mcard/images/common/location_tmap2.png");
+}
+.location-section .link .kakaonavi:after {
+  background-image: url("/mobile/new_m/mcard/images/common/location_kakaonavi.png");
+}
+.location-section .link .navermap:after {
+  background-image: url("/mobile/new_m/mcard/images/common/location_navermap.png");
+}
+.location-section .link .kakaomap:after {
+  background-image: url("/mobile/new_m/mcard/images/common/location_kakaomap.png");
+}
+.location-section .info {
+  padding-top: 0.625rem;
+  background: #f4f4f4;
+}
+.location-section .info .contain {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  background: #fff;
+}
+.location-section .info dl {
+  padding: 0.625rem 0;
+  border-bottom: 1px solid #eee;
+}
+.location-section .info dl:first-child {
+  padding-top: 0;
+}
+.location-section .info dt {
+  margin-bottom: 0.25rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #111;
+}
+.location-section .info dt.large {
+  margin-bottom: 0.25rem;
+  font-size: 0.938rem;
+  line-height: 1.375rem;
+}
+.location-section .info dt.big-large {
+  margin-bottom: 0.375rem;
+  font-size: 1.06rem;
+  line-height: 1.5rem;
+}
+.location-section .info dd {
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1rem;
+  color: #777;
+  white-space: pre-wrap;
+}
+.location-section .info dd.large {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.location-section .info dd.big-large {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.location-section .map-img {
+  padding: 1.563rem 1rem 1.875rem;
+  background: #fff;
+}
+
+.account-section {
+  padding: 3.125rem 0;
+  text-align: center;
+}
+
+.account-section .sec-txt {
+  margin-bottom: 3.125rem;
+  font-family: "KoPub Batang";
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1rem;
+  text-align: center;
+  color: #777;
+}
+
+.account-section .row {
+  margin-top: 1.25rem;
+}
+.account-section .row:first-child {
+  margin-top: 0;
+}
+
+.account-section .row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.account-section .slsb-tit {
+  float: left;
+  font-family: "Noto Sans KR";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+  color: #111;
+}
+
+.account-section .slsb-btn {
+  float: left;
+  margin-left: 1.25rem;
+}
+
+.message-section {
+  padding: 3.125rem 0 0;
+  background: #fafafa;
+}
+.message-section .sec-txt {
+  margin-bottom: 1.563rem;
+  font-family: "KoPub Batang";
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1rem;
+  text-align: center;
+  color: #777;
+}
+.message-section .form {
+  padding: 0 1rem 1.875rem;
+}
+.message-section .form .group.first {
+  margin-top: 0;
+}
+.message-section .form .group {
+  margin-top: 0.25rem;
+}
+.message-section .form .group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.message-section .form .group > div {
+}
+.message-section .form .group.col-2 > div {
+  float: left;
+  width: calc(50% - 2.5px);
+  margin-left: 5px;
+}
+.message-section .form .group.col-2 > div:first-child {
+  margin-left: 0;
+}
+.message-section .form .input,
+.message-section .form .textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #eee;
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  font-weight: 400;
+  color: #111;
+}
+.message-section .form .input {
+  height: 2.5rem;
+  padding: 0 0.75rem;
+}
+.message-section .form .textarea {
+  height: 5rem;
+  padding: 0.75rem;
+}
+.message-section .form .buttons {
+  margin-top: 0.625rem;
+  text-align: center;
+}
+.message-section .form .buttons .btn {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  background: #000;
+  border: 0;
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+  color: #fff;
+}
+.message-section .comment {
+  padding: 0.5rem 0 1.25rem;
+  background: #fff;
+}
+.message-section .comment-list {
+  padding: 0 1rem;
+}
+.message-section .comment-list .list {
+  position: relative;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+.message-section .comment-list .tit {
+  margin-bottom: 0.313rem;
+  line-height: 1rem;
+}
+.message-section .comment-list .tit .name {
+  font-family: "Noto Sans KR";
+  font-size: 0.813rem;
+  font-weight: 300;
+  color: #111;
+}
+.message-section .comment-list .tit .name.large {
+  font-size: 0.938rem;
+}
+.message-section .comment-list .tit .name.big-large {
+  font-size: 1.05rem;
+}
+.message-section .comment-list .tit .date {
+  font-family: "Noto Sans KR";
+  font-size: 0.688rem;
+  font-weight: 200;
+  color: #aaa;
+}
+.message-section .comment-list .tit .date.large {
+  font-size: 0.813rem;
+}
+.message-section .comment-list .tit .date.big-large {
+  font-size: 0.938rem;
+}
+.message-section .comment-list .txt {
+  font-family: "Noto Sans KR";
+  font-size: 0.75rem;
+  font-weight: 200;
+  color: #777;
+}
+.message-section .comment-list .txt.large {
+  font-size: 0.875rem;
+}
+.message-section .comment-list .txt.big-large {
+  font-size: 1rem;
+}
+.message-section .comment-list .delete-btn {
+  position: absolute;
+  right: 0;
+  top: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #111 url("/mobile/new_m/mcard/images/common/message_delete.png")
+    50% 50% no-repeat;
+  background-size: 0.5rem;
+  font-size: 0;
+  line-height: 0;
+}
+
+/* 참석여부 팝업 1 */
+.copyComplete .form .group-narrow {
+  padding: 1.25rem;
+}
+.copyComplete .form .group .btn-close {
+  background: transparent center / 1rem no-repeat
+    url("/mobile/new_m/mcard/images/common/modal_close.svg");
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.copyComplete.sendRsvp .form .group .tit {
+  padding-top: 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.copyComplete.sendRsvp .form .group .default-txt {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-family: "Noto sans KR";
+  color: #333;
+  margin-top: 0.25rem;
+}
+.copyComplete.sendRsvp .form .group .customer-txt {
+  margin-top: 2.25rem;
+  padding-bottom: 1.625rem;
+}
+.copyComplete.sendRsvp .form .group .customer-txt p {
+  color: #55aaba;
+  font-size: 0.875rem;
+  font-family: "Noto sans KR";
+}
+.copyComplete.sendRsvp .form .group .customer-txt .name {
+  margin-bottom: 0.625rem;
+  display: flex;
+  justify-content: center;
+  line-height: 1.25;
+  align-items: center;
+}
+.copyComplete.sendRsvp .form .group .customer-txt .name span {
+  font-family: "Noto sans KR";
+}
+.copyComplete.sendRsvp .form .group .customer-txt .name .gender {
+  display: flex;
+  align-items: center;
+}
+.copyComplete.sendRsvp .form .group .customer-txt .name .gender .male,
+.copyComplete.sendRsvp .form .group .customer-txt .name .gender .female {
+  white-space: nowrap;
+}
+.copyComplete.sendRsvp .form .group .customer-txt .name .gender-m .nm {
+  padding: 0 0.625rem 0 0.3125rem;
+}
+.copyComplete.sendRsvp .form .group .customer-txt .name .gender-f .female {
+  padding: 0 0.3125rem 0 0.625rem;
+}
+
+.copyComplete .buttons .btn-purple {
+  background-color: #55aaba;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+}
+.copyComplete.sendRsvp .notToday {
+  position: absolute;
+  bottom: -3.75rem;
+  right: 0;
+}
+
+/*체크박스*/
+.check-wrap {
+  position: relative;
+}
+.check-wrap input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.check-wrap input[type="checkbox"] + label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.check-wrap input[type="checkbox"] + label:before {
+  content: "";
+  background-image: none;
+  background-color: #fff;
+  border: 0.0625rem solid #999;
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  box-sizing: border-box;
+}
+.check-wrap input[type="checkbox"]:checked + label:after {
+  content: "";
+  background: #55aaba center / 0.8125rem no-repeat
+    url("/mobile/new_m/mcard/images/common/modal_check.svg");
+  height: 1.25rem;
+  width: 1.25rem;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.label-text {
+  padding: 0 0 0 0.3125rem;
+  font-size: 0.875rem;
+  color: #333;
+  font-family: "Noto sans KR";
+  white-space: nowrap;
+  font-weight: 500;
+}
+.label-text.wht {
+  color: #fff;
+}
+
+/* 참석여부 팝업 2 */
+.bg-full-wrap {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.3s;
+}
+.pop-full-wrap {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.875rem;
+  position: static;
+}
+.pop-full-wrap * {
+  font-family: "Noto sans KR";
+}
+.pop-full-wrap .pop-inner {
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  box-shadow: none;
+}
+.pop-full-wrap .pop-body {
+  height: calc(100%);
+  background-color: #fff;
+  padding: 0;
+  visibility: visible;
+  opacity: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.copyComplete.openRsvpcon .form .group-narrow {
+  padding: 1.25rem 1.25rem 0;
+}
+.copyComplete.openRsvpcon .form .group .tit1 {
+  padding-top: 0;
+  position: relative;
+  font-weight: 500;
+}
+.copyComplete.openRsvpcon .form .group .tit-desc {
+  color: #777;
+  font-size: 0.875rem;
+  text-align: left;
+  margin: 2rem 0 0.5rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.copyComplete.openRsvpcon .form .group .tit1 .btn-close {
+  top: 0;
+  right: 0;
+  z-index: 101;
+}
+.pop-full-wrap ~ #menu-overlay[data-pop-id*="openRsvpCon"] {
+  background: #fff;
+  opacity: 1;
+}
+
+.con-wrap {
+  margin-top: 2rem;
+}
+.con-wrap .row-wrap {
+  margin-bottom: 1.25rem;
+}
+.con-wrap .row-wrap:last-child {
+  margin-bottom: 0;
+}
+.con-wrap .row-wrap .item-ttl {
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 0.625rem;
+}
+.con-wrap .row-wrap .item-ttl .point {
+  color: #55aaba;
+  font-weight: 400;
+}
+.con-wrap .row-wrap .inner {
+  display: flex;
+  gap: 0 0.625rem;
+}
+.con-wrap .item {
+  position: relative;
+  width: 50%;
+}
+.con-wrap .item.w100p {
+  width: 100%;
+}
+.con-wrap .row-wrap.personal-info {
+  background-color: #fafafa;
+  padding: 1.25rem 1rem;
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+.con-wrap .row-wrap.personal-info .info-txt {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025rem;
+  display: flex;
+  height: 5rem;
+  border: 0.0625rem solid #ccc;
+  padding: 0.625rem;
+  overflow: auto;
+}
+.con-wrap .row-wrap.personal-info .info-txt::-webkit-scrollbar {
+  width: 0.1875rem;
+  border-radius: 0.1875rem;
+}
+.con-wrap .row-wrap.personal-info .info-txt::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+.con-wrap .check_box {
+  height: 2.8125rem;
+  display: flex;
+  align-items: center;
+}
+.con-wrap .check_box input[type="radio"] {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 50%;
+  height: 2.8125rem;
+  cursor: pointer;
+  margin: 0;
+}
+.con-wrap .chk-txt {
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.con-wrap .check_box input[type="radio"] + label {
+  margin-bottom: 0;
+  height: 2.8125rem;
+}
+.con-wrap .check_box input[type="radio"] + label:after {
+  content: "";
+  border: 0.0625rem solid #ccc;
+  display: inline-block;
+  width: 100%;
+  height: 2.8125rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 6px;
+}
+.con-wrap .check_box input[type="radio"]:checked + label:after {
+  border: 0.0625rem solid #55aaba;
+  background-color: #eff7f9;
+}
+.con-wrap .check_box input[type="radio"]:checked + label .chk-txt {
+  color: #55aaba;
+  font-weight: 500;
+}
+.con-wrap .item .chk-txt {
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.con-wrap .item .chk-txt .sm-txt {
+  font-size: 0.75rem;
+  padding-left: 0.1875rem;
+}
+.con-wrap .item .chk-txt .icon {
+  display: inline-block;
+  height: 1.25rem;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  vertical-align: -0.25rem;
+  margin-right: 0.3125rem;
+}
+.con-wrap .item .chk-txt .bride {
+  background-image: url("/mobile/new_m/mcard/images/common/modal_bride.svg");
+  width: 1rem;
+  background-size: 0.9375rem;
+}
+.con-wrap .item .chk-txt .groom {
+  background-image: url("/mobile/new_m/mcard/images/common/modal_groom.svg");
+  width: 1.03rem;
+  background-size: 1.03rem;
+}
+
+.con-wrap input[type="text"] {
+  width: 100%;
+  border: 0.0625rem #ccc solid;
+  padding: 0.75rem 0.625rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+}
+.con-wrap textarea {
+  resize: none;
+  width: 100%;
+  padding: 0.75rem;
+  min-height: 5.4375rem;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+.con-wrap input[type="text"]:focus,
+.con-wrap textarea:focus {
+  outline: 0.0625rem #55aaba solid;
+}
+.con-wrap input[type="text"]::placeholder,
+.con-wrap textarea::placeholder {
+  color: #ccc;
+  font-size: 0.875rem;
+}
+.copyComplete.openRsvpcon .buttons {
+  position: static;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.foot-share {
+  padding: 1.875rem 0 1.563rem;
+  background: #333;
+  border-bottom: 1px solid #222;
+  text-align: center;
+}
+.foot-share ul {
+  font-size: 0;
+  line-height: 0;
+}
+.foot-share li {
+  display: inline-block;
+  vertical-align: top;
+  width: 3.125rem;
+  padding: 0 0.938rem;
+  box-sizing: content-box;
+}
+.foot-share a {
+  position: relative;
+  display: block;
+  padding-top: 3.563rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.688rem;
+  font-weight: 300;
+  line-height: 0.875rem;
+  text-align: center;
+  color: #aaa;
+  text-decoration: none;
+}
+.foot-share a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1.563rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 3.125rem;
+}
+.foot-share .kakao:after {
+  background-image: url("/mobile/new_m/mcard/images/common/footer_kakao.png");
+}
+.foot-share .facebook:after {
+  background-image: url("/mobile/new_m/mcard/images/common/footer_facebook.png");
+}
+.foot-share .Phone_2g:after {
+  background-image: url("/mobile/new_m/mcard/images/common/footer_2g.png");
+}
+.foot-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.688rem;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #333;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+.foot-logo:after {
+  content: "";
+  display: block;
+  width: 3.469rem;
+  height: 0.906rem;
+  margin: 0 auto;
+  background: url("/mobile/new_m/mcard/images/common/footer_logo.png") 0 0
+    no-repeat;
+  background-size: 3.469rem auto;
+}
+
+/* ******************************** 미디어 쿼리 ******************************** */
+/* Landscape mode (가로형 디바이스) */
+@media only screen and (orientation: landscape) {
+  html {
+    font-size: 4.445vmax;
+  }
+
+  .visual-section {
+    height: auto !important;
+  }
+  .mcard_15 .sec-tit img {
+    width: 100%;
+    height: auto !important;
+  }
+
+  /* 가로 디바이스에서 갤러리 팝업 사이즈 조정 */
+  .gallery-pop-wrap .lSSlideOuter {
+    margin: 0 20%;
+    overflow: hidden;
+  }
+  .gallery-pop-wrap .pop-header {
+    height: 1.625rem;
+    margin-bottom: 0.625rem;
+  }
+  .gallery-pop-wrap .pop-header .tit {
+    font-size: 0.75rem;
+    line-height: 1.625rem;
+  }
+  .gallery-pop-wrap .pop-body {
+    height: calc(100% - 2.25rem);
+  }
+  .bg-full-wrap .pop-body {
+    height: calc(100% - 2.25rem);
+  }
+  .lSAction > a {
+    width: 0.75rem;
+    height: 1.25rem;
+    background-size: 0.25rem auto;
+    margin-top: -0.625rem;
+  }
+  .gallery-pop-wrap .close-btn {
+    width: 1.688rem;
+    height: 1.625rem;
+    background-size: 0.438rem auto;
+  }
+  /* .gallery-pop-wrap .lSSlideWrapper{height: calc(100% - 3.438rem);} */
+  .gallery-pop-wrap .lSSlideWrapper {
+    height: calc(100% - 0.313rem);
+  }
+  .gallery-pop-wrap .lSPager {
+    display: none;
+    visibility: hidden;
+  }
+
+  .messageDelete .close-btn {
+    width: 1.688rem;
+    height: 1.625rem;
+    background-size: 0.438rem auto;
+  }
+  .messageDelete .pop-head {
+    height: 1.625rem;
+    font-size: 0.75rem;
+    line-height: 1.625rem;
+  }
+  .messageDelete .form .con {
+    padding: 1.25rem 0;
+  }
+  .messageDelete .form .group {
+    padding: 0 1rem;
+    line-height: 0;
+  }
+  .messageDelete .form .input {
+    height: 1.25rem;
+    padding: 0 0.375rem;
+    font-size: 0.407rem;
+  }
+  .messageDelete .buttons .btn {
+    font-size: 0.5rem;
+    line-height: 1.625rem;
+  }
+}
+
+/* Portrait mode (세로형 디바이스) */
+@media only screen and (orientation: portrait) {
+}
+
+@media all and (max-width: 360px) {
+  .banner-section {
+    background-size: cover;
+  }
+  .banner-section .txt {
+    height: 100px;
+  }
+}
+
+/* DeskTop */
+@media all and (min-width: 720px) {
+  html {
+    font-size: 32px !important;
+  }
+  html,
+  body {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}

@@ -94,6 +94,9 @@ export default function Header() {
 
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7} alignItems="center">
+            {/* <Box as="a" href="/wedding">
+              <Button variant="ghost">Wedding</Button>
+            </Box> */}
             <Box as="a" href="/board">
               <Button variant="ghost">Board</Button>
             </Box>

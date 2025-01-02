@@ -73,9 +73,9 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     // JWT 콜백에서 사용자 정보를 토큰에 포함
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
-        token.accessToken = (user as any).accessToken; // user.accessToken 할당
+        token.accessToken = user.accessToken; // user.accessToken 할당
         token.id = user.id;
         token.username = user.username; // username을 name으로 매핑
         token.email = user.email;
@@ -88,7 +88,7 @@ const handler = NextAuth({
         session.user.id = token.id as string;
         session.user.name = token.username as string;
         session.user.email = token.email as string;
-        (session as any).accessToken = token.accessToken; // 타입 단언 사용
+        session.accessToken = token.accessToken as string; // 타입 단언 사용
       }
       console.log("#####session", session);
       return session;
