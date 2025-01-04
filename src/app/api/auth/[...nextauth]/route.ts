@@ -3,6 +3,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import axios from "axios";
 
 const handler = NextAuth({
   providers: [
@@ -75,6 +76,25 @@ const handler = NextAuth({
     // JWT 콜백에서 사용자 정보를 토큰에 포함
     async jwt({ token, user, account }) {
       if (user) {
+        try {
+          const response = await axios.post(
+            "http://kimk1029.synology.me:50000/api/auth/check-user",
+            { email: user.email }
+          );
+          if (!response.data.exists) {
+            token.needsSignUp = true;
+            token.googleData = {
+              email: user.email,
+              name: user.name,
+              image: user.image,
+            };
+          } else {
+            token.needsSignUp = false;
+          }
+        } catch (error) {
+          console.error("Error checking user existence:", error);
+          token.needsSignUp = false; // 기본값 설정하여 로그인 차단 방지
+        }
         token.accessToken = user.accessToken; // user.accessToken 할당
         token.id = user.id;
         token.username = user.username; // username을 name으로 매핑

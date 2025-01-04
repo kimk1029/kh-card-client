@@ -75,7 +75,6 @@ const PostDetailPage: React.FC = () => {
   const handleAddComment = async (e: FormEvent) => {
     e.preventDefault();
     if (!newComment.trim()) return;
-    console.log("HEADER", session);
     try {
       const res = await fetch(`/api/posts/${id}/comments`, {
         method: "POST",

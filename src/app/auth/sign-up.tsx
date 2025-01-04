@@ -1,3 +1,5 @@
+// src/components/SignUp.tsx
+
 import React, { Dispatch, SetStateAction, Fragment, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
@@ -42,11 +44,22 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // 중복 검사 상태
+  const [isEmailAvailable, setIsEmailAvailable] = useState<boolean | null>(
+    null
+  );
+  const [isUsernameAvailable, setIsUsernameAvailable] = useState<
+    boolean | null
+  >(null);
+  const [emailCheckLoading, setEmailCheckLoading] = useState(false);
+  const [usernameCheckLoading, setUsernameCheckLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
   } = useForm<SignUpFormData>({
     defaultValues: {
       email: email || "",
@@ -59,6 +72,14 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
     setIsLoading(true);
     setServerError(null);
     setSuccessMessage(null);
+
+    // 중복 검사 확인
+    if (isEmailAvailable === false || isUsernameAvailable === false) {
+      setServerError("이메일 또는 유저네임이 이미 사용 중입니다.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://kimk1029.synology.me:50000/api/auth/register",
@@ -68,6 +89,8 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
       if (response.status === 201) {
         setSuccessMessage("회원가입이 성공적으로 완료되었습니다!");
         reset();
+        setIsEmailAvailable(null);
+        setIsUsernameAvailable(null);
         // 필요 시 로그인 페이지로 리디렉션 또는 자동 로그인 처리
       } else {
         setServerError("회원가입에 실패했습니다. 다시 시도해주세요.");
@@ -91,6 +114,66 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
     onToggle(false);
   };
 
+  // 이메일 중복 검사 함수
+  const checkEmailDuplicate = async () => {
+    const emailValue = getValues("email");
+    if (!emailValue) {
+      setServerError("이메일을 입력해주세요.");
+      return;
+    }
+
+    setEmailCheckLoading(true);
+    setIsEmailAvailable(null);
+    setServerError(null);
+
+    try {
+      const response = await axios.post(
+        "http://kimk1029.synology.me:50000/api/auth/check-email",
+        { email: emailValue }
+      );
+
+      if (response.data.exists) {
+        setIsEmailAvailable(false);
+      } else {
+        setIsEmailAvailable(true);
+      }
+    } catch (error: any) {
+      setServerError("이메일 중복 검사 중 오류가 발생했습니다.");
+    } finally {
+      setEmailCheckLoading(false);
+    }
+  };
+
+  // 유저네임 중복 검사 함수
+  const checkUsernameDuplicate = async () => {
+    const usernameValue = getValues("username");
+    if (!usernameValue) {
+      setServerError("유저네임을 입력해주세요.");
+      return;
+    }
+
+    setUsernameCheckLoading(true);
+    setIsUsernameAvailable(null);
+    setServerError(null);
+
+    try {
+      const response = await axios.post(
+        "http://kimk1029.synology.me:50000/api/auth/check-username",
+        { username: usernameValue }
+      );
+
+      if (response.data.exists) {
+        setIsUsernameAvailable(false);
+      } else {
+        setIsUsernameAvailable(true);
+      }
+    } catch (error: any) {
+      setServerError("유저네임 중복 검사 중 오류가 발생했습니다.");
+    } finally {
+      setUsernameCheckLoading(false);
+    }
+  };
+
   return (
     <Fragment>
       <Box
@@ -99,6 +182,9 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
         p={8}
         rounded="lg"
         w="100%"
+        maxW="md"
+        mx="auto"
+        mt={10}
       >
         <Heading lineHeight={1.1} fontSize={{ base: "2xl", sm: "3xl" }}>
           회원가입
@@ -119,35 +205,88 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={4} mt={4}>
-            <FormControl id="nickname" isRequired isInvalid={!!errors.username}>
-              <FormLabel>닉네임</FormLabel>
-              <Input
-                type="text"
-                {...register("username", {
-                  required: "닉네임은 필수 입력입니다.",
-                })}
-              />
+            <FormControl id="username" isRequired isInvalid={!!errors.username}>
+              <FormLabel>유저네임</FormLabel>
+              <InputGroup>
+                <Input
+                  type="text"
+                  {...register("username", {
+                    required: "유저네임은 필수 입력입니다.",
+                  })}
+                  placeholder="유저네임 입력"
+                />
+                <InputRightElement width="7rem">
+                  <Button
+                    onClick={checkUsernameDuplicate}
+                    isLoading={usernameCheckLoading}
+                    disabled={usernameCheckLoading}
+                    size="sm"
+                    colorScheme={
+                      isUsernameAvailable === true
+                        ? "green"
+                        : isUsernameAvailable === false
+                        ? "red"
+                        : "teal"
+                    }
+                  >
+                    {isUsernameAvailable === true
+                      ? "사용 가능"
+                      : isUsernameAvailable === false
+                      ? "사용 불가"
+                      : "중복 검사"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
               {errors.username && (
                 <Text color="red.500" mt={1}>
                   {errors.username.message}
                 </Text>
               )}
             </FormControl>
+
+            {/* 이메일 부분 */}
             <FormControl id="email" isRequired isInvalid={!!errors.email}>
               <FormLabel>이메일 주소</FormLabel>
-              <Input
-                type="email"
-                disabled={Boolean(session?.user?.email)}
-                {...register("email", {
-                  required: "이메일은 필수 입력입니다.",
-                })}
-              />
+              <InputGroup>
+                <Input
+                  type="email"
+                  disabled={Boolean(session?.user?.email)}
+                  {...register("email", {
+                    required: "이메일은 필수 입력입니다.",
+                  })}
+                  placeholder="이메일 입력"
+                />
+                <InputRightElement width="7rem">
+                  <Button
+                    onClick={checkEmailDuplicate}
+                    isLoading={emailCheckLoading}
+                    disabled={
+                      emailCheckLoading || Boolean(session?.user?.email)
+                    }
+                    size="sm"
+                    colorScheme={
+                      isEmailAvailable === true
+                        ? "green"
+                        : isEmailAvailable === false
+                        ? "red"
+                        : "teal"
+                    }
+                  >
+                    {isEmailAvailable === true
+                      ? "사용 가능"
+                      : isEmailAvailable === false
+                      ? "사용 불가"
+                      : "중복 검사"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
               {errors.email && (
                 <Text color="red.500" mt={1}>
                   {errors.email.message}
                 </Text>
               )}
             </FormControl>
+
             <FormControl id="password" isRequired isInvalid={!!errors.password}>
               <FormLabel>비밀번호</FormLabel>
               <InputGroup>
@@ -156,6 +295,7 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
                   {...register("password", {
                     required: "비밀번호는 필수 입력입니다.",
                   })}
+                  placeholder="비밀번호 입력"
                 />
                 <InputRightElement h={"full"}>
                   <Button
@@ -172,6 +312,7 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
                 </Text>
               )}
             </FormControl>
+
             <Button
               type="submit"
               colorScheme="teal"
@@ -185,6 +326,7 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
             >
               회원가입
             </Button>
+
             <Stack pt={6} direction={"row"} justifyContent={"center"}>
               <Text align={"center"}>이미 회원이신가요?</Text>
               <Text
