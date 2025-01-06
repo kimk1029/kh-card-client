@@ -25,33 +25,35 @@ const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
   const { colorMode } = useColorMode();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+
   const id = Number(params.id);
+
+  // --- SWR로 데이터 가져오기 (게시글 & 댓글)
   const fetcher = async (url: string) => {
     const res = await fetch(url);
     if (!res.ok) throw new Error("Failed to fetch");
     return res.json();
   };
 
-  // 게시글 데이터 가져오기
-  const { data, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
-  const post = data;
-
-  // 댓글 데이터 가져오기
+  const { data: post, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
   const { data: comments, error: commentsError } = useSWR<Comment[]>(
     `/api/posts/${id}/comments`,
     fetcher
   );
 
-  // 새 댓글 상태
+  // --- 새 댓글 & 대댓글 작성용 상태
   const [newComment, setNewComment] = useState("");
+  // 대댓글 작성 중인지 표시하기 위해 '어떤 댓글의 대댓글인지'를 저장
+  const [replyParentId, setReplyParentId] = useState<number | null>(null);
+  const [replyContent, setReplyContent] = useState("");
 
-  // 색상 모드 설정
+  // --- 색상 모드
   const bgColor = colorMode === "light" ? "white" : "gray.800";
   const textColor = colorMode === "light" ? "black" : "white";
   const dividerColor = colorMode === "light" ? "gray.300" : "gray.600";
 
-  // 게시글 삭제 핸들러
+  // --- 게시글 삭제
   const handleDelete = async () => {
     if (confirm("정말 게시글을 삭제하시겠습니까?")) {
       try {
@@ -71,7 +73,7 @@ const PostDetailPage: React.FC = () => {
     }
   };
 
-  // 댓글 추가 핸들러
+  // --- 일반 댓글 추가
   const handleAddComment = async (e: FormEvent) => {
     e.preventDefault();
     if (!newComment.trim()) return;
@@ -86,14 +88,42 @@ const PostDetailPage: React.FC = () => {
       });
       if (!res.ok) throw new Error("댓글 추가에 실패했습니다.");
       setNewComment("");
-      mutate(`/api/posts/${id}/comments`); // 댓글 데이터 갱신
+      mutate(`/api/posts/${id}/comments`); // SWR 데이터 갱신
     } catch (err) {
       console.error(err);
       alert("댓글 추가 중 오류가 발생했습니다.");
     }
   };
 
-  // 오류 처리
+  // --- 대댓글 추가
+  const handleAddReply = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!replyContent.trim() || !replyParentId) return;
+
+    try {
+      const res = await fetch(`/api/posts/${id}/comments`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.accessToken}`,
+        },
+        body: JSON.stringify({
+          content: replyContent,
+          parentId: replyParentId,
+        }),
+      });
+      if (!res.ok) throw new Error("대댓글 추가에 실패했습니다.");
+
+      setReplyContent("");
+      setReplyParentId(null);
+      mutate(`/api/posts/${id}/comments`);
+    } catch (err) {
+      console.error(err);
+      alert("대댓글 추가 중 오류가 발생했습니다.");
+    }
+  };
+
+  // --- 오류 처리
   if (error) {
     return (
       <Layout>
@@ -121,7 +151,6 @@ const PostDetailPage: React.FC = () => {
     );
   }
 
-  // 로딩 중일 때 Spinner 표시
   if (!post) {
     return (
       <Layout>
@@ -131,6 +160,10 @@ const PostDetailPage: React.FC = () => {
       </Layout>
     );
   }
+
+  // --- (1) parent가 null인 댓글은 최상위, null이 아니면 대댓글
+  const topLevelComments = comments?.filter((c) => c.parent === null) || [];
+  const childComments = comments?.filter((c) => c.parent !== null) || [];
 
   return (
     <Layout>
@@ -176,7 +209,7 @@ const PostDetailPage: React.FC = () => {
         <Divider mb={4} borderColor={dividerColor} />
 
         {/* 게시글 내용 */}
-        <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH={"300px"}>
+        <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH="300px">
           {post.content}
         </Box>
         <Divider mb={4} borderColor={dividerColor} />
@@ -187,7 +220,7 @@ const PostDetailPage: React.FC = () => {
             댓글
           </Heading>
 
-          {/* 댓글 작성 폼 */}
+          {/* 댓글 작성 폼 (최상위 댓글) */}
           {session?.user && (
             <Box as="form" onSubmit={handleAddComment} mb={6}>
               <VStack spacing={4} align="stretch">
@@ -204,46 +237,123 @@ const PostDetailPage: React.FC = () => {
             </Box>
           )}
 
-          {/* 댓글 표시 */}
+          {/* 댓글 목록 표시 */}
           {commentsError && (
             <Text color="red.500">댓글을 불러오는 중 오류가 발생했습니다.</Text>
           )}
           {!comments && !commentsError && <Text>댓글을 불러오는 중...</Text>}
+
           {comments && comments.length === 0 && (
             <Text>현재 작성된 댓글이 없습니다.</Text>
           )}
+
           {comments && comments.length > 0 && (
             <VStack spacing={4} align="stretch">
-              {comments
-                .sort(
-                  (a, b) =>
-                    new Date(a.created_at).getTime() -
-                    new Date(b.created_at).getTime()
-                )
-                .map((comment) => (
-                  <Box
-                    key={comment.id}
-                    p={4}
-                    bg={colorMode === "light" ? "gray.100" : "gray.700"}
-                    rounded="md"
+              {/* 최상위 댓글들 */}
+              {topLevelComments.map((comment) => (
+                <Box
+                  key={comment.id}
+                  p={4}
+                  bg={colorMode === "light" ? "gray.100" : "gray.700"}
+                  rounded="md"
+                >
+                  {/* 댓글 내용 */}
+                  <Flex
+                    justifyContent="space-between"
+                    alignItems="center"
+                    mb={2}
                   >
-                    <Flex
-                      justifyContent="space-between"
-                      alignItems="center"
-                      mb={2}
-                    >
-                      <Box>
-                        <Text fontWeight="bold">{comment.author.username}</Text>
-                        <Text whiteSpace="pre-wrap" wordBreak="break-word">
-                          {comment.content}
-                        </Text>
-                      </Box>
-                      <Text fontSize="sm" color="gray.500" textAlign="right">
-                        {new Date(comment.created_at).toLocaleString()}
+                    <Box>
+                      <Text fontWeight="bold">{comment.author.username}</Text>
+                      <Text whiteSpace="pre-wrap" wordBreak="break-word">
+                        {comment.content}
                       </Text>
-                    </Flex>
-                  </Box>
-                ))}
+                    </Box>
+                    <Text fontSize="sm" color="gray.500" textAlign="right">
+                      {new Date(comment.created_at).toLocaleString()}
+                    </Text>
+                  </Flex>
+
+                  {/* 대댓글 작성 버튼 (로그인 사용자만) */}
+                  {session?.user && (
+                    <Button
+                      size="sm"
+                      onClick={() =>
+                        setReplyParentId(
+                          replyParentId === comment.id ? null : comment.id
+                        )
+                      }
+                    >
+                      {replyParentId === comment.id
+                        ? "답글 달기 취소"
+                        : "답글 달기"}
+                    </Button>
+                  )}
+
+                  {/* 대댓글 작성 폼 */}
+                  {replyParentId === comment.id && (
+                    <Box
+                      as="form"
+                      onSubmit={handleAddReply}
+                      mt={3}
+                      bg={colorMode === "light" ? "gray.50" : "gray.600"}
+                      p={3}
+                      rounded="md"
+                    >
+                      <Textarea
+                        placeholder="대댓글을 작성하세요."
+                        value={replyContent}
+                        onChange={(e) => setReplyContent(e.target.value)}
+                        mb={2}
+                        isRequired
+                      />
+                      <Button colorScheme="blue" type="submit" size="sm">
+                        대댓글 남기기
+                      </Button>
+                    </Box>
+                  )}
+
+                  {/* 대댓글 표시 (parent가 이 댓글인 것들) */}
+                  <VStack spacing={2} align="stretch" mt={4} pl={4}>
+                    {childComments
+                      .filter((child) => child.parent?.id === comment.id)
+                      .map((child) => (
+                        <Box
+                          key={child.id}
+                          p={3}
+                          bg={colorMode === "light" ? "gray.50" : "gray.600"}
+                          rounded="md"
+                        >
+                          <Flex
+                            justifyContent="space-between"
+                            alignItems="center"
+                            mb={1}
+                          >
+                            <Box>
+                              <Text fontWeight="bold">
+                                {child.author.username}
+                              </Text>
+                              <Text
+                                whiteSpace="pre-wrap"
+                                wordBreak="break-word"
+                              >
+                                {child.content}
+                              </Text>
+                            </Box>
+                            <Text
+                              fontSize="sm"
+                              color="gray.500"
+                              textAlign="right"
+                            >
+                              {new Date(child.created_at).toLocaleString()}
+                            </Text>
+                          </Flex>
+                          {/* 여기에 대대댓글 등 추가 로직을 넣을 수 있음 */}
+                        </Box>
+                      ))}
+                  </VStack>
+                </Box>
+              ))}
             </VStack>
           )}
         </Box>

@@ -41,6 +41,9 @@ declare global {
   }
 }
 export interface Comment {
+  parent: {
+    id: number;
+  } | null;
   id: number;
   content: string;
   created_at: string;

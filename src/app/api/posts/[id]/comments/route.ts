@@ -55,7 +55,7 @@ export async function POST(req: Request) {
 
   try {
     // 요청 본문에서 댓글 내용 추출
-    const { content } = await req.json();
+    const { content, parentId } = await req.json();
 
     if (!content || typeof content !== "string") {
       return NextResponse.json(
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
           "Content-Type": "application/json",
           Authorization: authHeader, // 인증 헤더 전달
         },
-        body: JSON.stringify({ content }),
+        body: JSON.stringify({ content, parentId }),
       }
     );
 

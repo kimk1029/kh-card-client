@@ -31,7 +31,7 @@ export default function Header() {
     session?.user?.image ||
     "https://avatars.dicebear.com/api/male/username.svg";
 
-  const handleLogin = () => {
+  const handleLogin = (): void => {
     if (session) {
       window.location.href = "/";
     } else {
@@ -39,7 +39,7 @@ export default function Header() {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = (): void => {
     signOut({ callbackUrl: "/" });
   };
 
@@ -74,7 +74,9 @@ export default function Header() {
           <br />
           <MenuDivider />
           <MenuItem>Your Servers</MenuItem>
-          <MenuItem>Account Settings</MenuItem>
+          <MenuItem as={NextLink} href="/account">
+            Account Settings
+          </MenuItem>
           <MenuItem onClick={handleLogout} isDisabled={!session}>
             Logout
           </MenuItem>
