@@ -23,6 +23,8 @@ import {
   InputRightElement,
   IconButton,
   VisuallyHidden,
+  List,
+  ListItem,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, SearchIcon } from "@chakra-ui/icons";
 import { useSession, signOut } from "next-auth/react";
@@ -98,112 +100,157 @@ export default function Header() {
       bg={useColorModeValue("white", "gray.900")}
       zIndex="150"
       boxShadow="sm"
+      minH={"61px"}
     >
-      <Flex
+      <Box
         as="header"
-        align="center"
-        justify="space-between"
-        maxW="1140px"
-        mx="auto"
-        px={4}
-        py={{ base: 3, lg: 4 }}
         minH={{ base: "61px", lg: "80px" }}
+        mx="auto"
+        height={{ base: "80px", lg: "80px" }}
         borderBottom={{ base: "0", lg: "1px solid #d4d4d4" }}
         position="relative"
-        sx={{
-          "::after": {
-            content: '""',
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            borderBottom: "1px solid #d4d4d4",
-            backgroundColor: "#fff",
-            zIndex: 1,
-          },
-        }}
       >
-        {/* Logo */}
-        <HStack spacing={4}>
-          <Link href="/kr/" display="flex" alignItems="center">
-            <Text>blind</Text>
-          </Link>
-        </HStack>
-
-        {/* Navigation */}
-        <HStack
-          as="nav"
-          spacing={8}
-          display={{ base: "none", lg: "flex" }}
-          borderTop={{ base: "1px solid #dfe1e4", lg: "none" }}
-          px={{ base: 0, lg: 8 }}
+        <Box
+          maxW="1140px"
+          position="relative"
+          height={"100%"}
+          m={"0 auto"}
+          sx={{
+            "::after": {
+              content: '""',
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1,
+            },
+          }}
         >
-          <Link
-            href="/kr/"
-            fontSize={{ base: "sm", lg: "md" }}
-            _hover={{ color: "gray.600" }}
+          {/* Logo */}
+          <HStack
+            spacing={4}
+            position="absolute"
+            top="50%"
+            left="20px"
+            transform={"translateY(-50%)"}
+            zIndex={10}
           >
-            홈
-          </Link>
-          <Link
-            href="/kr/company"
-            fontSize={{ base: "sm", lg: "md" }}
-            _hover={{ color: "gray.600" }}
-          >
-            기업 리뷰
-          </Link>
-          <Link
-            href="/kr/topics/%EC%B1%84%EC%9A%A9-%EC%A0%84%EC%B2%B4"
-            fontSize={{ base: "sm", lg: "md" }}
-            _hover={{ color: "gray.600" }}
-          >
-            채용공고{" "}
-            <Text as="sup" fontSize="xs">
-              blind Hire
-            </Text>
-          </Link>
-        </HStack>
+            <Link href="/" display="flex" alignItems="center">
+              <Text>KHCARD</Text>
+            </Link>
+          </HStack>
 
-        {/* Search and Actions */}
-        <HStack spacing={4}>
-          {/* Search */}
-          <InputGroup display={{ base: "none", lg: "flex" }}>
-            <VisuallyHidden>검색</VisuallyHidden>
-            <Input
-              placeholder="관심있는 내용을 검색해보세요!"
-              name="keyword"
-              type="search"
-              autoComplete="off"
-              variant="outline"
-              size="sm"
-            />
-            <InputRightElement>
-              <IconButton
-                aria-label="검색"
-                icon={<SearchIcon />}
+          {/* Navigation */}
+          <HStack
+            as="nav"
+            spacing={8}
+            display={{ base: "block" }}
+            padding={{ base: "0 190px 0 160px" }}
+            position={"relative"}
+            border={"none"}
+            w={"auto"}
+            h={"100%"}
+            overflow={"hidden"}
+          >
+            <Flex
+              alignItems={"center"}
+              m={0}
+              height={"inherit"}
+              overflow={"hidden"}
+            >
+              <Box m={{ base: "0 15px 0 10px" }}>
+                <List
+                  as="ul"
+                  position={"relative"}
+                  w={"100%"}
+                  h={"100%"}
+                  zIndex={1}
+                  display={"flex"}
+                  listStyleType={"none"}
+                  p={0}
+                  m={0}
+                >
+                  <ListItem
+                    pt={0}
+                    position={"relative"}
+                    cursor={"pointer"}
+                    mr={"22px"}
+                    fontSize={"20px"}
+                    fontWeight={"normal"}
+                  >
+                    <Link
+                      href="/"
+                      fontSize={{ base: "sm", lg: "md" }}
+                      _hover={{ color: "gray.600" }}
+                      display={"inline-block"}
+                      p={"4px"}
+                      textDecoration={"none"}
+                      cursor={"pointer"}
+                    >
+                      홈
+                    </Link>
+                  </ListItem>
+                  <ListItem>
+                    <Link
+                      href="/board"
+                      fontSize={{ base: "sm", lg: "md" }}
+                      _hover={{ color: "gray.600" }}
+                      display={"inline-block"}
+                      p={"4px"}
+                      textDecoration={"none"}
+                      cursor={"pointer"}
+                    >
+                      토픽
+                    </Link>
+                  </ListItem>
+                </List>
+              </Box>
+            </Flex>
+          </HStack>
+          {/* Search and Actions */}
+          <HStack
+            spacing={4}
+            position={"absolute"}
+            top="50%"
+            right="20px"
+            pl={0}
+            zIndex={100}
+            transform={"translateY(-50%)"}
+          >
+            {/* Search */}
+            <InputGroup display={{ base: "none", lg: "flex" }}>
+              <VisuallyHidden>검색</VisuallyHidden>
+              <Input
+                placeholder="관심있는 내용을 검색해보세요!"
+                name="keyword"
+                type="search"
+                autoComplete="off"
+                variant="outline"
                 size="sm"
-                variant="ghost"
               />
-            </InputRightElement>
-          </InputGroup>
+              <InputRightElement>
+                <IconButton
+                  aria-label="검색"
+                  icon={<SearchIcon />}
+                  size="sm"
+                  variant="ghost"
+                />
+              </InputRightElement>
+            </InputGroup>
 
-          {/* Board Menu */}
-          <Box as="a" href="/board">
-            <Button variant="ghost">Board</Button>
-          </Box>
+            {/* Theme Toggle */}
+            <IconButton
+              aria-label="테마 변경"
+              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              onClick={toggleColorMode}
+              variant="ghost"
+            />
 
-          {/* Theme Toggle */}
-          <IconButton
-            aria-label="테마 변경"
-            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-            onClick={toggleColorMode}
-            variant="ghost"
-          />
-
-          {/* User Section */}
-          {renderUserSection()}
-        </HStack>
-      </Flex>
+            {/* User Section */}
+            {renderUserSection()}
+          </HStack>
+        </Box>
+      </Box>
     </Box>
   );
 }
