@@ -22,6 +22,10 @@ import Layout from "@/components/Layout";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
 import { Post } from "../api/posts/[id]/route";
+import { TimeIcon, ViewIcon } from "@chakra-ui/icons";
+import { IconText } from "@/components/post/IconText";
+import { timeAgo } from "@/lib/utils/time";
+import { FaRegCommentDots, FaRegThumbsUp } from "react-icons/fa";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -92,6 +96,7 @@ const GridFormatBoard: React.FC = () => {
         rounded="md"
         bg={bgColor}
         color={textColor}
+        maxWidth={"1100px"}
       >
         {/* 상단 영역에 새글쓰기 버튼 (로그인 상태에서만 표시) */}
         <Flex justifyContent="flex-end" mb={4}>
@@ -133,16 +138,18 @@ const GridFormatBoard: React.FC = () => {
                         alignItems="flex-start"
                       >
                         <Box flex="1">
-                          <Text fontWeight="bold">
-                            {post.title} [{post.comments}]
-                          </Text>
-                          <Text fontSize="sm" mt={1}>
-                            {post.author} |{" "}
-                            {new Date(post.date).toLocaleDateString()}
+                          <Text fontWeight="bold">{post.title}</Text>
+                          <Text fontSize="sm" mt={2}>
+                            소속 | {post.author}
                           </Text>
                         </Box>
-                        <Box textAlign="right" minW="50px" ml={4}>
-                          <Text fontSize="sm">조회수: {post.views || 0} </Text>
+                        <Box textAlign="right" minW="50px" ml={4} w={"10%"}>
+                          <IconText icon={ViewIcon} text={post.views} />
+                          <IconText
+                            icon={FaRegCommentDots}
+                            text={post.comments}
+                          />
+                          <IconText icon={TimeIcon} text={timeAgo(post.date)} />
                         </Box>
                       </Flex>
                     </Td>

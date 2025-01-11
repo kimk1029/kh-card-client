@@ -1,8 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Box, ComponentWithAs, IconProps } from "@chakra-ui/react";
 import { ViewIcon } from "@chakra-ui/icons";
+import { IconType } from "react-icons/lib";
 
 interface IconTextProps {
-  icon: typeof ViewIcon; // Chakra UI 아이콘 타입
+  icon: ComponentWithAs<"svg", IconProps> | IconType; // Chakra UI 아이콘 타입
   text: string | number; // 텍스트는 문자열 타입
   fontSize?: string; // 선택적으로 전달받는 fontSize
   color?: string; // 선택적으로 전달받는 color
