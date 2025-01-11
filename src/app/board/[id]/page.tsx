@@ -1,3 +1,4 @@
+// PostDetailPage.tsx
 "use client";
 
 import React, { useState, FormEvent } from "react";
@@ -14,12 +15,43 @@ import {
   Textarea,
   VStack,
   Spinner,
+  HStack,
+  Tag,
+  VisuallyHidden,
+  Input,
+  Avatar,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
 import useSWR, { mutate } from "swr";
 import { Post } from "@/app/api/posts/[id]/route";
 import { Comment } from "@/type";
 import { useSession } from "next-auth/react";
+import {
+  MoonIcon,
+  SunIcon,
+  SearchIcon,
+  EditIcon,
+  DeleteIcon,
+  ViewIcon,
+  TimeIcon,
+} from "@chakra-ui/icons";
+import { IconText } from "@/components/post/IconText";
+import { Aside } from "@/components/post/Aside";
+import Comments from "@/components/post/Comments";
+
+interface RecommendedArticle {
+  id: number;
+  title: string;
+  subtitle: string;
+  author: string;
+  views: number;
+  likes: number;
+}
 
 const PostDetailPage: React.FC = () => {
   const params = useParams();
@@ -29,24 +61,14 @@ const PostDetailPage: React.FC = () => {
 
   const id = Number(params.id);
 
-  // --- SWR로 데이터 가져오기 (게시글 & 댓글)
-  const fetcher = async (url: string) => {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("Failed to fetch");
-    return res.json();
-  };
-
-  const { data: post, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
-  const { data: comments, error: commentsError } = useSWR<Comment[]>(
-    `/api/posts/${id}/comments`,
-    fetcher
+  const { data: post, error } = useSWR<Post>(
+    `/api/posts/${id}`,
+    async (url: string) => {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Failed to fetch");
+      return res.json();
+    }
   );
-
-  // --- 새 댓글 & 대댓글 작성용 상태
-  const [newComment, setNewComment] = useState("");
-  // 대댓글 작성 중인지 표시하기 위해 '어떤 댓글의 대댓글인지'를 저장
-  const [replyParentId, setReplyParentId] = useState<number | null>(null);
-  const [replyContent, setReplyContent] = useState("");
 
   // --- 색상 모드
   const bgColor = colorMode === "light" ? "white" : "gray.800";
@@ -74,67 +96,25 @@ const PostDetailPage: React.FC = () => {
   };
 
   // --- 일반 댓글 추가
-  const handleAddComment = async (e: FormEvent) => {
-    e.preventDefault();
-    if (!newComment.trim()) return;
-    try {
-      const res = await fetch(`/api/posts/${id}/comments`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.accessToken}`,
-        },
-        body: JSON.stringify({ content: newComment }),
-      });
-      if (!res.ok) throw new Error("댓글 추가에 실패했습니다.");
-      setNewComment("");
-      mutate(`/api/posts/${id}/comments`); // SWR 데이터 갱신
-    } catch (err) {
-      console.error(err);
-      alert("댓글 추가 중 오류가 발생했습니다.");
-    }
-  };
-
-  // --- 대댓글 추가
-  const handleAddReply = async (e: FormEvent) => {
-    e.preventDefault();
-    if (!replyContent.trim() || !replyParentId) return;
-
-    try {
-      const res = await fetch(`/api/posts/${id}/comments`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.accessToken}`,
-        },
-        body: JSON.stringify({
-          content: replyContent,
-          parentId: replyParentId,
-        }),
-      });
-      if (!res.ok) throw new Error("대댓글 추가에 실패했습니다.");
-
-      setReplyContent("");
-      setReplyParentId(null);
-      mutate(`/api/posts/${id}/comments`);
-    } catch (err) {
-      console.error(err);
-      alert("대댓글 추가 중 오류가 발생했습니다.");
-    }
-  };
 
   // --- 오류 처리
   if (error) {
     return (
       <Layout>
         <Container
-          maxW="container.md"
+          maxW="1140px"
           mt={10}
           color={textColor}
           bg={bgColor}
           boxShadow="xl"
           p="5"
           rounded="md"
+          borderTop="1px solid #d4d4d4"
+          display="flex"
+          flexDirection={{ base: "column", lg: "row" }}
+          padding={{ base: "20px 10px", lg: "40px 20px 0" }}
+          margin="0 auto"
+          boxSizing="border-box"
         >
           <Box p={4}>
             <Text>게시글을 불러오는 중 오류가 발생했습니다.</Text>
@@ -161,211 +141,112 @@ const PostDetailPage: React.FC = () => {
     );
   }
 
-  // --- (1) parent가 null인 댓글은 최상위, null이 아니면 대댓글
-  const topLevelComments = comments?.filter((c) => c.parent === null) || [];
-  const childComments = comments?.filter((c) => c.parent !== null) || [];
-
   return (
     <Layout>
-      <Container
-        maxW="container.md"
+      <Flex
+        className="container wrapped"
+        direction={{ base: "column", lg: "row" }}
+        borderTop={{ base: "1px solid #d4d4d4", lg: "none" }}
+        p={{ base: "20px 10px", lg: "40px 20px 0" }}
+        maxW="1140px"
+        mx="auto"
+        boxSizing="border-box"
         mt={10}
         boxShadow="xl"
-        p="5"
         rounded="md"
         bg={bgColor}
         color={textColor}
       >
-        {/* 작성자와 로그인 사용자가 동일할 경우 삭제 및 수정 버튼 표시 */}
-        {session?.user && Number(session?.user.id) === post.author.id && (
-          <Flex justifyContent="flex-end" mb={4}>
-            <Button colorScheme="red" mr={2} onClick={handleDelete}>
-              삭제
-            </Button>
-            <Button
-              colorScheme="yellow"
-              onClick={() => router.push(`/board/${id}/edit`)}
+        {/* Main Content */}
+        <Box flex="3" mr={{ lg: "20px" }}>
+          {/* 작성자와 로그인 사용자가 동일할 경우 삭제 및 수정 버튼 표시 */}
+          {session?.user && Number(session?.user.id) === post.author.id && (
+            <Flex justifyContent="flex-end" mb={4}>
+              <Button colorScheme="red" mr={2} onClick={handleDelete}>
+                삭제
+              </Button>
+              <Button
+                colorScheme="yellow"
+                onClick={() => router.push(`/board/${id}/edit`)}
+              >
+                수정
+              </Button>
+            </Flex>
+          )}
+          <Box zIndex={10} p={{ base: "0 0 12px" }}>
+            {/* 게시글 제목 */}
+            <Heading
+              as="h2"
+              size="lg"
+              wordBreak="break-word"
+              fontSize={{ base: "24px" }}
+              lineHeight={{ base: "32px" }}
+              mt={{ base: "15px", lg: "15px" }}
+              fontWeight={"bold"}
             >
-              수정
+              {post.title}
+            </Heading>
+            <Text
+              fontSize="14px"
+              display={"flex"}
+              alignItems={"center"}
+              mt={"16px"}
+              lineHeight={"16px"}
+            >
+              소속 - {post.author.username}{" "}
+            </Text>
+            {/* 게시글 메타 정보 */}
+            <Flex w={{ base: "100%" }} fontSize={{ base: "14px" }} mt={"8px"}>
+              <IconText icon={ViewIcon} text={post.views} />
+              <IconText
+                icon={TimeIcon}
+                text={new Date(post.created_at).toLocaleString()}
+              />
+            </Flex>
+          </Box>
+          <Divider mb={4} borderColor={dividerColor} />
+
+          {/* 게시글 내용 */}
+          <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH="300px">
+            {post.content}
+          </Box>
+          <Divider mb={4} borderColor={dividerColor} />
+
+          {/* 태그 */}
+          <HStack spacing={2} mb={8}>
+            {/* {post.tags.map((tag, index) => (
+              <Tag key={index} variant="solid" colorScheme="teal">
+                {tag}
+              </Tag>
+            ))} */}
+          </HStack>
+
+          {/* 정보 기능 */}
+          <HStack spacing={4} mb={8}>
+            <Button variant="ghost">
+              <VisuallyHidden>북마크</VisuallyHidden>
+              북마크
             </Button>
-          </Flex>
-        )}
+            <Button variant="ghost">
+              <VisuallyHidden>링크복사</VisuallyHidden>
+              링크복사
+            </Button>
+            <Button variant="ghost">
+              <VisuallyHidden>퍼가기</VisuallyHidden>
+              퍼가기
+            </Button>
+          </HStack>
 
-        {/* 게시글 제목 */}
-        <Box mb={4}>
-          <Heading as="h2" size="lg" wordBreak="break-word">
-            {post.title}
-          </Heading>
+          {/* 댓글 섹션 */}
+          <Comments postId={id} />
         </Box>
 
-        {/* 게시글 메타 정보 */}
-        <Flex justifyContent="space-between" alignItems="center" mb={4}>
-          <Text fontSize="sm">
-            글쓴이: {post.author.username} |{" "}
-            {new Date(post.created_at).toLocaleDateString()}
-          </Text>
-          <Text fontSize="sm">조회수: {post.views}</Text>
-        </Flex>
-        <Divider mb={4} borderColor={dividerColor} />
+        {/* Sidebar */}
+        {/* 추천 글 */}
+        <Aside />
 
-        {/* 게시글 내용 */}
-        <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH="300px">
-          {post.content}
-        </Box>
-        <Divider mb={4} borderColor={dividerColor} />
-
-        {/* 댓글 섹션 */}
-        <Box mt={8}>
-          <Heading as="h3" size="md" mb={4}>
-            댓글
-          </Heading>
-
-          {/* 댓글 작성 폼 (최상위 댓글) */}
-          {session?.user && (
-            <Box as="form" onSubmit={handleAddComment} mb={6}>
-              <VStack spacing={4} align="stretch">
-                <Textarea
-                  placeholder="댓글을 작성하세요."
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                  isRequired
-                />
-                <Button type="submit" colorScheme="blue">
-                  댓글 남기기
-                </Button>
-              </VStack>
-            </Box>
-          )}
-
-          {/* 댓글 목록 표시 */}
-          {commentsError && (
-            <Text color="red.500">댓글을 불러오는 중 오류가 발생했습니다.</Text>
-          )}
-          {!comments && !commentsError && <Text>댓글을 불러오는 중...</Text>}
-
-          {comments && comments.length === 0 && (
-            <Text>현재 작성된 댓글이 없습니다.</Text>
-          )}
-
-          {comments && comments.length > 0 && (
-            <VStack spacing={4} align="stretch">
-              {/* 최상위 댓글들 */}
-              {topLevelComments.map((comment) => (
-                <Box
-                  key={comment.id}
-                  p={4}
-                  bg={colorMode === "light" ? "gray.100" : "gray.700"}
-                  rounded="md"
-                >
-                  {/* 댓글 내용 */}
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    mb={2}
-                  >
-                    <Box>
-                      <Text fontWeight="bold">{comment.author.username}</Text>
-                      <Text whiteSpace="pre-wrap" wordBreak="break-word">
-                        {comment.content}
-                      </Text>
-                    </Box>
-                    <Text fontSize="sm" color="gray.500" textAlign="right">
-                      {new Date(comment.created_at).toLocaleString()}
-                    </Text>
-                  </Flex>
-
-                  {/* 대댓글 작성 버튼 (로그인 사용자만) */}
-                  {session?.user && (
-                    <Button
-                      size="sm"
-                      onClick={() =>
-                        setReplyParentId(
-                          replyParentId === comment.id ? null : comment.id
-                        )
-                      }
-                    >
-                      {replyParentId === comment.id
-                        ? "답글 달기 취소"
-                        : "답글 달기"}
-                    </Button>
-                  )}
-
-                  {/* 대댓글 작성 폼 */}
-                  {replyParentId === comment.id && (
-                    <Box
-                      as="form"
-                      onSubmit={handleAddReply}
-                      mt={3}
-                      bg={colorMode === "light" ? "gray.50" : "gray.600"}
-                      p={3}
-                      rounded="md"
-                    >
-                      <Textarea
-                        placeholder="대댓글을 작성하세요."
-                        value={replyContent}
-                        onChange={(e) => setReplyContent(e.target.value)}
-                        mb={2}
-                        isRequired
-                      />
-                      <Button colorScheme="blue" type="submit" size="sm">
-                        대댓글 남기기
-                      </Button>
-                    </Box>
-                  )}
-
-                  {/* 대댓글 표시 (parent가 이 댓글인 것들) */}
-                  <VStack spacing={2} align="stretch" mt={4} pl={4}>
-                    {childComments
-                      .filter((child) => child.parent?.id === comment.id)
-                      .map((child) => (
-                        <Box
-                          key={child.id}
-                          p={3}
-                          bg={colorMode === "light" ? "gray.50" : "gray.600"}
-                          rounded="md"
-                        >
-                          <Flex
-                            justifyContent="space-between"
-                            alignItems="center"
-                            mb={1}
-                          >
-                            <Box>
-                              <Text fontWeight="bold">
-                                {child.author.username}
-                              </Text>
-                              <Text
-                                whiteSpace="pre-wrap"
-                                wordBreak="break-word"
-                              >
-                                {child.content}
-                              </Text>
-                            </Box>
-                            <Text
-                              fontSize="sm"
-                              color="gray.500"
-                              textAlign="right"
-                            >
-                              {new Date(child.created_at).toLocaleString()}
-                            </Text>
-                          </Flex>
-                          {/* 여기에 대대댓글 등 추가 로직을 넣을 수 있음 */}
-                        </Box>
-                      ))}
-                  </VStack>
-                </Box>
-              ))}
-            </VStack>
-          )}
-        </Box>
-
-        <Divider mt={8} mb={4} borderColor={dividerColor} />
-        <Flex justifyContent="space-between" alignItems="center">
-          <Text fontSize="sm">댓글수: {comments ? comments.length : 0}</Text>
-          <Button colorScheme="blue" onClick={() => router.push("/board")}>
-            목록으로 돌아가기
-          </Button>
-        </Flex>
-      </Container>
+        {/* 추가 사이드바 섹션들 (예: 광고, 추천 위젯 등) 필요 시 추가 */}
+      </Flex>
     </Layout>
   );
 };

@@ -44,6 +44,7 @@ export interface Comment {
   parent: {
     id: number;
   } | null;
+  parentId?: number; // 대댓글 작성 시 부모 댓글의 ID
   id: number;
   content: string;
   created_at: string;
@@ -51,6 +52,7 @@ export interface Comment {
     id: number;
     username: string;
   };
+  replies: Comment[];
 }
 declare module "next-auth" {
   interface Session {
