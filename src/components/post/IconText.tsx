@@ -7,6 +7,7 @@ interface IconTextProps {
   text: string | number; // 텍스트는 문자열 타입
   fontSize?: string; // 선택적으로 전달받는 fontSize
   color?: string; // 선택적으로 전달받는 color
+  animation?: string;
 }
 
 export const IconText: React.FC<IconTextProps> = ({
@@ -14,6 +15,7 @@ export const IconText: React.FC<IconTextProps> = ({
   text,
   fontSize = "14px", // 기본값 설정
   color = "#94969b", // 기본값 설정
+  animation,
 }) => {
   return (
     <Box
@@ -23,6 +25,8 @@ export const IconText: React.FC<IconTextProps> = ({
       fontSize={fontSize} // 전달받은 fontSize 적용
       display="flex"
       alignItems="center"
+      animation={animation}
+      whiteSpace={"nowrap"}
     >
       <Icon
         style={{

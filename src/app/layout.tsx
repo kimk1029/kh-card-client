@@ -24,7 +24,7 @@ export default function RootLayout({
             rel="stylesheet"
           />
         </head>
-        <body className={inter.className} style={{ minHeight: "100vh" }}>
+        <body style={{ minHeight: "100vh" }}>
           <Providers>{children}</Providers>
         </body>
       </html>

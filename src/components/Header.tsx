@@ -145,7 +145,7 @@ export default function Header() {
             as="nav"
             spacing={8}
             display={{ base: "block" }}
-            padding={{ base: "0 190px 0 160px" }}
+            padding={{ base: "0 100px 0 100px", md: "0 190px 0 160px" }}
             position={"relative"}
             border={"none"}
             w={"auto"}
@@ -177,6 +177,7 @@ export default function Header() {
                     mr={"22px"}
                     fontSize={"20px"}
                     fontWeight={"normal"}
+                    wordBreak={"keep-all"}
                   >
                     <Link
                       href="/"
@@ -190,7 +191,15 @@ export default function Header() {
                       홈
                     </Link>
                   </ListItem>
-                  <ListItem>
+                  <ListItem
+                    pt={0}
+                    position={"relative"}
+                    cursor={"pointer"}
+                    mr={"22px"}
+                    fontSize={"20px"}
+                    fontWeight={"normal"}
+                    wordBreak={"keep-all"}
+                  >
                     <Link
                       href="/board"
                       fontSize={{ base: "sm", lg: "md" }}

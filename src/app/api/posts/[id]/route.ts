@@ -17,6 +17,9 @@ export interface Post {
   author: Author;
   views: number;
   comments: number;
+  tag: string;
+  commentCount: number;
+  likeCount: number;
 }
 
 // ⚠️ 두 번째 인자(context)는 쓰지 않음!

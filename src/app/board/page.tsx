@@ -92,7 +92,7 @@ const GridFormatBoard: React.FC = () => {
         width="100%"
         mt="10"
         boxShadow="xl"
-        p="5"
+        p={{ base: 0, md: 4 }}
         rounded="md"
         bg={bgColor}
         color={textColor}
@@ -107,7 +107,7 @@ const GridFormatBoard: React.FC = () => {
           )}
         </Flex>
 
-        <Box p={4} overflowX="hidden">
+        <Box p={{ base: 0, md: 4 }} overflowX="hidden">
           <Table variant="simple" layout="fixed" width="100%">
             <Thead bg={headerBgColor}>
               <Tr>
@@ -135,7 +135,9 @@ const GridFormatBoard: React.FC = () => {
                     <Td whiteSpace="normal" wordBreak="break-word">
                       <Flex
                         justifyContent="space-between"
-                        alignItems="flex-start"
+                        alignItems={{ base: "flex-start", md: "center" }}
+                        flexDirection={{ base: "column", md: "row" }}
+                        position={"relative"}
                       >
                         <Box flex="1">
                           <Text fontWeight="bold">{post.title}</Text>
@@ -143,7 +145,14 @@ const GridFormatBoard: React.FC = () => {
                             소속 | {post.author}
                           </Text>
                         </Box>
-                        <Box textAlign="right" minW="50px" ml={4} w={"10%"}>
+                        <Box
+                          textAlign="right"
+                          minW="50px"
+                          ml={{ base: 0, md: 4 }}
+                          w={{ base: "100%", md: "10%" }}
+                          display={"flex"}
+                          flexDirection={{ base: "row", md: "column" }}
+                        >
                           <IconText icon={ViewIcon} text={post.views} />
                           <IconText
                             icon={FaRegCommentDots}

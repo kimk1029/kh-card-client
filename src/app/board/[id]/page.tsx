@@ -1,7 +1,7 @@
 // PostDetailPage.tsx
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
   Container,
@@ -25,6 +25,7 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
 import useSWR, { mutate } from "swr";
@@ -43,32 +44,37 @@ import {
 import { IconText } from "@/components/post/IconText";
 import { Aside } from "@/components/post/Aside";
 import Comments from "@/components/post/Comments";
-
-interface RecommendedArticle {
-  id: number;
-  title: string;
-  subtitle: string;
-  author: string;
-  views: number;
-  likes: number;
-}
-
+import { FaRegCommentDots, FaRegThumbsUp, FaThumbsUp } from "react-icons/fa";
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
   const { colorMode } = useColorMode();
   const { data: session } = useSession();
-
+  const [likeCount, setLikeCount] = useState<number>(0);
+  const [isLiked, setIsLiked] = useState<boolean>(false); // 좋아요 상태 관리
+  const [isAnimating, setIsAnimating] = useState<boolean>(false); // 애니메이션 상태 관리
   const id = Number(params.id);
-
-  const { data: post, error } = useSWR<Post>(
-    `/api/posts/${id}`,
-    async (url: string) => {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("Failed to fetch");
-      return res.json();
+  const { data: post, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
+  const { mutate } = useSWR<any>(
+    `/api/posts/${id}/like`,
+    (url: string) =>
+      fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${session?.accessToken || ""}`,
+        },
+      }).then((res) => res.json()),
+    {
+      revalidateOnMount: false, // 처음 렌더링 시 자동 요청 방지
+      suspense: false,
     }
   );
+  useEffect(() => {
+    if (post?.likeCount && post?.likeCount > 0) {
+      setLikeCount(post?.likeCount);
+    }
+  }, [post]);
 
   // --- 색상 모드
   const bgColor = colorMode === "light" ? "white" : "gray.800";
@@ -92,6 +98,22 @@ const PostDetailPage: React.FC = () => {
         console.error(err);
         alert("게시글 삭제 중 오류가 발생했습니다.");
       }
+    }
+  };
+  const handleLike = async () => {
+    try {
+      const response = await mutate(); // 클릭 시 요청 트리거
+      if (response) {
+        // 좋아요 수 업데이트
+        setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
+        setIsLiked(!isLiked);
+
+        // 애니메이션 트리거
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 300); // 애니메이션 지속 시간
+      }
+    } catch (error) {
+      console.error("좋아요 요청 실패:", error);
     }
   };
 
@@ -205,13 +227,38 @@ const PostDetailPage: React.FC = () => {
             </Flex>
           </Box>
           <Divider mb={4} borderColor={dividerColor} />
-
           {/* 게시글 내용 */}
           <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH="300px">
             {post.content}
           </Box>
           <Divider mb={4} borderColor={dividerColor} />
+          <ButtonGroup gap={4}>
+            {/* 좋아요 버튼 */}
+            <Button
+              bg={"transparent"}
+              _hover={{ bg: "transparent" }}
+              p={0}
+              onClick={handleLike}
+            >
+              <IconText
+                icon={isAnimating || isLiked ? FaThumbsUp : FaRegThumbsUp}
+                text={likeCount}
+                fontSize="16px"
+                color={textColor}
+                animation={isAnimating ? "pop 0.3s ease-in-out" : undefined}
+              />
+            </Button>
 
+            {/* 댓글 버튼 */}
+            <Button bg={"transparent"} _hover={{ bg: "transparent" }} p={0}>
+              <IconText
+                icon={FaRegCommentDots}
+                text={post.commentCount}
+                fontSize="16px"
+                color={textColor}
+              />
+            </Button>
+          </ButtonGroup>
           {/* 태그 */}
           <HStack spacing={2} mb={8}>
             {/* {post.tags.map((tag, index) => (
@@ -220,7 +267,6 @@ const PostDetailPage: React.FC = () => {
               </Tag>
             ))} */}
           </HStack>
-
           {/* 정보 기능 */}
           <HStack spacing={4} mb={8}>
             <Button variant="ghost">
@@ -236,7 +282,6 @@ const PostDetailPage: React.FC = () => {
               퍼가기
             </Button>
           </HStack>
-
           {/* 댓글 섹션 */}
           <Comments postId={id} />
         </Box>

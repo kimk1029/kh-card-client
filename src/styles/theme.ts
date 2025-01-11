@@ -8,19 +8,52 @@ const config: ThemeConfig = {
 };
 
 export const theme = extendTheme({
-  fonts: {
-    body: "Source Sans Pro",
-    heading: "Source Sans Pro",
-    mono: "Source Sans Pro",
-  },
   config,
+  fonts: {
+    body: "NanumSquare, Source Sans Pro, sans-serif",
+    heading: "NanumSquare, Source Sans Pro, sans-serif",
+    mono: "NanumSquare, Source Sans Pro, monospace",
+  },
   colors: {
     brand: {
       100: "#f7fafc",
       // 여기에 필요한 추가 색상들을 정의하세요.
     },
   },
-  // 여기에 다른 사용자 정의 설정(예: 글꼴, 기본 스타일 등)을 추가하세요.
+  styles: {
+    global: {
+      "@font-face": [
+        {
+          fontFamily: "NanumSquare",
+          src: `url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.eot),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.eot?#iefix) format("embedded-opentype"),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.woff) format("woff"),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.ttf) format("truetype")`,
+        },
+        {
+          fontFamily: "NanumSquareBold",
+          src: `url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareB.eot),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareB.eot?#iefix) format("embedded-opentype"),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareB.woff) format("woff"),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareB.ttf) format("truetype")`,
+        },
+        {
+          fontFamily: "NanumSquareExtraBold",
+          src: `url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareEB.eot),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareEB.eot?#iefix) format("embedded-opentype"),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareEB.woff) format("woff"),
+                url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareEB.ttf) format("truetype")`,
+        },
+        // 추가 폰트 정의
+      ],
+      body: {
+        fontFamily: "NanumSquare, Source Sans Pro, sans-serif",
+      },
+      heading: {
+        fontFamily: "NanumSquare, Source Sans Pro, sans-serif",
+      },
+    },
+  },
   components: {
     Button: buttonTheme,
   },
