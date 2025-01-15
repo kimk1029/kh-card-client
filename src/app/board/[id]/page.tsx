@@ -1,7 +1,7 @@
 // PostDetailPage.tsx
 "use client";
 
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, FormEvent, useEffect, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
   Container,
@@ -26,6 +26,7 @@ import {
   MenuItem,
   MenuDivider,
   ButtonGroup,
+  useToast,
 } from "@chakra-ui/react";
 import Layout from "@/components/Layout";
 import useSWR, { mutate } from "swr";
@@ -45,36 +46,28 @@ import { IconText } from "@/components/post/IconText";
 import { Aside } from "@/components/post/Aside";
 import Comments from "@/components/post/Comments";
 import { FaRegCommentDots, FaRegThumbsUp, FaThumbsUp } from "react-icons/fa";
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import { useApi } from "@/hooks/useApi";
+const URL_LIKE_POST = (id: number | string) => `/api/posts/${id}/like`;
+const URL_POST_POST = (id: number | string) => `/api/posts/${id}`;
 const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
+  const { get, post, del } = useApi();
   const { colorMode } = useColorMode();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [likeCount, setLikeCount] = useState<number>(0);
   const [isLiked, setIsLiked] = useState<boolean>(false); // 좋아요 상태 관리
   const [isAnimating, setIsAnimating] = useState<boolean>(false); // 애니메이션 상태 관리
+  const [showForm, setShowForm] = useState(false);
   const id = Number(params.id);
-  const { data: post, error } = useSWR<Post>(`/api/posts/${id}`, fetcher);
-  const { mutate } = useSWR<any>(
-    `/api/posts/${id}/like`,
-    (url: string) =>
-      fetch(url, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${session?.accessToken || ""}`,
-        },
-      }).then((res) => res.json()),
-    {
-      revalidateOnMount: false, // 처음 렌더링 시 자동 요청 방지
-      suspense: false,
-    }
-  );
+  const { data: postData, error } = useSWR<Post>(URL_POST_POST(id), get);
+  const toast = useToast();
   useEffect(() => {
-    if (post?.likeCount && post?.likeCount > 0) {
-      setLikeCount(post?.likeCount);
+    if (postData?.likeCount && postData?.likeCount > 0) {
+      setLikeCount(postData?.likeCount);
     }
-  }, [post]);
+    if (postData?.liked) setIsLiked(true);
+  }, [postData]);
 
   // --- 색상 모드
   const bgColor = colorMode === "light" ? "white" : "gray.800";
@@ -85,14 +78,14 @@ const PostDetailPage: React.FC = () => {
   const handleDelete = async () => {
     if (confirm("정말 게시글을 삭제하시겠습니까?")) {
       try {
-        const res = await fetch(`/api/posts/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${(session as any)?.accessToken}`,
-          },
-          method: "DELETE",
+        const response = await del(URL_POST_POST(id));
+        if (!response) throw new Error("삭제에 실패했습니다.");
+        toast({
+          title: "게시글 삭제 완료",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
         });
-        if (!res.ok) throw new Error("삭제에 실패했습니다.");
         router.push("/board");
       } catch (err) {
         console.error(err);
@@ -100,21 +93,36 @@ const PostDetailPage: React.FC = () => {
       }
     }
   };
+
+  // Handle like action
   const handleLike = async () => {
     try {
-      const response = await mutate(); // 클릭 시 요청 트리거
-      if (response) {
-        // 좋아요 수 업데이트
-        setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
-        setIsLiked(!isLiked);
-
-        // 애니메이션 트리거
-        setIsAnimating(true);
-        setTimeout(() => setIsAnimating(false), 300); // 애니메이션 지속 시간
+      if (status === "unauthenticated") {
+        alert("로그인 후 사용해주세요.");
+        router.push("/auth");
+        return;
       }
+      const response = await post(URL_LIKE_POST(id));
+      if (!response) throw new Error("좋아요 실패했습니다.");
+      setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
+      setIsLiked(!isLiked);
+
+      // Trigger animation
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 300);
+
+      return response;
     } catch (error) {
       console.error("좋아요 요청 실패:", error);
     }
+  };
+  const handleCommentForm = () => {
+    if (status === "unauthenticated") {
+      alert("로그인 후 사용해주세요.");
+      router.push("/auth");
+      return;
+    }
+    setShowForm(!showForm);
   };
 
   // --- 일반 댓글 추가
@@ -153,7 +161,7 @@ const PostDetailPage: React.FC = () => {
     );
   }
 
-  if (!post) {
+  if (!postData) {
     return (
       <Layout>
         <Flex justifyContent="center" alignItems="center" height="100vh">
@@ -182,7 +190,7 @@ const PostDetailPage: React.FC = () => {
         {/* Main Content */}
         <Box flex="3" mr={{ lg: "20px" }}>
           {/* 작성자와 로그인 사용자가 동일할 경우 삭제 및 수정 버튼 표시 */}
-          {session?.user && Number(session?.user.id) === post.author.id && (
+          {session?.user && Number(session?.user.id) === postData.author.id && (
             <Flex justifyContent="flex-end" mb={4}>
               <Button colorScheme="red" mr={2} onClick={handleDelete}>
                 삭제
@@ -206,7 +214,7 @@ const PostDetailPage: React.FC = () => {
               mt={{ base: "15px", lg: "15px" }}
               fontWeight={"bold"}
             >
-              {post.title}
+              {postData.title}
             </Heading>
             <Text
               fontSize="14px"
@@ -215,21 +223,21 @@ const PostDetailPage: React.FC = () => {
               mt={"16px"}
               lineHeight={"16px"}
             >
-              소속 - {post.author.username}{" "}
+              소속 - {postData.author.username}{" "}
             </Text>
             {/* 게시글 메타 정보 */}
             <Flex w={{ base: "100%" }} fontSize={{ base: "14px" }} mt={"8px"}>
-              <IconText icon={ViewIcon} text={post.views} />
+              <IconText icon={ViewIcon} text={postData.views} />
               <IconText
                 icon={TimeIcon}
-                text={new Date(post.created_at).toLocaleString()}
+                text={new Date(postData.created_at).toLocaleString()}
               />
             </Flex>
           </Box>
           <Divider mb={4} borderColor={dividerColor} />
           {/* 게시글 내용 */}
           <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH="300px">
-            {post.content}
+            {postData.content}
           </Box>
           <Divider mb={4} borderColor={dividerColor} />
           <ButtonGroup gap={4}>
@@ -250,10 +258,15 @@ const PostDetailPage: React.FC = () => {
             </Button>
 
             {/* 댓글 버튼 */}
-            <Button bg={"transparent"} _hover={{ bg: "transparent" }} p={0}>
+            <Button
+              bg={"transparent"}
+              _hover={{ bg: "transparent" }}
+              p={0}
+              onClick={handleCommentForm}
+            >
               <IconText
                 icon={FaRegCommentDots}
-                text={post.commentCount}
+                text={postData.commentCount}
                 fontSize="16px"
                 color={textColor}
               />
@@ -283,7 +296,7 @@ const PostDetailPage: React.FC = () => {
             </Button>
           </HStack>
           {/* 댓글 섹션 */}
-          <Comments postId={id} />
+          <Comments postId={id} showForm={showForm} setShowForm={setShowForm} />
         </Box>
 
         {/* Sidebar */}

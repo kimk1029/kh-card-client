@@ -156,11 +156,14 @@ const CommentItem = ({
 );
 
 // 댓글 목록 컴포넌트
-const Comments: React.FC<{ postId: number }> = ({ postId }) => {
+const Comments: React.FC<{
+  postId: number;
+  showForm: boolean;
+  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ postId, showForm, setShowForm }) => {
   const { data: session } = useSession();
   const [content, setContent] = useState("");
   const [replyParentId, setReplyParentId] = useState<number | null>(null);
-  const [showForm, setShowForm] = useState(false);
   const { colorMode } = useColorMode();
 
   const fetcher = async (url: string) => {

@@ -20,6 +20,7 @@ export interface Post {
   tag: string;
   commentCount: number;
   likeCount: number;
+  liked: boolean;
 }
 
 // ⚠️ 두 번째 인자(context)는 쓰지 않음!
@@ -27,11 +28,25 @@ export async function GET(req: Request) {
   const { pathname } = new URL(req.url);
   const segments = pathname.split("/");
   const id = segments[segments.length - 1];
-  console.log("게시글 ID:", id);
+  console.log("GET게시글 ID:", id);
+  // 인증 헤더 추출
+  const authHeader = req.headers.get("Authorization");
+  if (!authHeader) {
+    return NextResponse.json(
+      { message: "인증 헤더가 필요합니다." },
+      { status: 401 }
+    );
+  }
   // 실제 API 주소
   try {
     const res = await fetch(
-      `http://kimk1029.synology.me:50000/api/posts/${id}`
+      `http://kimk1029.synology.me:50000/api/posts/${id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: authHeader, // 인증 헤더 전달
+        },
+      }
     );
 
     if (!res.ok) {
@@ -112,7 +127,7 @@ export async function DELETE(req: Request) {
   const { pathname } = new URL(req.url);
   const segments = pathname.split("/");
   const id = segments[segments.length - 1];
-  console.log("게시글 ID:", id);
+  console.log("삭제 게시글 ID:", id);
 
   try {
     // 인증 헤더 추출
