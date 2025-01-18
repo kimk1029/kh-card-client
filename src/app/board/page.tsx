@@ -16,6 +16,7 @@ import {
   Text,
   useColorMode,
   Spinner,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -26,6 +27,7 @@ import { TimeIcon, ViewIcon } from "@chakra-ui/icons";
 import { IconText } from "@/components/post/IconText";
 import { timeAgo } from "@/lib/utils/time";
 import { FaRegCommentDots, FaRegThumbsUp } from "react-icons/fa";
+import NewPostModal from "@/components/post/NewPostModal";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -35,9 +37,10 @@ const GridFormatBoard: React.FC = () => {
   const { data: session } = useSession(); // 로그인 세션
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // 게시글 데이터 불러오기
-  const { data, error } = useSWR<Post[]>("/api/posts", fetcher);
+  const { data, error, mutate } = useSWR<Post[]>("/api/posts", fetcher);
   const posts = data
     ? data.map((p) => ({
         id: p.id,
@@ -59,6 +62,12 @@ const GridFormatBoard: React.FC = () => {
       </Layout>
     );
   }
+  // 리스트 갱신 함수 (게시글 작성 성공시 호출)
+  const handleSuccess = () => {
+    // 이 때 mutate("/api/posts")를 호출하여 해당 key의 데이터만 새로고침
+    mutate();
+    // 필요하다면 setCurrentPage(1) 등으로 페이지도 첫 페이지로 돌릴 수 있음
+  };
 
   // 페이지네이션
   const totalPages = Math.ceil(posts.length / pageSize);
@@ -101,7 +110,7 @@ const GridFormatBoard: React.FC = () => {
         {/* 상단 영역에 새글쓰기 버튼 (로그인 상태에서만 표시) */}
         <Flex justifyContent="flex-end" mb={4}>
           {session && (
-            <Button colorScheme="blue" onClick={handleNewPost}>
+            <Button colorScheme="blue" onClick={onOpen}>
               새글쓰기
             </Button>
           )}
@@ -184,6 +193,11 @@ const GridFormatBoard: React.FC = () => {
           </ButtonGroup>
         </Flex>
       </Container>
+      <NewPostModal
+        isOpen={isOpen}
+        onClose={onClose}
+        onSuccess={handleSuccess}
+      />
     </Layout>
   );
 };
