@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
     //    여기서 쿼리 파라미터 `email`을 그대로 전달하도록 구성
 
     const response = await fetch(
-      `https://kimk1029.synology.me:8080/api/api/users/account/${id}`,
+      `https://kimk1029.synology.me:8080/kh1/api/users/account/${id}`,
       {
         method: "GET",
         headers: {
@@ -62,7 +62,7 @@ export async function PATCH(req: NextRequest) {
     //    (인증 헤더가 필요하다면 비슷하게 추출 후 전달)
     const authHeader = req.headers.get("Authorization") ?? "";
     const response = await fetch(
-      "https://kimk1029.synology.me:8080/api/api/users/account"
+      "https://kimk1029.synology.me:8080/kh1/api/users/account"
     );
 
     if (!response.ok) {

@@ -28,7 +28,7 @@ const handler = NextAuth({
 
         try {
           const res = await fetch(
-            "https://kimk1029.synology.me:8080/api/api/auth/login",
+            "https://kimk1029.synology.me:8080/kh1/api/auth/login",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -78,7 +78,7 @@ const handler = NextAuth({
       if (user) {
         try {
           const response = await axios.post(
-            "https://kimk1029.synology.me:8080/api/api/auth/check-user",
+            "https://kimk1029.synology.me:8080/kh1/api/auth/check-user",
             { email: user.email }
           );
           if (!response.data.exists) {

@@ -3,7 +3,7 @@ const posts: any[] = []; // 실제론 데이터베이스 접근
 export async function GET() {
   try {
     const response = await fetch(
-      "https://kimk1029.synology.me:8080/api/api/posts"
+      "https://kimk1029.synology.me:8080/kh1/api/posts"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch");
