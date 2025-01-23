@@ -62,7 +62,7 @@ const NewPostModal: React.FC<NewPostModalProps> = ({
 
     try {
       const response = await fetch(
-        "http://kimk1029.synology.me:50000/api/posts",
+        "https://kimk1029.synology.me:8080/api/api/posts",
         {
           method: "POST",
           headers: {

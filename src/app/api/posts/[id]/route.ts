@@ -40,7 +40,7 @@ export async function GET(req: Request) {
   // 실제 API 주소
   try {
     const res = await fetch(
-      `http://kimk1029.synology.me:50000/api/posts/${id}`,
+      `https://kimk1029.synology.me:8080/api/api/posts/${id}`,
       {
         method: "GET",
         headers: {
@@ -94,7 +94,7 @@ export async function PUT(req: Request) {
 
     // 외부 API에 수정 요청
     const res = await fetch(
-      `http://kimk1029.synology.me:50000/api/posts/${id}`,
+      `https://kimk1029.synology.me:8080/api/api/posts/${id}`,
       {
         method: "PUT",
         headers: {
@@ -141,7 +141,7 @@ export async function DELETE(req: Request) {
 
     // 외부 API에 삭제 요청
     const res = await fetch(
-      `http://kimk1029.synology.me:50000/api/posts/${id}`,
+      `https://kimk1029.synology.me:8080/api/api/posts/${id}`,
       {
         method: "DELETE",
         headers: {

@@ -82,7 +82,7 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
 
     try {
       const response = await axios.post(
-        "http://kimk1029.synology.me:50000/api/auth/register",
+        "https://kimk1029.synology.me:8080/api/api/auth/register",
         data
       );
 
@@ -128,7 +128,7 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
 
     try {
       const response = await axios.post(
-        "http://kimk1029.synology.me:50000/api/auth/check-email",
+        "https://kimk1029.synology.me:8080/api/api/auth/check-email",
         { email: emailValue }
       );
 
@@ -158,7 +158,7 @@ const SignUp: React.FC<SignUpProps> = ({ onToggle, email }) => {
 
     try {
       const response = await axios.post(
-        "http://kimk1029.synology.me:50000/api/auth/check-username",
+        "https://kimk1029.synology.me:8080/api/api/auth/check-username",
         { username: usernameValue }
       );
 

@@ -24,7 +24,7 @@ export async function GET(req: Request) {
 
   try {
     const res = await fetch(
-      `http://kimk1029.synology.me:50000/api/posts/${id}/comments`
+      `https://kimk1029.synology.me:8080/api/api/posts/${id}/comments`
     );
 
     if (!res.ok) {
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     }
     // 외부 API에 댓글 추가 요청
     const res = await fetch(
-      `http://kimk1029.synology.me:50000/api/posts/${id}/comments`,
+      `https://kimk1029.synology.me:8080/api/api/posts/${id}/comments`,
       {
         method: "POST",
         headers: {

@@ -23,7 +23,7 @@ const ChatPage: React.FC = () => {
     const token = session?.accessToken;
     if (!token) return;
     // Socket 연결
-    const socket = io("http://kimk1029.synology.me:50000", {
+    const socket = io("https://kimk1029.synology.me:8080/api", {
       auth: { token },
     });
 
