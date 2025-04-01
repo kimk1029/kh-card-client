@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import SessionWrapper from "@/components/SessionWrapper";
+import { useSession } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"], style: "normal" });
 
 export const metadata: Metadata = {
@@ -15,6 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const { data: session, status } = useSession();
+  // console.log("SESSION>>", session, status);
   return (
     <SessionWrapper>
       <html lang="en">

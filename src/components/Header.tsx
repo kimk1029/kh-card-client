@@ -40,57 +40,11 @@ export default function Header() {
     "https://avatars.dicebear.com/api/male/username.svg";
 
   const handleLogin = (): void => {
-    if (session) {
-      window.location.href = "/";
-    } else {
-      window.location.href = "/auth";
-    }
+    window.location.href = session ? "/" : "/auth";
   };
 
   const handleLogout = (): void => {
     signOut({ callbackUrl: "/" });
-  };
-
-  const renderUserSection = () => {
-    if (!session) {
-      return (
-        <Button onClick={handleLogin} colorScheme="blue">
-          로그인
-        </Button>
-      );
-    }
-    return (
-      <Menu>
-        <MenuButton
-          as={Button}
-          rounded={"full"}
-          variant={"link"}
-          cursor={"pointer"}
-          minW={0}
-        >
-          <Avatar size={"sm"} src={userImage} />
-        </MenuButton>
-        <MenuList alignItems={"center"}>
-          <br />
-          <Center>
-            <Avatar size={"2xl"} src={userImage} />
-          </Center>
-          <br />
-          <Center>
-            <Text>{username}</Text>
-          </Center>
-          <br />
-          <MenuDivider />
-          <MenuItem>Your Servers</MenuItem>
-          <MenuItem as={NextLink} href="/account">
-            Account Settings
-          </MenuItem>
-          <MenuItem onClick={handleLogout} isDisabled={!session}>
-            Logout
-          </MenuItem>
-        </MenuList>
-      </Menu>
-    );
   };
 
   return (
@@ -256,7 +210,42 @@ export default function Header() {
             />
 
             {/* User Section */}
-            {renderUserSection()}
+            {session ? (
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  minW={0}
+                >
+                  <Avatar size={"sm"} src={userImage} />
+                </MenuButton>
+                <MenuList alignItems={"center"}>
+                  <br />
+                  <Center>
+                    <Avatar size={"2xl"} src={userImage} />
+                  </Center>
+                  <br />
+                  <Center>
+                    <Text>{username}</Text>
+                  </Center>
+                  <br />
+                  <MenuDivider />
+                  <MenuItem>Your Servers</MenuItem>
+                  <MenuItem as={NextLink} href="/account">
+                    Account Settings
+                  </MenuItem>
+                  <MenuItem onClick={handleLogout} isDisabled={!session}>
+                    Logout
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            ) : (
+              <Button onClick={handleLogin} colorScheme="blue">
+                로그인
+              </Button>
+            )}
           </HStack>
         </Box>
       </Box>
