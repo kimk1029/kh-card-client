@@ -9,7 +9,8 @@ const Home = () => {
   const { data: session } = useSession();
   return (
     <Layout>
-      <YouTubeBackground videoId="KJwYBJMSbPI" />
+      <div>dd</div>
+      {/* <YouTubeBackground videoId="KJwYBJMSbPI" />
       <div
         style={{
           position: "relative",
@@ -17,7 +18,7 @@ const Home = () => {
           color: "white",
           textAlign: "center",
         }}
-      ></div>
+      ></div> */}
     </Layout>
   );
 };

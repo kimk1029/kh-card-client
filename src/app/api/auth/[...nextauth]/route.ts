@@ -69,12 +69,16 @@ const handler = NextAuth({
   },
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30일
+    maxAge:  60 * 60, // 30일
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     // JWT 콜백에서 사용자 정보를 토큰에 포함
     async jwt({ token, user, account }) {
+      console.log("token>>", token);
+      console.log("user>>", user);
+      console.log("account>>", account);
+      console.log("expired>>", new Date((token.exp as number) * 1000));
       if (user) {
         try {
           const response = await axios.post(

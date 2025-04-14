@@ -46,7 +46,7 @@ export default function Header() {
   const handleLogout = (): void => {
     signOut({ callbackUrl: "/" });
   };
-
+  console.log("session", session);
   return (
     <Box
       position="sticky"
