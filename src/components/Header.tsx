@@ -166,6 +166,27 @@ export default function Header() {
                       토픽
                     </Link>
                   </ListItem>
+                  <ListItem
+                    pt={0}
+                    position={"relative"}
+                    cursor={"pointer"}
+                    mr={"22px"}
+                    fontSize={"20px"}
+                    fontWeight={"normal"}
+                    wordBreak={"keep-all"}
+                  >
+                    <Link
+                      href="/anonymous"
+                      fontSize={{ base: "sm", lg: "md" }}
+                      _hover={{ color: "gray.600" }}
+                      display={"inline-block"}
+                      p={"4px"}
+                      textDecoration={"none"}
+                      cursor={"pointer"}
+                    >
+                      익명
+                    </Link>
+                  </ListItem>
                 </List>
               </Box>
             </Flex>
