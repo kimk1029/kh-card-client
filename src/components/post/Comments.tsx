@@ -13,11 +13,13 @@ import {
   Textarea,
   useColorMode,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import { useState, FormEvent } from "react";
 import useSWR, { mutate } from "swr";
 import { Comment } from "@/type";
+import { useApi } from "@/hooks/useApi";
 
 // 댓글 작성 컴포넌트
 const CommentInput = ({
@@ -155,15 +157,18 @@ const CommentItem = ({
   </Box>
 );
 
-// 댓글 목록 컴포넌트
-const Comments: React.FC<{
+interface CommentsProps {
   postId: number;
   showForm: boolean;
-  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ postId, showForm, setShowForm }) => {
+  setShowForm: (show: boolean) => void;
+  isAnonymous?: boolean;
+}
+
+export default function Comments({ postId, showForm, setShowForm, isAnonymous = false }: CommentsProps) {
   const { data: session } = useSession();
-  const [content, setContent] = useState("");
-  const [replyParentId, setReplyParentId] = useState<number | null>(null);
+  const [comment, setComment] = useState("");
+  const { post } = useApi();
+  const toast = useToast();
   const { colorMode } = useColorMode();
 
   const fetcher = async (url: string) => {
@@ -172,35 +177,42 @@ const Comments: React.FC<{
     return res.json();
   };
 
-  const { data: comments, error } = useSWR<Comment[]>(
-    `/api/posts/${postId}/comments`,
+  const { data: comments, mutate } = useSWR<Comment[]>(
+    isAnonymous ? `/api/anonymous/${postId}/comments` : `/api/posts/${postId}/comments`,
     fetcher
   );
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!content.trim()) return;
+    if (!session) {
+      alert("로그인 후 댓글을 작성할 수 있습니다.");
+      return;
+    }
 
     try {
-      const res = await fetch(`/api/posts/${postId}/comments`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.accessToken}`,
-        },
-        body: JSON.stringify({
-          content,
-          parentId: replyParentId || undefined,
-        }),
+      const response = await post(
+        isAnonymous ? `/api/anonymous/${postId}/comments` : `/api/posts/${postId}/comments`,
+        { content: comment }
+      );
+      if (response) {
+        setComment("");
+        setShowForm(false);
+        mutate();
+        toast({
+          title: "댓글이 작성되었습니다.",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      console.error("댓글 작성 실패:", error);
+      toast({
+        title: "댓글 작성에 실패했습니다.",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
       });
-      if (!res.ok) throw new Error("댓글 추가에 실패했습니다.");
-      setContent("");
-      setReplyParentId(null);
-      setShowForm(false);
-      mutate(`/api/posts/${postId}/comments`);
-    } catch (err) {
-      console.error(err);
-      alert("댓글 작성 중 오류가 발생했습니다.");
     }
   };
 
@@ -225,20 +237,14 @@ const Comments: React.FC<{
           </Button>
         ) : (
           <CommentInput
-            content={content}
-            setContent={setContent}
+            content={comment}
+            setContent={setComment}
             onSubmit={handleSubmit}
-            onCancel={() => {
-              setShowForm(false);
-              setReplyParentId(null);
-            }}
+            onCancel={() => setShowForm(false)}
           />
         )}
       </Box>
-      {error && (
-        <Text color="red.500">댓글을 불러오는 중 오류가 발생했습니다.</Text>
-      )}
-      {!comments && !error && <Spinner color="blue.500" />}
+      {!comments && <Spinner color="blue.500" />}
       {comments?.length === 0 && <Text>현재 작성된 댓글이 없습니다.</Text>}
       {comments && (
         <VStack align="stretch" spacing={4}>
@@ -248,7 +254,7 @@ const Comments: React.FC<{
               comment={comment}
               colorMode={colorMode}
               onReply={(id) => {
-                setReplyParentId(id);
+                setComment(comment.content);
                 setShowForm(true);
               }}
             />
@@ -257,6 +263,4 @@ const Comments: React.FC<{
       )}
     </Box>
   );
-};
-
-export default Comments;
+}

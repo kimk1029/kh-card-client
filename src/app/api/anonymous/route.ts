@@ -17,9 +17,11 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    const body = await req.json();
+    console.log("[[[reqplus]]];", body);
     const response = await axios.post(
       "https://kimk1029.synology.me:8080/kh1/api/anonymous",
-      {},
+      body,
       {
         headers: {
           Authorization: req.headers.get("authorization") || "",

@@ -46,12 +46,16 @@ export const useApi = () => {
     return request<T>(url, { method: "GET", headers });
   };
 
-  const post = <T>(
-    url: string,
-    body?: any,
-    headers?: Record<string, string>
-  ): Promise<T> => {
-    return request<T>(url, { method: "POST", body, headers });
+  const post = async (url: string, data: any) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session?.accessToken}`,
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json();
   };
 
   const put = <T>(
@@ -62,11 +66,14 @@ export const useApi = () => {
     return request<T>(url, { method: "PUT", body, headers });
   };
 
-  const del = <T>(
-    url: string,
-    headers?: Record<string, string>
-  ): Promise<T> => {
-    return request<T>(url, { method: "DELETE", headers });
+  const del = async (url: string) => {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${session?.accessToken}`,
+      },
+    });
+    return response.json();
   };
 
   return { get, post, put, del };

@@ -47,8 +47,11 @@ import { Aside } from "@/components/post/Aside";
 import Comments from "@/components/post/Comments";
 import { FaRegCommentDots, FaRegThumbsUp, FaThumbsUp } from "react-icons/fa";
 import { useApi } from "@/hooks/useApi";
+import PostContent from "@/components/post/PostContent";
+
 const URL_LIKE_POST = (id: number | string) => `/api/posts/${id}/like`;
 const URL_POST_POST = (id: number | string) => `/api/posts/${id}`;
+
 const PostDetailPage: React.FC = () => {
   const params = useParams();
   const router = useRouter();
@@ -62,6 +65,7 @@ const PostDetailPage: React.FC = () => {
   const id = Number(params.id);
   const { data: postData, error } = useSWR<Post>(URL_POST_POST(id), get);
   const toast = useToast();
+
   useEffect(() => {
     if (postData?.likeCount && postData?.likeCount > 0) {
       setLikeCount(postData?.likeCount);
@@ -102,7 +106,7 @@ const PostDetailPage: React.FC = () => {
         router.push("/auth");
         return;
       }
-      const response = await post(URL_LIKE_POST(id));
+      const response = await post(URL_LIKE_POST(id),{});
       if (!response) throw new Error("좋아요 실패했습니다.");
       setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
       setIsLiked(!isLiked);
@@ -173,138 +177,9 @@ const PostDetailPage: React.FC = () => {
 
   return (
     <Layout>
-      <Flex
-        className="container wrapped"
-        direction={{ base: "column", lg: "row" }}
-        borderTop={{ base: "1px solid #d4d4d4", lg: "none" }}
-        p={{ base: "20px 10px", lg: "40px 20px 0" }}
-        maxW="1140px"
-        mx="auto"
-        boxSizing="border-box"
-        mt={10}
-        boxShadow="xl"
-        rounded="md"
-        bg={bgColor}
-        color={textColor}
-      >
-        {/* Main Content */}
-        <Box flex="3" mr={{ lg: "20px" }}>
-          {/* 작성자와 로그인 사용자가 동일할 경우 삭제 및 수정 버튼 표시 */}
-          {session?.user && Number(session?.user.id) === postData.author.id && (
-            <Flex justifyContent="flex-end" mb={4}>
-              <Button colorScheme="red" mr={2} onClick={handleDelete}>
-                삭제
-              </Button>
-              <Button
-                colorScheme="yellow"
-                onClick={() => router.push(`/board/${id}/edit`)}
-              >
-                수정
-              </Button>
-            </Flex>
-          )}
-          <Box zIndex={10} p={{ base: "0 0 12px" }}>
-            {/* 게시글 제목 */}
-            <Heading
-              as="h2"
-              size="lg"
-              wordBreak="break-word"
-              fontSize={{ base: "24px" }}
-              lineHeight={{ base: "32px" }}
-              mt={{ base: "15px", lg: "15px" }}
-              fontWeight={"bold"}
-            >
-              {postData.title}
-            </Heading>
-            <Text
-              fontSize="14px"
-              display={"flex"}
-              alignItems={"center"}
-              mt={"16px"}
-              lineHeight={"16px"}
-            >
-              소속 - {postData.author.username}{" "}
-            </Text>
-            {/* 게시글 메타 정보 */}
-            <Flex w={{ base: "100%" }} fontSize={{ base: "14px" }} mt={"8px"}>
-              <IconText icon={ViewIcon} text={postData.views} />
-              <IconText
-                icon={TimeIcon}
-                text={new Date(postData.created_at).toLocaleString()}
-              />
-            </Flex>
-          </Box>
-          <Divider mb={4} borderColor={dividerColor} />
-          {/* 게시글 내용 */}
-          <Box whiteSpace="pre-wrap" wordBreak="break-word" mb={4} minH="300px">
-            {postData.content}
-          </Box>
-          <Divider mb={4} borderColor={dividerColor} />
-          <ButtonGroup gap={4}>
-            {/* 좋아요 버튼 */}
-            <Button
-              bg={"transparent"}
-              _hover={{ bg: "transparent" }}
-              p={0}
-              onClick={handleLike}
-            >
-              <IconText
-                icon={isAnimating || isLiked ? FaThumbsUp : FaRegThumbsUp}
-                text={likeCount}
-                fontSize="16px"
-                color={textColor}
-                animation={isAnimating ? "pop 0.3s ease-in-out" : undefined}
-              />
-            </Button>
-
-            {/* 댓글 버튼 */}
-            <Button
-              bg={"transparent"}
-              _hover={{ bg: "transparent" }}
-              p={0}
-              onClick={handleCommentForm}
-            >
-              <IconText
-                icon={FaRegCommentDots}
-                text={postData.commentCount}
-                fontSize="16px"
-                color={textColor}
-              />
-            </Button>
-          </ButtonGroup>
-          {/* 태그 */}
-          <HStack spacing={2} mb={8}>
-            {/* {post.tags.map((tag, index) => (
-              <Tag key={index} variant="solid" colorScheme="teal">
-                {tag}
-              </Tag>
-            ))} */}
-          </HStack>
-          {/* 정보 기능 */}
-          <HStack spacing={4} mb={8}>
-            <Button variant="ghost">
-              <VisuallyHidden>북마크</VisuallyHidden>
-              북마크
-            </Button>
-            <Button variant="ghost">
-              <VisuallyHidden>링크복사</VisuallyHidden>
-              링크복사
-            </Button>
-            <Button variant="ghost">
-              <VisuallyHidden>퍼가기</VisuallyHidden>
-              퍼가기
-            </Button>
-          </HStack>
-          {/* 댓글 섹션 */}
-          <Comments postId={id} showForm={showForm} setShowForm={setShowForm} />
-        </Box>
-
-        {/* Sidebar */}
-        {/* 추천 글 */}
-        <Aside />
-
-        {/* 추가 사이드바 섹션들 (예: 광고, 추천 위젯 등) 필요 시 추가 */}
-      </Flex>
+      <Container maxW="container.xl" py={8}>
+        <PostContent post={postData} backUrl="/board" />
+      </Container>
     </Layout>
   );
 };

@@ -17,11 +17,11 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  console.log("{{{}}}", req);
   try {
+    const body = await req.json();
     const response = await axios.post(
       "https://kimk1029.synology.me:8080/kh1/api/posts",
-      {},
+      body,
       {
         headers: {
           Authorization: req.headers.get("authorization") || "",

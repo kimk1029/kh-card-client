@@ -36,6 +36,7 @@ interface PostListProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  isAnonymous?: boolean;
 }
 
 export default function PostList({
@@ -43,16 +44,17 @@ export default function PostList({
   currentPage,
   totalPages,
   onPageChange,
+  isAnonymous = false,
 }: PostListProps) {
   const router = useRouter();
   const { colorMode } = useColorMode();
 
   const handleRowClick = (postId: number) => {
     if (postId) {
-      router.push(`/board/${postId}`);
+      router.push(isAnonymous ? `/anonymous/${postId}` : `/board/${postId}`);
     }
   };
-
+  console.log("[[[posts]]];", posts);
   const bgColor = colorMode === "light" ? "white" : "gray.800";
   const textColor = colorMode === "light" ? "black" : "white";
   const headerBgColor = colorMode === "light" ? "gray.200" : "gray.700";

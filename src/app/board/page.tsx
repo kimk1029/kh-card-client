@@ -13,8 +13,8 @@ import Layout from "@/components/Layout";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
 import { Post } from "../api/posts/[id]/route";
-import NewPostModal from "@/components/post/NewPostModal";
 import PostList from "@/components/PostList";
+import PostModal from "@/components/post/PostModal";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -80,7 +80,13 @@ const GridFormatBoard: React.FC = () => {
           onPageChange={setCurrentPage}
         />
       </Container>
-      <NewPostModal isOpen={isOpen} onClose={onClose} onSuccess={handleSuccess} />
+      <PostModal
+        isOpen={isOpen}
+        onClose={onClose}
+        onSuccess={handleSuccess}
+        apiEndpoint="/api/posts"
+        modalTitle="새 게시글 작성"
+      />
     </Layout>
   );
 };
