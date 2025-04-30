@@ -22,30 +22,9 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useApi } from "@/hooks/useApi";
 import Comments from "@/components/post/Comments";
+import { PostContentProps } from "@/type";
 
-interface Author {
-  id: number;
-  username: string;
-}
 
-export interface Post {
-  id: number;
-  title: string;
-  content: string;
-  created_at: string;
-  author?: Author;
-  anonymousId?: string;
-  views: number;
-  commentCount: number;
-  likeCount: number;
-  liked: boolean;
-}
-
-interface PostContentProps {
-  post: Post;
-  isAnonymous?: boolean;
-  backUrl: string;
-}
 
 export default function PostContent({ post, isAnonymous = false, backUrl }: PostContentProps) {
   const router = useRouter();
@@ -216,10 +195,10 @@ export default function PostContent({ post, isAnonymous = false, backUrl }: Post
             퍼가기
           </Button>
         </HStack>
-        <Comments 
-          postId={post.id} 
-          showForm={showForm} 
-          setShowForm={setShowForm} 
+        <Comments
+          postId={post.id}
+          showForm={showForm}
+          setShowForm={setShowForm}
           isAnonymous={isAnonymous}
         />
       </Box>

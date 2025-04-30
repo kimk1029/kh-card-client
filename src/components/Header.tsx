@@ -1,275 +1,169 @@
 "use client";
-import React from "react";
 import {
   Box,
   Flex,
-  Avatar,
+  HStack,
   Text,
+  Link,
   Button,
+  Badge,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  Center,
-  HStack,
-  Link,
-  Input,
-  InputGroup,
-  InputRightElement,
-  IconButton,
-  VisuallyHidden,
-  List,
-  ListItem,
+  SimpleGrid,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon, SearchIcon } from "@chakra-ui/icons";
-import { useSession, signOut } from "next-auth/react";
-import NextLink from "next/link";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
-export default function Header() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { data: session } = useSession();
-
-  const username = session?.user?.name || session?.user?.email || "Guest";
-  const userImage =
-    session?.user?.image ||
-    "https://avatars.dicebear.com/api/male/username.svg";
-
-  const handleLogin = (): void => {
-    window.location.href = session ? "/" : "/auth";
-  };
-
-  const handleLogout = (): void => {
-    signOut({ callbackUrl: "/" });
-  };
-  console.log("session", session);
-  return (
-    <Box
-      position="sticky"
-      top="0"
-      bg={useColorModeValue("white", "gray.900")}
-      zIndex="150"
-      boxShadow="sm"
-      minH={"61px"}
-    >
-      <Box
-        as="header"
-        minH={{ base: "61px", lg: "80px" }}
-        mx="auto"
-        height={{ base: "80px", lg: "80px" }}
-        borderBottom={{ base: "0", lg: "1px solid #d4d4d4" }}
-        position="relative"
+const Header = () => (
+  <Box
+    as="header"
+    bg="white"
+    borderBottomWidth="1px"
+    position="sticky"
+    top="0"
+    zIndex="50"
+  >
+    <Box maxW="7xl" mx="auto" px={{ base: 4, md: 6 }}>
+      {/* Secondary navigation */}
+      <Flex
+        justify="space-between"
+        align="center"
+        py={2}
+        fontSize="xs"
+        borderBottomWidth="1px"
       >
-        <Box
-          maxW="1140px"
-          position="relative"
-          height={"100%"}
-          m={"0 auto"}
-          sx={{
-            "::after": {
-              content: '""',
-              position: "absolute",
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: 1,
-            },
-          }}
+        <Link
+          href="/"
+          color="gray.600"
+          _hover={{ color: "gray.900", textDecoration: "none" }}
+          display="flex"
+          alignItems="center"
         >
-          {/* Logo */}
-          <HStack
-            spacing={4}
-            position="absolute"
-            top="50%"
-            left="20px"
-            transform={"translateY(-50%)"}
-            zIndex={10}
+          <Text>Portal Services</Text>
+          <Text as="span" ml={1}>→</Text>
+        </Link>
+        <HStack spacing={4}>
+          <Link
+            href="/help"
+            color="gray.600"
+            _hover={{ color: "gray.900", textDecoration: "none" }}
           >
-            <Link href="/" display="flex" alignItems="center">
-              <Text>KHCARD</Text>
+            Help
+          </Link>
+          <Link
+            href="/contact"
+            color="gray.600"
+            _hover={{ color: "gray.900", textDecoration: "none" }}
+          >
+            Contact
+          </Link>
+        </HStack>
+      </Flex>
+
+      {/* Main navigation */}
+      <Flex py={3} align="center" justify="space-between">
+        <HStack spacing={6}>
+          <Link
+            href="/"
+            display="flex"
+            alignItems="center"
+            _hover={{ textDecoration: "none" }}
+          >
+            <Text fontSize="xl" fontWeight="bold" color="blue.600">
+              Portal Pulse
+            </Text>
+            <Badge
+              ml={2}
+              textTransform="uppercase"
+              fontSize="10px"
+              fontWeight="bold"
+              borderWidth="1px"
+              borderColor="blue.600"
+            >
+              TOPIC
+            </Badge>
+          </Link>
+
+          {/* Desktop-only nav links */}
+          <HStack spacing={2} display={{ base: "none", md: "flex" }}>
+            {/* Topics dropdown */}
+            <Menu>
+              <MenuButton
+                as={Button}
+                variant="ghost"
+                fontSize="sm"
+                rightIcon={<ChevronDownIcon />}
+              >
+                Topics
+              </MenuButton>
+              <MenuList p={4} minW="400px">
+                <SimpleGrid columns={2} spacing={2}>
+                  {[
+                    "Technology",
+                    "Science",
+                    "Health",
+                    "Business",
+                    "Entertainment",
+                  ].map((topic) => (
+                    <Link
+                      key={topic}
+                      href="/"
+                      as={MenuItem}
+                      borderRadius="md"
+                      _hover={{ bg: "gray.50", textDecoration: "none" }}
+                    >
+                      {topic}
+                    </Link>
+                  ))}
+                </SimpleGrid>
+              </MenuList>
+            </Menu>
+
+            {["Home", "Company", "Career"].map((label) => (
+              <Link
+                key={label}
+                href="/"
+                px={4}
+                py={2}
+                fontSize="sm"
+                color="gray.700"
+                _hover={{ color: "blue.600", textDecoration: "none" }}
+              >
+                {label}
+              </Link>
+            ))}
+
+            <Link
+              href="/jobs"
+              px={4}
+              py={2}
+              fontSize="sm"
+              color="gray.700"
+              _hover={{ color: "blue.600", textDecoration: "none" }}
+              display="flex"
+              alignItems="center"
+            >
+              <Text>Jobs</Text>
+              <Badge ml={1} fontSize="10px" colorScheme="red">
+                AD
+              </Badge>
             </Link>
           </HStack>
+        </HStack>
 
-          {/* Navigation */}
-          <HStack
-            as="nav"
-            spacing={8}
-            display={{ base: "block" }}
-            padding={{ base: "0 100px 0 100px", md: "0 190px 0 160px" }}
-            position={"relative"}
-            border={"none"}
-            w={"auto"}
-            h={"100%"}
-            overflow={"hidden"}
-          >
-            <Flex
-              alignItems={"center"}
-              m={0}
-              height={"inherit"}
-              overflow={"hidden"}
-            >
-              <Box m={{ base: "0 15px 0 10px" }}>
-                <List
-                  as="ul"
-                  position={"relative"}
-                  w={"100%"}
-                  h={"100%"}
-                  zIndex={1}
-                  display={"flex"}
-                  listStyleType={"none"}
-                  p={0}
-                  m={0}
-                >
-                  <ListItem
-                    pt={0}
-                    position={"relative"}
-                    cursor={"pointer"}
-                    mr={"22px"}
-                    fontSize={"20px"}
-                    fontWeight={"normal"}
-                    wordBreak={"keep-all"}
-                  >
-                    <Link
-                      href="/"
-                      fontSize={{ base: "sm", lg: "md" }}
-                      _hover={{ color: "gray.600" }}
-                      display={"inline-block"}
-                      p={"4px"}
-                      textDecoration={"none"}
-                      cursor={"pointer"}
-                    >
-                      홈
-                    </Link>
-                  </ListItem>
-                  <ListItem
-                    pt={0}
-                    position={"relative"}
-                    cursor={"pointer"}
-                    mr={"22px"}
-                    fontSize={"20px"}
-                    fontWeight={"normal"}
-                    wordBreak={"keep-all"}
-                  >
-                    <Link
-                      href="/board"
-                      fontSize={{ base: "sm", lg: "md" }}
-                      _hover={{ color: "gray.600" }}
-                      display={"inline-block"}
-                      p={"4px"}
-                      textDecoration={"none"}
-                      cursor={"pointer"}
-                    >
-                      토픽
-                    </Link>
-                  </ListItem>
-                  <ListItem
-                    pt={0}
-                    position={"relative"}
-                    cursor={"pointer"}
-                    mr={"22px"}
-                    fontSize={"20px"}
-                    fontWeight={"normal"}
-                    wordBreak={"keep-all"}
-                  >
-                    <Link
-                      href="/anonymous"
-                      fontSize={{ base: "sm", lg: "md" }}
-                      _hover={{ color: "gray.600" }}
-                      display={"inline-block"}
-                      p={"4px"}
-                      textDecoration={"none"}
-                      cursor={"pointer"}
-                    >
-                      익명
-                    </Link>
-                  </ListItem>
-                </List>
-              </Box>
-            </Flex>
-          </HStack>
-          {/* Search and Actions */}
-          <HStack
-            spacing={4}
-            position={"absolute"}
-            top="50%"
-            right="20px"
-            pl={0}
-            zIndex={100}
-            transform={"translateY(-50%)"}
-          >
-            {/* Search */}
-            <InputGroup display={{ base: "none", lg: "flex" }}>
-              <VisuallyHidden>검색</VisuallyHidden>
-              <Input
-                placeholder="관심있는 내용을 검색해보세요!"
-                name="keyword"
-                type="search"
-                autoComplete="off"
-                variant="outline"
-                size="sm"
-              />
-              <InputRightElement>
-                <IconButton
-                  aria-label="검색"
-                  icon={<SearchIcon />}
-                  size="sm"
-                  variant="ghost"
-                />
-              </InputRightElement>
-            </InputGroup>
-
-            {/* Theme Toggle */}
-            <IconButton
-              aria-label="테마 변경"
-              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-              onClick={toggleColorMode}
-              variant="ghost"
-            />
-
-            {/* User Section */}
-            {session ? (
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded={"full"}
-                  variant={"link"}
-                  cursor={"pointer"}
-                  minW={0}
-                >
-                  <Avatar size={"sm"} src={userImage} />
-                </MenuButton>
-                <MenuList alignItems={"center"}>
-                  <br />
-                  <Center>
-                    <Avatar size={"2xl"} src={userImage} />
-                  </Center>
-                  <br />
-                  <Center>
-                    <Text>{username}</Text>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem as={NextLink} href="/account">
-                    Account Settings
-                  </MenuItem>
-                  <MenuItem onClick={handleLogout} isDisabled={!session}>
-                    Logout
-                  </MenuItem>
-                </MenuList>
-              </Menu>
-            ) : (
-              <Button onClick={handleLogin} colorScheme="blue">
-                로그인
-              </Button>
-            )}
-          </HStack>
-        </Box>
-      </Box>
+        {/* Action buttons */}
+        <HStack spacing={2}>
+          <Button size="sm" colorScheme="red" variant="solid">
+            Write
+          </Button>
+          <Button size="sm" variant="outline">
+            Login
+          </Button>
+        </HStack>
+      </Flex>
     </Box>
-  );
-}
+  </Box>
+);
+
+export default Header;

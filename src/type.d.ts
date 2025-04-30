@@ -40,6 +40,35 @@ declare global {
     }
   }
 }
+export type Topic = 
+  | 'technology'
+  | 'science'
+  | 'health'
+  | 'business'
+  | 'entertainment';
+  interface Author {
+    id: number;
+    username: string;
+  }
+  
+  export interface Post {
+    id: number;
+    title: string;
+    content: string;
+    created_at: string;
+    author?: Author;
+    anonymousId?: string;
+    views: number;
+    commentCount: number;
+    likeCount: number;
+    liked: boolean;
+  }
+  
+  export interface PostContentProps {
+    post: Post;
+    isAnonymous?: boolean;
+    backUrl: string;
+  }
 export interface Comment {
   parent: {
     id: number;
